@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    http://tampermonkey.net/
-// @version      0.0.1
+// @version      0.0.2
 // @description  Make it more useful!
 // @author       Pocket Deer
+// @updateURL    https://github.com/Pocket-Deer/VKAntlers/blob/master/VKAntlers.user.js
+// @downloadURL  https://github.com/Pocket-Deer/VKAntlers/blob/master/VKAntlers.user.js
 // @include      *://vk.com/*
 // @include      *://*.vk.com/*
 // @match        *://vk.com/*
@@ -16,6 +18,7 @@
 // @noframes
 // ==/UserScript==
 
+//testified
 //========================================================================
 // Переадресация при введении vk.com в адресную строку
 if(document.location == "https://vk.com/feed"){
