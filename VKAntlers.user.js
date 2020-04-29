@@ -4,8 +4,8 @@
 // @version      0.0.2
 // @description  Make it more useful!
 // @author       Pocket Deer
-// @updateURL    https://github.com/Pocket-Deer/VKAntlers/blob/master/VKAntlers.user.js
-// @downloadURL  https://github.com/Pocket-Deer/VKAntlers/blob/master/VKAntlers.user.js
+// @updateURL    https://github.com/Pocket-Deer/VKAntlers/raw/master/VKAntlers.user.js
+// @downloadURL  https://github.com/Pocket-Deer/VKAntlers/raw/master/VKAntlers.user.js
 // @include      *://vk.com/*
 // @include      *://*.vk.com/*
 // @match        *://vk.com/*
