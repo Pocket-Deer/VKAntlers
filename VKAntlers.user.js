@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    http://tampermonkey.net/
-// @version      0.0.2
+// @version      0.1.0.12
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @updateURL    https://github.com/Pocket-Deer/VKAntlers/raw/master/VKAntlers.user.js
