@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.12
+// @version      0.1.0.13
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -11,6 +11,8 @@
 // @include      *://*.vk.com/*
 // @match        *://vk.com/*
 // @match        *://*.vk.com/*
+// @match        *://userapi.com/*
+// @match        *://*.userapi.com/*
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @grant        GM_addStyle
 // @grant        GM_setValue
@@ -54,13 +56,19 @@ function DOM_ContentReady () {
         //      $( "span.left_label inl_bl" ).replaceWith( "<span href=\"vk.com/feed/\" class=\"left_label inl_bl\">Новости</span>" );
         //========================================================================
         //====================== СОЗДАНИЕ ГЛАВНОГО МЕНЮ ==========================
-        var mainMenu = '<div class="side"> <ul class="menu"> <li class="menu__list"><a href="#">Пункт 1</a> <ul class="menu__drop"> <li><a href="#">Подпункт 1</a></li> <li><a href="#">Подпункт 2</a></li> </ul> </li> <li><a href="#">Пункт 2</a></li> <li class="menu__list"><a href="#">Пункт 3</a> <ul class="menu__drop"> <li><a href="#">Подпункт 1</a></li> <li><a href="#">Подпункт 2</a></li> <li><a href="#">Подпункт 3</a></li> <li><a href="#">Подпункт 4</a></li> </ul> </li> <li><a href="#">Пункт 4</a></li> </ul> </div>';
-        var mainMenu_css = '.side a{ text-decoration: none; }  .side ul{ margin: 0; padding: 0; list-style: none; }  .side{ z-index: 99999; display: none; text-decoration: none; width: 200px; margin: 10px; position: absolute; top: 47px; right: 10px; }  .menu a{ background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu a:hover{ background-color: rgba(0, 0, 0, 0.35); }  /* Всплывающие пункты меню */  .menu__list{ position: relative; box-sizing: border-box; border-right: 4px solid rgb(0, 161, 255); }  .menu__drop{ position: absolute; width: 100%; right: 100%; top: -99999em; transition: 0.25s opacity; opacity: 0; }  .menu__list:hover .menu__drop{ opacity: 1; top: 0; }';
-        //         var mainMenu_css = '';
+        // var mainMenu = '';
+        // var mainMenu_css = '';
+        var mainMenu = '<div class="side"> <ul class="menu"> <li class="menu__list"> <a href="#">Пункт 1</a> <ul class="menu__drop"> <li> <a class="menu_toggle" href="#">Подпункт 1</a> </li> <li> <a class="menu_toggle" href="#">Подпункт 2</a> </li> </ul> </li> <li> <a href="#">Пункт 2</a> </li> <li class="menu__list"> <a href="#">Пункт 3</a> <ul class="menu__drop"> <li> <a href="#">Подпункт 1</a> </li> <li> <a href="#">Подпункт 2</a> </li> <li> <a href="#">Подпункт 3</a> </li> <li> <a href="#">Подпункт 4</a> </li> </ul> </li> <li> <a href="#">Пункт 4</a> </li> </ul> </div>';
+        var mainMenu_css = '.side a { text-decoration: none; }  .side ul { margin: 0; padding: 0; list-style: none; } .side { z-index: 99999; display: none; text-decoration: none; width: 200px; margin: 10px; position: absolute; top: 47px; right: 10px; }  .menu > li > a { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu_toggle { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu a:hover { background-color: rgba(0, 0, 0, 0.35); }    /* Всплывающие пункты меню */    .menu__list, .menu__list_1 { position: relative; box-sizing: border-box; border-right: 4px solid rgb(0, 161, 255); }  .menu__drop, .menu__drop_1 { position: absolute; width: 100%; right: 100%; top: -99999em; transition: 0.25s opacity; opacity: 0; }  .menu__list:hover .menu__drop, .menu__list_1:hover .menu__drop_1 { opacity: 1; top: 0; }  /* Выбранный пункт меню */ .menu_toggle.menu_toggle_on { color: lime; }'
         var mainMenu_stylein = '<style type="text/css">';
         var mainMenu_styleout = '</style>';
         $("body").append(mainMenu);
         $("head").append(mainMenu_stylein + mainMenu_css + mainMenu_styleout);
+        //========================================================================
+        // Скрипт для выделения нажатых клавиш цветом
+        $('.menu_toggle').on("click",function() {
+            $(this).toggleClass('menu_toggle_on')
+        });
         //========================================================================
         // Нажатие кнопки RCTRL
         document.addEventListener("keyup", function(e){
@@ -72,6 +80,19 @@ function DOM_ContentReady () {
             if(key == "Control2")
             {
                 $(".side").toggle();
+
+                // Ссылка для получения доступа приложению для работы с апи
+                //https://oauth.vk.com/authorize?client_id=7439392&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,messages&response_type=token&v=5.52
+
+//                var req = "https://api.vk.com/method/messages.editChat?chat_id=29&title=Беседа%20Ксирафлян%20🦊&v=5.103&access_token=";
+                $.ajax({
+                    url : req,
+                    type : "POST",
+                    dataType : "jsonp",
+                    success : function(msg){
+                        console.log(msg.response[0]);
+                    }
+                });
                 //                 alert('Right Control');
             }
         });
@@ -83,6 +104,9 @@ function DOM_ContentReady () {
         //========================================================================
         // Принудительно показывать кнопку НАЗАД в новых диалогах
         $( ".im-page--back" ).css({"display":"block"});
+        $(document).ajaxSuccess(function() {
+            alert("An individual AJAX call has completed successfully");
+        });
         //========================================================================
         // Выравнимание онлайна под именем в новом дизайне
         // TODO: Работает через жопу на самом деле, надо поработать над этим ещё.
@@ -103,6 +127,18 @@ function DOM_ContentReady () {
             });
         });
         //========================================================================
+
+//         $.ajaxSetup({
+//             beforeSend: function (xhr,settings) {
+//                 alert(settings.data);
+//                 alert(settings.url);
+//                 alert("Ajax calling!");
+//             }
+//         });
+//         $( document ).ajaxSuccess(function( event, request, settings ) {
+//             console.log(request.status);
+//         });
+
         //    onRequestQuery: function(url, query, options) {
         //        var prefix = (query.gid) ? 'gim' : 'im';
         //        if (url === 'al_im.php') {
