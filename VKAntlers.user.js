@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.14
+// @version      0.1.0.15
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -67,10 +67,14 @@ function DOM_ContentReady () {
             url: "https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html",
             onload: function (response) {
                 console.log (response.responseText);
-                mainMenu = response.responseText;
-                console.log ("THAT WAS A MAINMENU IN FUNCIOTN = " + mainMenu);
+                mainMenuFunction (response.responseText);
             }
         } );
+        // TODO: Скрипт выше выполняется ПОСЛЕ всего скрипта написанного тут, поэтому меню тупо не появляется, подумай над этим
+        function mainMenuFunction (somedata){
+            mainMenu = somedata;
+            alert(somedata);
+        }
         console.log ("THAT WAS A MAINMENU OOOOOOOUT FUNCIOTN = " + mainMenu);
    //     var mainMenu = '<div class="side"> <ul class="menu"> <li class="menu__list"> <a href="#">Пункт 1</a> <ul class="menu__drop"> <li> <a class="menu_toggle" id="1">Подпункт 1</a> </li> <li> <a class="menu_toggle" id="2">Подпункт 2</a> </li> </ul> </li> <li> <a href="#">Пункт 2</a> </li> <li class="menu__list"> <a href="#">Пункт 3</a> <ul class="menu__drop"> <li> <a class="menu_toggle" id="3">Подпункт 1</a> </li> <li> <a class="menu_toggle" id="4">Подпункт 2</a> </li> <li> <a class="menu_toggle" id="5">Подпункт 3</a> </li> <li> <a class="menu_toggle" id="6">Подпункт 4</a> </li> </ul> </li> <li> <a href="#">Пункт 4</a> </li> </ul> </div>';
         var mainMenu_css = '.side a { text-decoration: none; }  .side ul { margin: 0; padding: 0; list-style: none; } .side { z-index: 99999; display: none; text-decoration: none; width: 200px; margin: 10px; position: absolute; top: 47px; right: 10px; }  .menu > li > a { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu_toggle { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu a:hover { background-color: rgba(0, 0, 0, 0.35); }    /* Всплывающие пункты меню */    .menu__list, .menu__list_1 { position: relative; box-sizing: border-box; border-right: 4px solid rgb(0, 161, 255); }  .menu__drop, .menu__drop_1 { position: absolute; width: 100%; right: 100%; top: -99999em; transition: 0.25s opacity; opacity: 0; }  .menu__list:hover .menu__drop, .menu__list_1:hover .menu__drop_1 { opacity: 1; top: 0; }  /* Выбранный пункт меню */ .menu_toggle.menu_toggle_on { background-color: #768dff; }'
