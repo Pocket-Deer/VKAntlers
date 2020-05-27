@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.13
+// @version      0.1.0.14
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -17,11 +17,12 @@
 // @grant        GM_addStyle
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @grant        GM_xmlhttpRequest
 // @run-at       document-start
 // @noframes
 // ==/UserScript==
 
-//testified
+// ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ДО ЗАГРУЗКИ СТРАНИЦЫ
 //========================================================================
 // Переадресация при введении vk.com в адресную строку
 if(document.location == "https://vk.com/feed"){
@@ -32,6 +33,8 @@ document.addEventListener ("DOMContentLoaded", DOM_ContentReady);
 window.addEventListener ("load", pageFullyLoaded);
 //========================================================================
 GM_setValue("foo","bar");
+
+// ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ
 function DOM_ContentReady () {
     (function (window, undefined) { //Одна из важных частей, не удалять. Связана с }(window)
         //========================================================================
@@ -58,8 +61,19 @@ function DOM_ContentReady () {
         //====================== СОЗДАНИЕ ГЛАВНОГО МЕНЮ ==========================
         // var mainMenu = '';
         // var mainMenu_css = '';
-        var mainMenu = '<div class="side"> <ul class="menu"> <li class="menu__list"> <a href="#">Пункт 1</a> <ul class="menu__drop"> <li> <a class="menu_toggle" href="#">Подпункт 1</a> </li> <li> <a class="menu_toggle" href="#">Подпункт 2</a> </li> </ul> </li> <li> <a href="#">Пункт 2</a> </li> <li class="menu__list"> <a href="#">Пункт 3</a> <ul class="menu__drop"> <li> <a href="#">Подпункт 1</a> </li> <li> <a href="#">Подпункт 2</a> </li> <li> <a href="#">Подпункт 3</a> </li> <li> <a href="#">Подпункт 4</a> </li> </ul> </li> <li> <a href="#">Пункт 4</a> </li> </ul> </div>';
-        var mainMenu_css = '.side a { text-decoration: none; }  .side ul { margin: 0; padding: 0; list-style: none; } .side { z-index: 99999; display: none; text-decoration: none; width: 200px; margin: 10px; position: absolute; top: 47px; right: 10px; }  .menu > li > a { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu_toggle { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu a:hover { background-color: rgba(0, 0, 0, 0.35); }    /* Всплывающие пункты меню */    .menu__list, .menu__list_1 { position: relative; box-sizing: border-box; border-right: 4px solid rgb(0, 161, 255); }  .menu__drop, .menu__drop_1 { position: absolute; width: 100%; right: 100%; top: -99999em; transition: 0.25s opacity; opacity: 0; }  .menu__list:hover .menu__drop, .menu__list_1:hover .menu__drop_1 { opacity: 1; top: 0; }  /* Выбранный пункт меню */ .menu_toggle.menu_toggle_on { color: lime; }'
+        var mainMenu;
+        GM_xmlhttpRequest ( {
+            method: "GET",
+            url: "https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html",
+            onload: function (response) {
+                console.log (response.responseText);
+                mainMenu = response.responseText;
+                console.log ("THAT WAS A MAINMENU IN FUNCIOTN = " + mainMenu);
+            }
+        } );
+        console.log ("THAT WAS A MAINMENU OOOOOOOUT FUNCIOTN = " + mainMenu);
+   //     var mainMenu = '<div class="side"> <ul class="menu"> <li class="menu__list"> <a href="#">Пункт 1</a> <ul class="menu__drop"> <li> <a class="menu_toggle" id="1">Подпункт 1</a> </li> <li> <a class="menu_toggle" id="2">Подпункт 2</a> </li> </ul> </li> <li> <a href="#">Пункт 2</a> </li> <li class="menu__list"> <a href="#">Пункт 3</a> <ul class="menu__drop"> <li> <a class="menu_toggle" id="3">Подпункт 1</a> </li> <li> <a class="menu_toggle" id="4">Подпункт 2</a> </li> <li> <a class="menu_toggle" id="5">Подпункт 3</a> </li> <li> <a class="menu_toggle" id="6">Подпункт 4</a> </li> </ul> </li> <li> <a href="#">Пункт 4</a> </li> </ul> </div>';
+        var mainMenu_css = '.side a { text-decoration: none; }  .side ul { margin: 0; padding: 0; list-style: none; } .side { z-index: 99999; display: none; text-decoration: none; width: 200px; margin: 10px; position: absolute; top: 47px; right: 10px; }  .menu > li > a { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu_toggle { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu a:hover { background-color: rgba(0, 0, 0, 0.35); }    /* Всплывающие пункты меню */    .menu__list, .menu__list_1 { position: relative; box-sizing: border-box; border-right: 4px solid rgb(0, 161, 255); }  .menu__drop, .menu__drop_1 { position: absolute; width: 100%; right: 100%; top: -99999em; transition: 0.25s opacity; opacity: 0; }  .menu__list:hover .menu__drop, .menu__list_1:hover .menu__drop_1 { opacity: 1; top: 0; }  /* Выбранный пункт меню */ .menu_toggle.menu_toggle_on { background-color: #768dff; }'
         var mainMenu_stylein = '<style type="text/css">';
         var mainMenu_styleout = '</style>';
         $("body").append(mainMenu);
@@ -69,6 +83,32 @@ function DOM_ContentReady () {
         $('.menu_toggle').on("click",function() {
             $(this).toggleClass('menu_toggle_on')
         });
+        //========================================================================
+
+//         $('.menu_toggle').on('click',test($(this).attr('id')));
+
+//         function test (a) {
+//             alert ("It is alerted by " + a);
+//         };
+
+// (function(xhr) {
+//     function banana(xhrInstance) { // Example
+//         console.log('Monkey RS: ' + xhrInstance.readyState);
+//     }
+//     // Capture request before any network activity occurs:
+//     var send = xhr.send;
+//     xhr.send = function(data) {
+//         var rsc = this.onreadystatechange;
+//         if (rsc) {
+//             // "onreadystatechange" exists. Monkey-patch it
+//             this.onreadystatechange = function() {
+//                 banana(this);
+//                 return rsc.apply(this, arguments);
+//             };
+//         }
+//         return send.apply(this, arguments);
+//     };
+// })(XMLHttpRequest.prototype);
         //========================================================================
         // Нажатие кнопки RCTRL
         document.addEventListener("keyup", function(e){
@@ -85,14 +125,6 @@ function DOM_ContentReady () {
                 //https://oauth.vk.com/authorize?client_id=7439392&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,messages&response_type=token&v=5.52
 
 //                var req = "https://api.vk.com/method/messages.editChat?chat_id=29&title=Беседа%20Ксирафлян%20🦊&v=5.103&access_token=";
-                $.ajax({
-                    url : req,
-                    type : "POST",
-                    dataType : "jsonp",
-                    success : function(msg){
-                        console.log(msg.response[0]);
-                    }
-                });
                 //                 alert('Right Control');
             }
         });
@@ -163,6 +195,7 @@ function DOM_ContentReady () {
 function pageFullyLoaded () {
     console.log ("==> Page is fully loaded, including images.", new Date() );
 };
+
 console.log ("==> Script end.", new Date() );
 console.log (GM_getValue("foo"));
 //========================================================================
