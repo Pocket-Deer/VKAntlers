@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.16
+// @version      0.1.0.17
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -13,11 +13,13 @@
 // @match        *://*.vk.com/*
 // @match        *://userapi.com/*
 // @match        *://*.userapi.com/*
+// @match        https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @grant        GM_addStyle
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_xmlhttpRequest
+// @grant        GM_addStyle
 // @run-at       document-start
 // @noframes
 // ==/UserScript==
@@ -33,6 +35,8 @@ document.addEventListener ("DOMContentLoaded", DOM_ContentReady);
 window.addEventListener ("load", pageFullyLoaded);
 //========================================================================
 GM_setValue("foo","bar");
+
+//https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
 
 // ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ
 function DOM_ContentReady () {
@@ -61,6 +65,12 @@ function DOM_ContentReady () {
         //====================== СОЗДАНИЕ ГЛАВНОГО МЕНЮ ==========================
         // var mainMenu = '';
         // var mainMenu_css = '';
+
+        // Создание левых стилей и встраивание их на сайт
+        $("body").append('<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">');
+        GM_addStyle ('.body_im {font-family: "Comfortaa", cursive !important; }');
+
+
         var mainMenu;
         GM_xmlhttpRequest ( {
             method: "GET",
