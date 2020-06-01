@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.15
+// @version      0.1.0.16
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -64,7 +64,7 @@ function DOM_ContentReady () {
         var mainMenu;
         GM_xmlhttpRequest ( {
             method: "GET",
-            url: "https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html",
+//            url: "https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html",
             onload: function (response) {
                 console.log (response.responseText);
                 mainMenuFunction (response.responseText);
@@ -115,11 +115,25 @@ function DOM_ContentReady () {
 // })(XMLHttpRequest.prototype);
         //========================================================================
         // Нажатие кнопки RCTRL
+        var delta = 500;
+        var lastKeypressTime = 0;
         document.addEventListener("keyup", function(e){
             var key = e.key + e.location;
             if(key == "Control1")
             {
                 //                 alert('Left Control');
+            }
+            if(event.keyCode == 9)
+            {
+                    var thisKeypressTime = new Date();
+                    if ( thisKeypressTime - lastKeypressTime <= delta )
+                    {
+                        $('div#.ms_items_more_wrap.ms_items_more_wrap_vector.to_up').toggleClass('shown');
+                        // optional - if we'd rather not detect a triple-press
+                        // as a second double-press, reset the timestamp
+                        thisKeypressTime = 0;
+                    }
+                    lastKeypressTime = thisKeypressTime;
             }
             if(key == "Control2")
             {
