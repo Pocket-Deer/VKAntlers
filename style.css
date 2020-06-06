@@ -1,0 +1,91 @@
+/* ====================================== */
+/* Сами пункты меню */
+/* ====================================== */
+.side a
+{
+  text-decoration: none;
+}
+
+.side ul
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.side
+{
+  z-index: 99999;
+  display: block;
+  text-decoration: none;
+  width: 200px;
+  margin: 10px;
+  position: absolute;
+  top: 47px;
+  right: 10px;
+}
+
+.menu > li > a
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  display: block;
+  border-bottom: solid 1px #666;
+  transition: 0.25s all;
+}
+
+.menu_toggle
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  display: block;
+  border-bottom: solid 1px #666;
+  transition: 0.25s all;
+}
+
+.menu a:hover
+{
+  background-color: rgba(0, 0, 0, 0.35);
+}  
+
+.menu a.menu_toggle.menu_toggle_on:hover
+{
+  background-color: rgba(57, 72, 148, 0.5);
+}  
+
+/* Всплывающие пункты меню */  
+
+.menu__list
+{
+  position: relative;
+  box-sizing: border-box;
+  border-right: 4px solid rgb(0, 161, 255);
+}
+
+.menu__drop
+{
+  position: absolute;
+  width: 100%;
+  right: 100%;
+  top: -99999em;
+  transition: 0.25s opacity;
+  display: none;
+}
+
+/* Выбранный пункт меню */
+.menu_toggle.menu_toggle_on
+{
+  background-color: rgba(47, 56, 102, 0.5);
+}
+/* ====================================== */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+/* ====================================== */
