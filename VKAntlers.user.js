@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.17
+// @version      0.1.0.18
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -34,7 +34,7 @@ if(document.location == "https://vk.com/feed"){
 document.addEventListener ("DOMContentLoaded", DOM_ContentReady);
 window.addEventListener ("load", pageFullyLoaded);
 //========================================================================
-GM_setValue("foo","bar");
+GM_setValue("logo_hashtag_text","телегалучше");
 
 //https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
 
@@ -49,39 +49,45 @@ function DOM_ContentReady () {
             w = unsafeWindow
         } else {
             w = window;
-        }
+        };
 
         // [3] не запускаем скрипт во фреймах
         // без этого условия скрипт будет запускаться несколько раз на странице с фреймами
         if (w.self != w.top) {
             return;
-        }
+        };
         //========================================================================
         //Изменение названия возле диалога с хештегом
-        var hashtagname = "телегалучше"
+        var hashtagname = GM_getValue("logo_hashtag_text");
         $("div.CovidLogo__hashtag").replaceWith("<div class=\"CovidLogo__hashtag \">#" + hashtagname + "</div>");
         //      $( "span.left_label inl_bl" ).replaceWith( "<span href=\"vk.com/feed/\" class=\"left_label inl_bl\">Новости</span>" );
+
+        //============================== FUNCTIONS ===============================
+        // Взятие текста по ссылке
+        function GetSourceFromSite(URL_Address){
+        var tmp = null;
+        $.ajax({ type: "GET",
+                    url: URL_Address,
+                    async: false,
+                    success : function(text)
+                    {
+                        tmp = text;
+                    }
+                   });
+            return tmp;
+        };
         //========================================================================
         //====================== СОЗДАНИЕ ГЛАВНОГО МЕНЮ ==========================
         // var mainMenu = '';
         // var mainMenu_css = '';
 
         // Создание левых стилей и встраивание их на сайт
-        $("body").append('<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">');
+        //$("body").append('<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">');
         //GM_addStyle ('.body_im {font-family: "Comfortaa", cursive !important; }');
 
-        var mainMenu;
-
-        $.ajax({ type: "GET",
-                url: "https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html",
-                async: false,
-                success : function(text)
-                {
-                    mainMenu = text;
-                }
-               });
-
-        var mainMenu_css = '.side a { text-decoration: none; }  .side ul { margin: 0; padding: 0; list-style: none; } .side { z-index: 99999; display: none; text-decoration: none; width: 200px; margin: 10px; position: absolute; top: 47px; right: 10px; }  .menu > li > a { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu_toggle { background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; display: block; border-bottom: solid 1px #666; transition: 0.25s all; }  .menu a:hover { background-color: rgba(0, 0, 0, 0.35); }    /* Всплывающие пункты меню */    .menu__list, .menu__list_1 { position: relative; box-sizing: border-box; border-right: 4px solid rgb(0, 161, 255); }  .menu__drop, .menu__drop_1 { position: absolute; width: 100%; right: 100%; top: -99999em; transition: 0.25s opacity; opacity: 0; }  .menu__list:hover .menu__drop, .menu__list_1:hover .menu__drop_1 { opacity: 1; top: 0; }  /* Выбранный пункт меню */ .menu_toggle.menu_toggle_on { background-color: #768dff; }'
+        // Создание главного меню и взятие его стиля с гитхаба
+        var mainMenu = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html');
+        var mainMenu_css = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/style.css');
         var mainMenu_stylein = '<style type="text/css">';
         var mainMenu_styleout = '</style>';
         $("body").append(mainMenu);
@@ -158,9 +164,9 @@ function DOM_ContentReady () {
         //========================================================================
         // Принудительно показывать кнопку НАЗАД в новых диалогах
         $( ".im-page--back" ).css({"display":"block"});
-        $(document).ajaxSuccess(function() {
-            alert("An individual AJAX call has completed successfully");
-        });
+//         $(document).ajaxSuccess(function() {
+//             alert("An individual AJAX call has completed successfully");
+//         });
         //========================================================================
         // Выравнимание онлайна под именем в новом дизайне
         // TODO: Работает через жопу на самом деле, надо поработать над этим ещё.
@@ -219,5 +225,5 @@ function pageFullyLoaded () {
 };
 
 console.log ("==> Script end.", new Date() );
-console.log (GM_getValue("foo"));
+//console.log (GM_getValue("foo"));
 //========================================================================
