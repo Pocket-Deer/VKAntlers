@@ -161,7 +161,6 @@ function DOM_ContentReady () {
             if(key == "Control2")
             {
                 $(".side").toggle();
-
                 // Ссылка для получения доступа приложению для работы с апи
                 //https://oauth.vk.com/authorize?client_id=7439392&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,messages&response_type=token&v=5.52
 
@@ -247,6 +246,7 @@ function GetSourceFromSite(URL_Address){
             success : function(text)
             {
                 tmp = text;
+//                alert("lol");
             }
            });
     return tmp;
