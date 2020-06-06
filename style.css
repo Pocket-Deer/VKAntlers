@@ -29,7 +29,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 10px;
-  display: block;
+  display: none;
   border-bottom: solid 1px #666;
   transition: 0.25s all;
 }
