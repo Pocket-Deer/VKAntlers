@@ -15,7 +15,7 @@
 .side
 {
   z-index: 99999;
-  display: block;
+  display: none;
   text-decoration: none;
   width: 200px;
   margin: 10px;
