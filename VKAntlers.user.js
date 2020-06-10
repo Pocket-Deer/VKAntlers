@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.20
+// @version      0.1.0.21
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -15,18 +15,45 @@
 // @match        *://*.userapi.com/*
 // @match        *://*.userstyles.org/*
 // @match        https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
-// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @grant        GM_addStyle
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_xmlhttpRequest
-// @grant        GM_addStyle
 // @run-at       document-start
 // @noframes
 // ==/UserScript==
 
+// =============================== ВАЖНО ==================================
+// Прочитайте, если вы зашли в исходник кода по какой-то своей причине
+// и уделите пожалуйста этому хотя бы немного внимания.
+// Если вы зашли сюда что-то поменять, или же что-то использовать для
+// своих целей, то скажу сразу - да, я не профессиональный кодер и
+// мой код можно считать говнокодом, есть косяки, есть недочёты,
+// есть костыли и прочее, так что поймите меня правильно и прошу вас
+// обойтись без лишней критики.
+// Итак
+// Во первых, если вы зашли сюда что-то поменять, поругать меня и
+// исправить в своём стиле - для этого есть чёртов гит. Я его
+// использую именно для этого, чтобы вы могли давать свои идеи и
+// я мог их реализовать, так же вы могли бы сказать мол
+// "Вот тут лучше использовать такой код, а не такой", и
+// я отнесусь к этом с понимаением и постараюсь разобраться со всем,
+// или же сообщать мне об ошибках, которые я постараюсь решить
+// в скором времени.
+// Во вторых, если вы скопировали этот код с репозитория, и собираетесь
+// использовать его в своих целях, или ж в своём проекте, прошу,
+// ссылайтесь хоть как-то на исходник, т.е. сюда, откуда вы взяли
+// тот или иной кусочек. Так вы хотя бы выразите свою благодарность
+// в предоставлении вам какой-либо идеи и её реализации.
+// Ну и так же завоюете моё уважение, если я встречу свой кусочек
+// кода в вашем проекте
+//
+// С любовью, ваш говнокодер - Pocket Deer
+// ========================================================================
+
 // ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ДО ЗАГРУЗКИ СТРАНИЦЫ
-//========================================================================
+// ========================================================================
 // Переадресация при введении vk.com в адресную строку
 if(document.location == "https://vk.com/feed"){
     window.location.replace("https://vk.com/im")
@@ -35,23 +62,36 @@ if(document.location == "https://vk.com/feed"){
 document.addEventListener ("DOMContentLoaded", DOM_ContentReady);
 window.addEventListener ("load", pageFullyLoaded);
 //========================================================================
+//---------------- Очевидное сокращение JQuery до значка доллара
 var $ = window.jQuery;
-
+//---------------- Подгрузка стилей главного меню
 var mainMenu = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html');
 var mainMenu_css = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/style.css');
-var dark_theme = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
 var mainMenu_stylein = '<style type="text/css">';
 var mainMenu_styleout = '</style>';
+//---------------- Подгрузка тем с исходников с гита
+var dark_theme = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
+//----------------
+//var timenow = new Date();
+//----------------
+//----------------
+//----------------
+//----------------
 //========================================================================
+// Добавление стиля при выполненном условии
+// TODO: Переименовать значение для остальных тем и их значений (от 1 до n)
 if (GM_getValue("dark_style") == 1){
     $("head").append('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
 }
 //========================================================================
+// Смена хэштега в левом верхнем углу во время пандемии 2020.
 GM_setValue("logo_hashtag_text","дирохерел");
-var dark_style = GM_getValue("dark_style");
 //========================================================================
+// Получение данных сохранённых в TamperMonkey
+var dark_style = GM_getValue("dark_style");
+var theme_changer = GM_getValue("theme_changer");
 
-
+GM_setValue("theme_changer", "1"); // Для отключения автопереключения тёмной темы, замените 1 на 0
 //https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
 
 // ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ
@@ -65,7 +105,6 @@ function DOM_ContentReady () {
         } else {
             w = window;
         };
-
         // [3] не запускаем скрипт во фреймах
         // без этого условия скрипт будет запускаться несколько раз на странице с фреймами
         if (w.self != w.top) {
@@ -94,21 +133,23 @@ function DOM_ContentReady () {
         $(".head_nav_item.fl_r").before(dark_theme_block_button);
         //========================================================================
         // Скрипт для выделения нажатых клавиш цветом
+        // TODO: Убрать и заменить, или использовать в дальнейшей менюхе
         $('.menu_toggle').on("click",function() {
             $(this).toggleClass('menu_toggle_on')
         });
 
+        // Скрипт смены стиля по клику кнопки и запись в ГМ
         $("#dark_theme_toggle").on("click", function dark_theme_toggle(){
             dark_style = GM_getValue("dark_style");
-            dark_style = (dark_style==0 ? 1 : 0);
-            GM_setValue ("dark_style", dark_style);
-            if (dark_style == 1){
-                $("head").append('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
-            } if (dark_style == 0) {
-                $("#dark_theme_style").remove();
-            };
-            //            location.reload();
+            dark_style = (dark_style==0 ? 1 : 0); // TODO: Слишком муторная херня, исправить попроще и убрать лишний var
+            GM_setValue ("dark_style", dark_style);// Ну потому что ну ты посомтри, что за стыдоба то ну, не по уму сделано.
+            dark_theme_func();
+            //            location.reload();  // А вот это нахрен не надо, сделал так, что меняет без обновления страницы.
         });
+
+
+        // Скрипт смены тёмного стиля по времени от 21 вечера до 8 утра
+
 
         //========================================================================
 
@@ -236,6 +277,7 @@ function pageFullyLoaded () {
     console.log ("==> Page is fully loaded, including images.", new Date() );
 };
 
+console.log("1");
 //============================== FUNCTIONS ===============================
 // Взятие текста по ссылке
 function GetSourceFromSite(URL_Address){
@@ -251,7 +293,7 @@ function GetSourceFromSite(URL_Address){
            });
     return tmp;
 };
-
+console.log("2");
 // Взятие стиля из Stylish по ссылке
 // Не используется из-за политики CORS
 function GetSourceFromStylish(URL_Address){
@@ -267,7 +309,51 @@ function GetSourceFromStylish(URL_Address){
            });
     return tmp;
 };
+console.log("3");
+// Функция переключения тёмного стиля
+function dark_theme_func(){
+    if (dark_style == 1){
+        $("head").append('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
+    } if (dark_style == 0) {
+        $("#dark_theme_style").remove();
+    }
+};
 
+// Парсинг системного времени и изменение стиля в зависимости от времени
+if (theme_changer == 1){
+    (function (){
+        function checkTime(i) {
+            return (i < 10) ? "0" + i : i;
+        }
+
+        function startTime() {
+            var today = new Date(),
+                h = checkTime(today.getHours()),
+                m = checkTime(today.getMinutes()),
+                s = checkTime(today.getSeconds());
+            var chck = 0;
+            //document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+            console.log(h + ":" + m + ":" + s);
+            if ((h >= 22 || h < 8) && chck == 0){
+                GM_setValue ("dark_style", "1");
+                dark_style = 1;
+                dark_theme_func();
+                chck = 1;
+                console.log("DARK_THEME ON");
+            } if ((h < 22 && h >= 8) && chck == 1){
+                GM_setValue ("dark_style", "0");
+                dark_style = 0;
+                dark_theme_func();
+                chck = 0;
+                console.log("DARK_THEME OFF");
+            };
+            var t = setTimeout(function () {
+                startTime()
+            }, 60000);
+        }
+        startTime();
+    })();
+};
 console.log ("==> Script end.", new Date() );
 //console.log (GM_getValue("foo"));
 //========================================================================
