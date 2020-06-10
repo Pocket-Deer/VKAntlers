@@ -333,7 +333,7 @@ if (theme_changer == 1){
                 s = checkTime(today.getSeconds());
             var chck = 0;
             //document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-            console.log(h + ":" + m + ":" + s);
+            //console.log(h + ":" + m + ":" + s);
             if ((h >= 22 || h < 8) && chck == 0){
                 GM_setValue ("dark_style", "1");
                 dark_style = 1;
