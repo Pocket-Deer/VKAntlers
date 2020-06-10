@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.22
+// @version      0.1.0.25
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -325,23 +325,23 @@ if (theme_changer == 1){
         function checkTime(i) {
             return (i < 10) ? "0" + i : i;
         }
-
+        var chck = 0;
         function startTime() {
             var today = new Date(),
                 h = checkTime(today.getHours()),
                 m = checkTime(today.getMinutes()),
                 s = checkTime(today.getSeconds());
-            var chck = 0;
+
             //document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
             //console.log(h + ":" + m + ":" + s);
             if ((h >= 22 || h < 8) && chck == 0){
-                GM_setValue ("dark_style", "1");
+                GM_setValue ("dark_style", 1);
                 dark_style = 1;
                 dark_theme_func();
                 chck = 1;
                 console.log("DARK_THEME ON");
             } if ((h < 22 && h >= 8) && chck == 1){
-                GM_setValue ("dark_style", "0");
+                GM_setValue ("dark_style", 0);
                 dark_style = 0;
                 dark_theme_func();
                 chck = 0;
