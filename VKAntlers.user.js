@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.26
+// @version      0.1.0.27
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -80,7 +80,7 @@ var dark_theme = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Dee
 //========================================================================
 //========================================================================
 // Смена хэштега в левом верхнем углу во время пандемии 2020.
-GM_setValue("logo_hashtag_text","дирохерел");
+GM_setValue("logo_hashtag_text","флеймлучший");
 //========================================================================
 // Получение данных сохранённых в TamperMonkey
 var dark_style = GM_getValue("dark_style");
@@ -126,6 +126,7 @@ function DOM_ContentReady () {
         $("body").append(mainMenu);
         $("head").append(mainMenu_stylein + mainMenu_css + mainMenu_styleout);
         $(".head_nav_item.fl_r").before(dark_theme_block_button);
+        //$("body").append("<div>version 0.1.0.26</div>");
         //========================================================================
         // Скрипт для выделения нажатых клавиш цветом
         // TODO: Убрать и заменить, или использовать в дальнейшей менюхе
