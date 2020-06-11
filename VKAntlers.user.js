@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.25
+// @version      0.1.0.26
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -78,11 +78,6 @@ var dark_theme = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Dee
 //----------------
 //----------------
 //========================================================================
-// Добавление стиля при выполненном условии
-// TODO: Переименовать значение для остальных тем и их значений (от 1 до n)
-if (GM_getValue("dark_style") == 1){
-    $("head").append('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
-}
 //========================================================================
 // Смена хэштега в левом верхнем углу во время пандемии 2020.
 GM_setValue("logo_hashtag_text","дирохерел");
@@ -146,10 +141,6 @@ function DOM_ContentReady () {
             dark_theme_func();
             //            location.reload();  // А вот это нахрен не надо, сделал так, что меняет без обновления страницы.
         });
-
-
-        // Скрипт смены тёмного стиля по времени от 21 вечера до 8 утра
-
 
         //========================================================================
 
@@ -310,14 +301,6 @@ function GetSourceFromStylish(URL_Address){
     return tmp;
 };
 console.log("3");
-// Функция переключения тёмного стиля
-function dark_theme_func(){
-    if (dark_style == 1){
-        $("head").append('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
-    } if (dark_style == 0) {
-        $("#dark_theme_style").remove();
-    }
-};
 
 // Парсинг системного времени и изменение стиля в зависимости от времени
 if (theme_changer == 1){
@@ -334,13 +317,14 @@ if (theme_changer == 1){
 
             //document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
             //console.log(h + ":" + m + ":" + s);
-            if ((h >= 22 || h < 8) && chck == 0){
+            if ((h >= 21 || h < 8) && chck == 0){
                 GM_setValue ("dark_style", 1);
                 dark_style = 1;
                 dark_theme_func();
                 chck = 1;
                 console.log("DARK_THEME ON");
-            } if ((h < 22 && h >= 8) && chck == 1){
+                console.log("Dark Theme LOADED with THEME_CHANGER");
+            } if ((h < 21 && h >= 8) && chck == 1){
                 GM_setValue ("dark_style", 0);
                 dark_style = 0;
                 dark_theme_func();
@@ -355,5 +339,17 @@ if (theme_changer == 1){
     })();
 };
 console.log ("==> Script end.", new Date() );
+
+// Скрипт смены тёмного стиля по времени от 21 вечера до 8 утра
+// Функция переключения тёмного стиля
+
+function dark_theme_func(){
+    if (dark_style == 1){
+        $("head").after('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
+    } if (dark_style == 0) {
+        $("#dark_theme_style").remove();
+    }
+};
+
 //console.log (GM_getValue("foo"));
 //========================================================================
