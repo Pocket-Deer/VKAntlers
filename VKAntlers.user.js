@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.0.27
+// @version      0.1.0.28
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -70,6 +70,9 @@ var mainMenu_css = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-D
 var mainMenu_stylein = '<style type="text/css">';
 var mainMenu_styleout = '</style>';
 //---------------- Подгрузка тем с исходников с гита
+// Данная тёмная тема принадлежит SayRus
+// Найдено на Stylish
+// https://userstyles.org/styles/175597/vk-dark-theme-material
 var dark_theme = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
 //----------------
 //var timenow = new Date();
@@ -79,8 +82,11 @@ var dark_theme = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Dee
 //----------------
 //========================================================================
 //========================================================================
+// Список всех возможных хэштегов
+var hashtag_list = ["флеймлучший", "владбумагаА4", "темнаятёма", "да", "дирохерел", "ачё", "сидидомаблэд", "фывапролджэ", "missingno",
+                    "сижуахерел", "дистанционочка"];
 // Смена хэштега в левом верхнем углу во время пандемии 2020.
-GM_setValue("logo_hashtag_text","флеймлучший");
+GM_setValue("logo_hashtag_text",hashtag_list[Math.floor(Math.random() * hashtag_list.length)]);
 //========================================================================
 // Получение данных сохранённых в TamperMonkey
 var dark_style = GM_getValue("dark_style");
@@ -181,19 +187,21 @@ function DOM_ContentReady () {
             }
             if(event.keyCode == 9)
             {
-                    var thisKeypressTime = new Date();
-                    if ( thisKeypressTime - lastKeypressTime <= delta )
-                    {
-                        $('div#.ms_items_more_wrap.ms_items_more_wrap_vector.to_up').toggleClass('shown');
-                        // optional - if we'd rather not detect a triple-press
-                        // as a second double-press, reset the timestamp
-                        thisKeypressTime = 0;
-                    }
-                    lastKeypressTime = thisKeypressTime;
+                var thisKeypressTime = new Date();
+                if ( thisKeypressTime - lastKeypressTime <= delta )
+                {
+                    $('div.ms_items_more_wrap.ms_items_more_wrap_vector.to_up').toggleClass('shown');
+                    // optional - if we'd rather not detect a triple-press
+                    // as a second double-press, reset the timestamp
+                    thisKeypressTime = 0;
+                }
+                lastKeypressTime = thisKeypressTime;
             }
             if(key == "Control2")
             {
-                $(".side").toggle();
+                // Показ устаревшего меню
+                //$(".side").toggle();
+
                 // Ссылка для получения доступа приложению для работы с апи
                 //https://oauth.vk.com/authorize?client_id=7439392&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,messages&response_type=token&v=5.52
 
