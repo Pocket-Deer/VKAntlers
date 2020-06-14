@@ -29,12 +29,11 @@
 width: 4px;
 }
 
-.menu_wrapper {
-	display: none;
-	z-index: 9999;
+.vka_menu_wrapper {
+	display: block;
 }
 
-.parent {
+.vka_parent {
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -47,11 +46,11 @@ width: 4px;
 	overflow: auto;
 }
 
-.section:hover{
+.vka_section:hover{
 	cursor: pointer;
 }
 
-.block {
+.vka_block {
 	border: solid black;
 	background: #edeef0;
 	width: 50%;
@@ -63,7 +62,7 @@ width: 4px;
 		border: none;
 	}
 }
-.content {
+.vka_content {
 	z-index: 999;
 	padding: 2% 2% 2% 2%;
 	font-size: 15pt;
@@ -71,7 +70,7 @@ width: 4px;
 	width: 96.1%;
 	height: 71.1%;
 }
-.title {
+.vka_title {
 	color: #edeef0;
 	border-radius: 25px 25px 0 0;
 	height: auto;
@@ -80,7 +79,7 @@ width: 4px;
 	font-family: 'Fira Sans Condensed', sans-serif;
 	font-size: 24px;
 }
-.innerBlock {
+.vka_innerBlock {
 	margin-top: 1%;
 	padding: 1% 0 2% 2%;
 	background-color: #f0f1f3;
@@ -88,7 +87,7 @@ width: 4px;
 	border-width: 0px 0px 0px 1px;
 	display: none;
 }
-.BlockCheckbox {
+.vka_BlockCheckbox {
 	float: left;
 	transform:scale(1.3);
 	opacity:0.9;
@@ -96,7 +95,7 @@ width: 4px;
     margin: 5px 7px 5px 5px;
 }
 
-.displayBlock {
+.vka_displayBlock {
 	display: block;
 }
 
@@ -134,33 +133,33 @@ form {
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-<div class="menu_wrapper">
-	<div class="parent">
-		<div class="block">
-			<div class="title">
+<div class="vka_menu_wrapper">
+	<div class="vka_parent">
+		<div class="vka_block">
+			<div class="vka_title">
 				<a style="color: white;">VKAntlers</a>
 				<a style="font-size: 10px; color: white;margin-left: 10px;">v. 0.1.1.0</a>
 				<a style="float: right; color: white; cursor: pointer;">Close</a>
 			</div> 
-			<div class="content">
-				<a class="section">Стиль</a>     
-				<div class="innerBlock" id="Section1">
+			<div class="vka_content">
+				<a class="vka_section">Стиль</a>     
+				<div class="vka_innerBlock" id="Section1">
 					<label> - Кастомная тема
-						<input class="BlockCheckbox"  type="checkbox" id="theme" name="S1-1">
+						<input class="vka_BlockCheckbox"  type="checkbox" id="theme" name="S1-1">
 					</label>  <br>
 					Темы: <br>
 					<form>
 						<label> - Тёмная ()
-							<input class="BlockCheckbox" type="radio" id="theme_style_dark" name="themestyle" checked>
+							<input class="vka_BlockCheckbox" type="radio" id="theme_style_dark" name="themestyle" checked>
 						</label>  <br>
 						<label> - Неоновая
-							<input class="BlockCheckbox" type="radio" id="theme_style_neon" name="themestyle" disabled>
+							<input class="vka_BlockCheckbox" type="radio" id="theme_style_neon" name="themestyle" disabled>
 						</label>  <br>
 						<label> - Градиент
-							<input class="BlockCheckbox" type="radio" id="theme_style_gradient" name="themestyle" disabled>
+							<input class="vka_BlockCheckbox" type="radio" id="theme_style_gradient" name="themestyle" disabled>
 						</label>  <br>
 						<label> - Кастомная
-							<input class="BlockCheckbox" type="radio" id="theme_style_custom" name="themestyle" disabled>
+							<input class="vka_BlockCheckbox" type="radio" id="theme_style_custom" name="themestyle" disabled>
 						</label>  <br> 
 					</form>
 					<form>
@@ -169,7 +168,7 @@ form {
 						<input type="submit" name="submit" value="Сохранить" disabled>
 					</form>
 					<label> - Автопереключение темы
-						<input class="BlockCheckbox"  type="checkbox" id="theme_changer" name="S1-7">
+						<input class="vka_BlockCheckbox"  type="checkbox" id="theme_changer" name="S1-7">
 					</label>  <br>
 					<form>
 						<label>Время переключения</label> <br> 
@@ -177,19 +176,19 @@ form {
 						<input type="submit" name="submit" value="Сохранить">
 					</form> <br>
 					<label> - Значок смены темы в правом верхнем углу
-						<input class="BlockCheckbox"  type="checkbox" id="theme_icon" name="S1-4">
+						<input class="vka_BlockCheckbox"  type="checkbox" id="theme_icon" name="S1-4">
 					</label> <br>
 					<label> - Кастомные хэштеги
-						<input class="BlockCheckbox" type="checkbox" id="hashtag_toggle" name="S1-5">
+						<input class="vka_BlockCheckbox" type="checkbox" id="hashtag_toggle" name="S1-5">
 					</label> <br>
 				</div>
 				<hr>
-				<a class="section">Текст</a>     
-				<div class="innerBlock" id="Section2">
+				<a class="vka_section">Текст</a>     
+				<div class="vka_innerBlock" id="Section2">
 					<label for="S2-1"> - Замена мата на странице</label> 
-					<input class="BlockCheckbox"  type="checkbox" id="text_antifucker" name="S2-1" disabled> <br>
+					<input class="vka_BlockCheckbox"  type="checkbox" id="text_antifucker" name="S2-1" disabled> <br>
 					<label for="S2-2"> - Кастомный шрифт</label> 
-					<input class="BlockCheckbox" type="checkbox" id="text_custom_font" name="S2-2"> <br>
+					<input class="vka_BlockCheckbox" type="checkbox" id="text_custom_font" name="S2-2"> <br>
 					<form>
 						<label for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
 						<input type="text" id="S2-6" name="S2-6" style="width: 50%;">
@@ -201,37 +200,37 @@ form {
 					</label> <br>
 				</div>
 				<hr>
-				<a class="section">Патчи</a>     
-				<div class="innerBlock" id="Section3">
+				<a class="vka_section">Патчи</a>     
+				<div class="vka_innerBlock" id="Section3">
 					<label> - Нечиталка
-					<input class="BlockCheckbox"  type="checkbox" id="S3-2" name="S3-2" disabled>
+					<input class="vka_BlockCheckbox"  type="checkbox" id="S3-2" name="S3-2" disabled>
 					</label> <br>
 					<label> - Неписалка
-					<input class="BlockCheckbox" type="checkbox" id="S3-3" name="S3-3" disabled>
+					<input class="vka_BlockCheckbox" type="checkbox" id="S3-3" name="S3-3" disabled>
 					</label> <br>
 					<label> - Сокращение онлайна
-					<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
+					<input class="vka_BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
 					</label> <br>
 					<label> - Автолайки
-					<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
+					<input class="vka_BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
 					</label> <br>
 					<label> - Ультра-эксплоит
-					<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4">
+					<input class="vka_BlockCheckbox" type="checkbox" id="S3-4" name="S3-4">
 					</label> <br>
 				</div>
 				<hr>
-				<a class="section">Аддон</a>     
-				<div class="innerBlock" id="Section3">
+				<a class="vka_section">Аддон</a>     
+				<div class="vka_innerBlock" id="Section3">
 					Темы: <br>
 					<form>
 						<label> - VK Classic
-							<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5" checked>
+							<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" checked>
 						</label> <br>
 						<label> - VKAntlers 
-							<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5">
+							<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5">
 						</label> <br>
 						<label for="S1-5"> - Custom:
-							<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5" disabled>
+							<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" disabled>
 						</label> <br>
 						<label>1 color <br> 
 							<input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
@@ -244,24 +243,24 @@ form {
 					</form><br>
 				</div>
 				<hr>
-					<a class="section">Тестовая секция</a>     
-					<div class="innerBlock" id="Section4">
+					<a class="vka_section">Тестовая секция</a>     
+					<div class="vka_innerBlock" id="Section4">
 						<label for="S4-1">Ползунок</label> <br> 
 						<input type="range" min="0" max="100" step="25" value="50" id="S4-1" name="S4-1"> <br> <br>
 						<label for="S4-2"> - Чекбокс 1</label> 
-						<input class="BlockCheckbox"  type="checkbox" id="S4-2" name="S4-2"> <br>
+						<input class="vka_BlockCheckbox"  type="checkbox" id="S4-2" name="S4-2"> <br>
 						<label for="S4-3"> - Чекбокс 2</label> 
-						<input class="BlockCheckbox" type="checkbox" id="S4-3" name="S4-3"> <br>
+						<input class="vka_BlockCheckbox" type="checkbox" id="S4-3" name="S4-3"> <br>
 						<label for="S4-4"> - Чекбокс 3</label>  
-						<input class="BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
+						<input class="vka_BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
 						<br>Радиокнопачки: <br>
 						<form>
 						<label for="S4-5"> - Радио 1</label> 
-						<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
+						<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
 						<label for="S4-5"> - Радио 2</label> 
-						<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
+						<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
 						<label for="S4-5"> - Радио 3</label> 
-						<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> 
+						<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> 
 						</form> <br> <br>
 						<form>
 							<label for="S4-6">Текст с кнопкой</label> <br> 
