@@ -1,31 +1,32 @@
 <style type="text/css">
-	::-webkit-scrollbar{
+	
+	.vka_content::-webkit-scrollbar{
 	width: 3%;
 	border-radius: 10px;
 	}
-	::-webkit-scrollbar-button {
+	.vka_content::-webkit-scrollbar-button {
 	background-image:url('');
 	background-repeat:no-repeat;
 	width:50px;
 	height:0px
 	}
 
-	::-webkit-scrollbar-track {
+	.vka_content::-webkit-scrollbar-track {
 	background-color:lightgrey;
 	}
 
-	::-webkit-scrollbar-thumb {
+	.vka_content::-webkit-scrollbar-thumb {
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
 	background-color:black;
 	}
 
-	::-webkit-scrollbar-thumb:hover{
+	.vka_content::-webkit-scrollbar-thumb:hover{
 	background-color:grey;
 	}
 }
 
-::-webkit-scrollbar{
+.vka_content::-webkit-scrollbar{
 width: 4px;
 }
 
@@ -99,29 +100,29 @@ width: 4px;
 	display: block;
 }
 
-a {
+[class*="vka_"] a {
 	color: black;
 	font-family: 'Montserrat', sans-serif;
 }
-a:link {
+[class*="vka_"] a:link {
 	text-decoration: none;
 }
-a:hover {
+[class*="vka_"] a:hover {
 	text-decoration: none;
 	color: darkgrey;
 }
-a:visited {
+[class*="vka_"] a:visited {
 	text-decoration: none;
 }
-a:active {
+[class*="vka_"] a:active {
 	text-decoration: none;
 }
 
-label {
+[class*="vka_"] label {
 	font-family: 'Montserrat', sans-serif;
 }
 
-form {
+[class*="vka_"] form {
 	margin-bottom: 0;
 }
 
@@ -185,10 +186,12 @@ form {
 				<hr>
 				<a class="vka_section">Текст</a>     
 				<div class="vka_innerBlock" id="Section2">
-					<label for="S2-1"> - Замена мата на странице</label> 
-					<input class="vka_BlockCheckbox"  type="checkbox" id="text_antifucker" name="S2-1" disabled> <br>
-					<label for="S2-2"> - Кастомный шрифт</label> 
-					<input class="vka_BlockCheckbox" type="checkbox" id="text_custom_font" name="S2-2"> <br>
+					<label> - Замена мата на странице 
+					<input class="vka_BlockCheckbox"  type="checkbox" id="text_antifucker" name="S2-1" disabled>
+					</label> <br>
+					<label> - Кастомный шрифт
+					<input class="vka_BlockCheckbox" type="checkbox" id="text_custom_font" name="S2-2">
+					</label> <br>
 					<form>
 						<label for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
 						<input type="text" id="S2-6" name="S2-6" style="width: 50%;">
@@ -275,7 +278,7 @@ form {
 </div>
 <script type="text/javascript">
 		var $ = window.jQuery;
-        $('.section').on("click",function() {
-            $(this).next('.innerBlock').toggleClass('displayBlock');
+        $('.vka_section').on("click",function() {
+            $(this).next('.vka_innerBlock').toggleClass('vka_displayBlock');
         });
 </script>
