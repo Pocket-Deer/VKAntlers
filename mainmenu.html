@@ -28,6 +28,12 @@
 ::-webkit-scrollbar{
 width: 4px;
 }
+
+.menu_wrappet {
+	display: none;
+	z-index: 9999;
+}
+
 .parent {
 	width: 100%;
 	height: 100%;
@@ -128,141 +134,143 @@ form {
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-<div class="parent">
-	<div class="block">
-		<div class="title">
-			<a style="color: white;">VKAntlers</a>
-			<a style="font-size: 10px; color: white;margin-left: 10px;">v. 0.1.1.0</a>
-			<a style="float: right; color: white; cursor: pointer;">Close</a>
-		</div> 
-		<div class="content">
-			<a class="section">Стиль</a>     
-			<div class="innerBlock" id="Section1">
-				<label> - Кастомная тема
-					<input class="BlockCheckbox"  type="checkbox" id="theme" name="S1-1">
-				</label>  <br>
-				Темы: <br>
-				<form>
-					<label> - Тёмная ()
-						<input class="BlockCheckbox" type="radio" id="theme_style_dark" name="themestyle" checked>
+<div class="menu_wrapper">
+	<div class="parent">
+		<div class="block">
+			<div class="title">
+				<a style="color: white;">VKAntlers</a>
+				<a style="font-size: 10px; color: white;margin-left: 10px;">v. 0.1.1.0</a>
+				<a style="float: right; color: white; cursor: pointer;">Close</a>
+			</div> 
+			<div class="content">
+				<a class="section">Стиль</a>     
+				<div class="innerBlock" id="Section1">
+					<label> - Кастомная тема
+						<input class="BlockCheckbox"  type="checkbox" id="theme" name="S1-1">
 					</label>  <br>
-					<label> - Неоновая
-						<input class="BlockCheckbox" type="radio" id="theme_style_neon" name="themestyle" disabled>
-					</label>  <br>
-					<label> - Градиент
-						<input class="BlockCheckbox" type="radio" id="theme_style_gradient" name="themestyle" disabled>
-					</label>  <br>
-					<label> - Кастомная
-						<input class="BlockCheckbox" type="radio" id="theme_style_custom" name="themestyle" disabled>
-					</label>  <br> 
-				</form>
-				<form>
-					<label for="S2-6">Подгрузка стиля с ...</label> <br> 
-					<input type="text" id="S2-6" name="S2-6" style="width: 50%;" disabled>
-					<input type="submit" name="submit" value="Сохранить" disabled>
-				</form>
-				<label> - Автопереключение темы
-					<input class="BlockCheckbox"  type="checkbox" id="theme_changer" name="S1-7">
-				</label>  <br>
-				<form>
-					<label>Время переключения</label> <br> 
-					с <input type="text" id="theme_changer_timestart" name="S1-2" style="width: 5%; text-align: center;"> по <input type="text" id="theme_changer_timeend" name="S1-3" style="width: 5%; text-align: center;">
-					<input type="submit" name="submit" value="Сохранить">
-				</form> <br>
-				<label> - Значок смены темы в правом верхнем углу
-					<input class="BlockCheckbox"  type="checkbox" id="theme_icon" name="S1-4">
-				</label> <br>
-				<label> - Кастомные хэштеги
-					<input class="BlockCheckbox" type="checkbox" id="hashtag_toggle" name="S1-5">
-				</label> <br>
-			</div>
-			<hr>
-			<a class="section">Текст</a>     
-			<div class="innerBlock" id="Section2">
-				<label for="S2-1"> - Замена мата на странице</label> 
-				<input class="BlockCheckbox"  type="checkbox" id="text_antifucker" name="S2-1" disabled> <br>
-				<label for="S2-2"> - Кастомный шрифт</label> 
-				<input class="BlockCheckbox" type="checkbox" id="text_custom_font" name="S2-2"> <br>
-				<form>
-					<label for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
-					<input type="text" id="S2-6" name="S2-6" style="width: 50%;">
-					<input type="submit" name="submit" value="Сохранить">
-				</form>
-				<label>Размер шрифта
-				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
-				<output name="ageOutputName" id="text_custom_font_size_output">14</output>
-				</label> <br>
-			</div>
-			<hr>
-			<a class="section">Патчи</a>     
-			<div class="innerBlock" id="Section3">
-				<label> - Нечиталка
-				<input class="BlockCheckbox"  type="checkbox" id="S3-2" name="S3-2" disabled>
-				</label> <br>
-				<label> - Неписалка
-				<input class="BlockCheckbox" type="checkbox" id="S3-3" name="S3-3" disabled>
-				</label> <br>
-				<label> - Сокращение онлайна
-				<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
-				</label> <br>
-				<label> - Автолайки
-				<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
-				</label> <br>
-				<label> - Ультра-эксплоит
-				<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4">
-				</label> <br>
-			</div>
-			<hr>
-			<a class="section">Аддон</a>     
-			<div class="innerBlock" id="Section3">
-				Темы: <br>
-				<form>
-					<label> - VK Classic
-						<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5" checked>
-					</label> <br>
-					<label> - VKAntlers 
-						<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5">
-					</label> <br>
-					<label for="S1-5"> - Custom:
-						<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5" disabled>
-					</label> <br>
-					<label>1 color <br> 
-						<input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
-						<output name="ageOutputName" id="custom_addon_color1_out">0</output>
-					</label> <br>
-					<label>2 color <br> 
-						<input type="range" min="0" max="255" step="1" value="255" id="custom_addon_color2" name="S4-1" oninput="custom_addon_color2_out.value = custom_addon_color2.value">
-						<output name="ageOutputName" id="custom_addon_color2_out">255</output>
-					</label>
-				</form><br>
-			</div>
-			<hr>
-				<a class="section">Тестовая секция</a>     
-				<div class="innerBlock" id="Section4">
-					<label for="S4-1">Ползунок</label> <br> 
-					<input type="range" min="0" max="100" step="25" value="50" id="S4-1" name="S4-1"> <br> <br>
-					<label for="S4-2"> - Чекбокс 1</label> 
-					<input class="BlockCheckbox"  type="checkbox" id="S4-2" name="S4-2"> <br>
-					<label for="S4-3"> - Чекбокс 2</label> 
-					<input class="BlockCheckbox" type="checkbox" id="S4-3" name="S4-3"> <br>
-					<label for="S4-4"> - Чекбокс 3</label>  
-					<input class="BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
-					<br>Радиокнопачки: <br>
+					Темы: <br>
 					<form>
-					<label for="S4-5"> - Радио 1</label> 
-					<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label for="S4-5"> - Радио 2</label> 
-					<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label for="S4-5"> - Радио 3</label> 
-					<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> 
-					</form> <br> <br>
-					<form>
-						<label for="S4-6">Текст с кнопкой</label> <br> 
-						<input type="text" id="S4-6" name="S4-6" style="width: 5%;"> - <input type="text" id="S4-7" name="S4-7" style="width: 5%;">
-						<input type="submit" name="submit">
+						<label> - Тёмная ()
+							<input class="BlockCheckbox" type="radio" id="theme_style_dark" name="themestyle" checked>
+						</label>  <br>
+						<label> - Неоновая
+							<input class="BlockCheckbox" type="radio" id="theme_style_neon" name="themestyle" disabled>
+						</label>  <br>
+						<label> - Градиент
+							<input class="BlockCheckbox" type="radio" id="theme_style_gradient" name="themestyle" disabled>
+						</label>  <br>
+						<label> - Кастомная
+							<input class="BlockCheckbox" type="radio" id="theme_style_custom" name="themestyle" disabled>
+						</label>  <br> 
 					</form>
+					<form>
+						<label for="S2-6">Подгрузка стиля с ...</label> <br> 
+						<input type="text" id="S2-6" name="S2-6" style="width: 50%;" disabled>
+						<input type="submit" name="submit" value="Сохранить" disabled>
+					</form>
+					<label> - Автопереключение темы
+						<input class="BlockCheckbox"  type="checkbox" id="theme_changer" name="S1-7">
+					</label>  <br>
+					<form>
+						<label>Время переключения</label> <br> 
+						с <input type="text" id="theme_changer_timestart" name="S1-2" style="width: 5%; text-align: center;"> по <input type="text" id="theme_changer_timeend" name="S1-3" style="width: 5%; text-align: center;">
+						<input type="submit" name="submit" value="Сохранить">
+					</form> <br>
+					<label> - Значок смены темы в правом верхнем углу
+						<input class="BlockCheckbox"  type="checkbox" id="theme_icon" name="S1-4">
+					</label> <br>
+					<label> - Кастомные хэштеги
+						<input class="BlockCheckbox" type="checkbox" id="hashtag_toggle" name="S1-5">
+					</label> <br>
 				</div>
-			<hr>			     			     			     			     
+				<hr>
+				<a class="section">Текст</a>     
+				<div class="innerBlock" id="Section2">
+					<label for="S2-1"> - Замена мата на странице</label> 
+					<input class="BlockCheckbox"  type="checkbox" id="text_antifucker" name="S2-1" disabled> <br>
+					<label for="S2-2"> - Кастомный шрифт</label> 
+					<input class="BlockCheckbox" type="checkbox" id="text_custom_font" name="S2-2"> <br>
+					<form>
+						<label for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
+						<input type="text" id="S2-6" name="S2-6" style="width: 50%;">
+						<input type="submit" name="submit" value="Сохранить">
+					</form>
+					<label>Размер шрифта
+					<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
+					<output name="ageOutputName" id="text_custom_font_size_output">14</output>
+					</label> <br>
+				</div>
+				<hr>
+				<a class="section">Патчи</a>     
+				<div class="innerBlock" id="Section3">
+					<label> - Нечиталка
+					<input class="BlockCheckbox"  type="checkbox" id="S3-2" name="S3-2" disabled>
+					</label> <br>
+					<label> - Неписалка
+					<input class="BlockCheckbox" type="checkbox" id="S3-3" name="S3-3" disabled>
+					</label> <br>
+					<label> - Сокращение онлайна
+					<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
+					</label> <br>
+					<label> - Автолайки
+					<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
+					</label> <br>
+					<label> - Ультра-эксплоит
+					<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4">
+					</label> <br>
+				</div>
+				<hr>
+				<a class="section">Аддон</a>     
+				<div class="innerBlock" id="Section3">
+					Темы: <br>
+					<form>
+						<label> - VK Classic
+							<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5" checked>
+						</label> <br>
+						<label> - VKAntlers 
+							<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5">
+						</label> <br>
+						<label for="S1-5"> - Custom:
+							<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5" disabled>
+						</label> <br>
+						<label>1 color <br> 
+							<input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
+							<output name="ageOutputName" id="custom_addon_color1_out">0</output>
+						</label> <br>
+						<label>2 color <br> 
+							<input type="range" min="0" max="255" step="1" value="255" id="custom_addon_color2" name="S4-1" oninput="custom_addon_color2_out.value = custom_addon_color2.value">
+							<output name="ageOutputName" id="custom_addon_color2_out">255</output>
+						</label>
+					</form><br>
+				</div>
+				<hr>
+					<a class="section">Тестовая секция</a>     
+					<div class="innerBlock" id="Section4">
+						<label for="S4-1">Ползунок</label> <br> 
+						<input type="range" min="0" max="100" step="25" value="50" id="S4-1" name="S4-1"> <br> <br>
+						<label for="S4-2"> - Чекбокс 1</label> 
+						<input class="BlockCheckbox"  type="checkbox" id="S4-2" name="S4-2"> <br>
+						<label for="S4-3"> - Чекбокс 2</label> 
+						<input class="BlockCheckbox" type="checkbox" id="S4-3" name="S4-3"> <br>
+						<label for="S4-4"> - Чекбокс 3</label>  
+						<input class="BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
+						<br>Радиокнопачки: <br>
+						<form>
+						<label for="S4-5"> - Радио 1</label> 
+						<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
+						<label for="S4-5"> - Радио 2</label> 
+						<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
+						<label for="S4-5"> - Радио 3</label> 
+						<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> 
+						</form> <br> <br>
+						<form>
+							<label for="S4-6">Текст с кнопкой</label> <br> 
+							<input type="text" id="S4-6" name="S4-6" style="width: 5%;"> - <input type="text" id="S4-7" name="S4-7" style="width: 5%;">
+							<input type="submit" name="submit">
+						</form>
+					</div>
+				<hr>			     			     			     			     
+			</div>
 		</div>
 	</div>
 </div>
