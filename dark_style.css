@@ -1,6 +1,4 @@
-@-moz-document url-prefix("https://vk.com")
-{
-  :root
+ :root
   {
     --bg: #24282d;
     --wnd: #31373c;
@@ -3368,7 +3366,7 @@ html[dir]
 [dir] .pv_cont .pv_closed_commments_placeholder
 {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAA6BAMAAAA5Jaa0AAAAIVBMVEVHcEzW4OrZ4+vW4OrW4OrX4erY4evV3+l8g4sxNzxfZmxQFOOZAAAAB3RSTlMA6B+wjnBU+CPn7wAAAMNJREFUOMtjYIACpmBBQVMFBjTA5F4OBCXo4onlZgpMyeViqKKs5UYgSrk8AEU4vRRCh5ehmCwOVcVaiGw6SzGMZe6AJKxehMkCGWkAYzGXIgmbJ8BYbMVIwuJwi5gKkYURTGThcqzMYSTMIl6OAQodGDw6sIAWBomZWEAjQwU24fZBKTxrJTbhGR0dnViEO8rLO7AIt5eXV2AKzwIJryRWGIchuKyc0V6BzYEz2ytm0lt4RRcJATtYEwSOhIwj2WPPJADVy9uIDXFJGQAAAABJRU5ErkJggg==);
-}}
+}
 
 @-moz-document url-prefix("https://connect.vk.com")
 {
