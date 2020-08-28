@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      0.1.1.0
+// @version      0.1.1.1
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -95,7 +95,7 @@ GM_setValue("logo_hashtag_text",hashtag_list[Math.floor(Math.random() * hashtag_
 var dark_style = GM_getValue("dark_style");
 var theme_changer = GM_getValue("theme_changer");
 
-GM_setValue("theme_changer", "1"); // Для отключения автопереключения тёмной темы, замените 1 на 0
+GM_setValue("theme_changer", "0"); // Для отключения автопереключения тёмной темы, замените 1 на 0
 //https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
 
 // ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ
@@ -365,9 +365,14 @@ console.log ("==> Script end.", new Date() );
 // Скрипт смены тёмного стиля по времени от 21 вечера до 8 утра
 // Функция переключения тёмного стиля
 
+if (theme_changer == 0){
+    dark_theme_func();
+};
+
 function dark_theme_func(){
     if (dark_style == 1){
         $("head").after('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
+        alert("getit");
     } if (dark_style == 0) {
         $("#dark_theme_style").remove();
     }
