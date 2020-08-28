@@ -372,7 +372,7 @@ if (theme_changer == 0){
 function dark_theme_func(){
     if (dark_style == 1){
         $("head").after('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
-        alert("getit");
+//        alert("getit");
     } if (dark_style == 0) {
         $("#dark_theme_style").remove();
     }
