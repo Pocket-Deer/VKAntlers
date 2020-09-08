@@ -14,7 +14,7 @@
 			<div class="vka_innerBlock" id="Section1">
 				<form class="vka_form">
 					<label> - Кастомная тема
-						<input class="vka_BlockCheckbox"  type="checkbox" id="custom_theme" name="S1-1">
+						<input class="vka_BlockCheckbox"  type="checkbox" id="custom_theme" name="custom_theme_changer" onclick="vka_settings_set()">
 					</label>  <br>
 					Темы: <br>
 						<label> - Тёмная ()
@@ -33,17 +33,17 @@
 						<input type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
 						<input type="submit" name="submit" value="Сохранить" disabled>
 					<label> - Автопереключение темы
-						<input class="vka_BlockCheckbox" type="checkbox" id="custom_theme_autotogggle" name="theme_changer">
+						<input class="vka_BlockCheckbox" type="checkbox" id="custom_theme_autotogggle" name="theme_changer" onclick="vka_settings_set()">
 					</label>  <br>
 						<label>Время переключения</label> <br> 
 						с <input type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;">
-						<input type="submit" name="submit" value="Сохранить">
+						<input type="submit" name="submit" value="Сохранить" onclick="vka_settings_set()">
 					<br>
 					<label> - Значок смены темы в правом верхнем углу
-						<input class="vka_BlockCheckbox"  type="checkbox" id="custom_theme_icon" name="theme_icon">
+						<input class="vka_BlockCheckbox"  type="checkbox" id="custom_theme_icon" name="theme_icon" onclick="vka_settings_set()">
 					</label> <br>
 					<label> - Кастомные хэштеги
-						<input class="vka_BlockCheckbox" type="checkbox" id="custom_hashtags" name="hashtag_toggle">
+						<input class="vka_BlockCheckbox" type="checkbox" id="custom_hashtags" name="hashtag_toggle" onclick="vka_settings_set()">
 					</label> <br>
 				</form>
 			</div>
@@ -70,22 +70,22 @@
 			<a class="vka_section">Патчи</a>     
 			<div class="vka_innerBlock" id="Section3">
 				<label> - Нечиталка
-				<input class="vka_BlockCheckbox"  type="checkbox" id="unread" name="S3-2">
+				<input class="vka_BlockCheckbox"  type="checkbox" id="unread" name="S3-2" onclick="vka_settings_set()">
 				</label> <br>
 				<label> - Неписалка
-				<input class="vka_BlockCheckbox" type="checkbox" id="untype" name="S3-3">
+				<input class="vka_BlockCheckbox" type="checkbox" id="untype" name="S3-3" onclick="vka_settings_set()">
 				</label> <br>
 				<label> - Частичный оффлайн
-				<input class="vka_BlockCheckbox" type="checkbox" id="offline" name="S3-4">
+				<input class="vka_BlockCheckbox" type="checkbox" id="offline" name="S3-4" onclick="vka_settings_set()">
 				</label> <br>
 				<label> - Полный оффлайн (критично)
-				<input class="vka_BlockCheckbox" type="checkbox" id="full_offline" name="S3-4" disabled>
+				<input class="vka_BlockCheckbox" type="checkbox" id="full_offline" name="S3-4" onclick="vka_settings_set()" disabled>
 				</label> <br>
 				<label> - Автолайки
-				<input class="vka_BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" disabled>
+				<input class="vka_BlockCheckbox" type="checkbox" id="S3-4" name="S3-4" onclick="vka_settings_set()" disabled>
 				</label> <br>
 				<label> - Рогалик
-				<input class="vka_BlockCheckbox" type="checkbox" id="antlers_exploit" name="S3-4">
+				<input class="vka_BlockCheckbox" type="checkbox" id="antlers_exploit" name="S3-4" onclick="vka_settings_set()">
 				</label> <br>
 			</div>
 			<hr>
@@ -94,13 +94,13 @@
 				Темы: <br>
 				<form>
 					<label> - VK Classic
-						<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" disabled>
+						<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" onclick="vka_settings_set()" disabled>
 					</label> <br>
 					<label> - VKAntlers 
-						<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" checked>
+						<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" onclick="vka_settings_set()" checked>
 					</label> <br>
 					<label for="S1-5"> - Custom:
-						<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" disabled>
+						<input class="vka_BlockCheckbox" type="radio" id="S1-5" name="S1-5" onclick="vka_settings_set()" disabled>
 					</label> <br>
 					<label>1 color <br> 
 						<input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
