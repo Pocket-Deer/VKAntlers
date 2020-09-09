@@ -83,7 +83,7 @@ width: 4px;
 	border-width: 0px 0px 0px 1px;
 	display: none;
 }
-.vka_BlockCheckbox {
+.vka_field {
 	float: left;
 	transform:scale(1.3);
 	opacity:0.9;
