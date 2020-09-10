@@ -31,10 +31,10 @@
 					<label> - Автопереключение темы
 						<input class="vka_field" type="checkbox" id="custom_theme_autotogggle" name="theme_changer">
 					</label>  <br>
-						<label>Время переключения</label> <br> 
+						<label>Время переключения <br> 
 						с <input type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;">
 						<input type="submit" name="submit" value="Сохранить">
-					<br>
+					</label>  <br>
 					<label> - Значок смены темы в правом верхнем углу
 						<input class="vka_field"  type="checkbox" id="custom_theme_icon" name="theme_icon">
 					</label> <br>
@@ -57,11 +57,11 @@
 				</label> <br>
 				<form>
 					<label for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
-					<input class="vka_field" type="text" id="S2-6" name="S2-6" style="width: 50%;">
-					<input class="vka_field" type="submit" name="submit" value="Сохранить">
+					<input type="text" id="S2-6" name="S2-6" style="width: 50%;">
+					<input type="submit" name="submit" value="Сохранить">
 				</form>
 				<label>Размер шрифта
-				<input class="vka_field" type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
+				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
 				<output name="ageOutputName" id="text_custom_font_size_output">14</output>
 				</label> <br>
 			</div>
