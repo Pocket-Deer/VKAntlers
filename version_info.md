@@ -1,9 +1,9 @@
-<div style="font-family: Geneva, Arial, Helvetica, sans-serif">
+<div style="font-family: Verdana">
 <header><h3 style="color: black; font-size: 28px; margin-bottom: 0; margin-top:0px; text-align: center">VKAntlers</h3></header><header><h3 style="color: black; font-size: 20px; margin-bottom: 0; margin-top:0px; text-align: center">Список обновлений</h3></header><header><h3 style="color: black; font-size: 12px; margin-bottom: 0; margin-top:0px; text-align: center">Чтобы закрыть это окно - щёлкните в любом месте левой кнопкой мыши</header>
 
 <hr>
 
-<header><h3 style="color: black; font-size: 16px; margin-bottom: 0">"Outbreak update"</h3></header>
+<header><h3 style="color: black; font-size: 18px; margin-bottom: 0">"Outbreak update"</h3></header>
 <header><h3 style="color: black; font-size: 16px; margin-bottom: 0">Версия 1.1.4</h3></header>
 <ul>
 <li>Теперь визуальное меню имеет функционал!
