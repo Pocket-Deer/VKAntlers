@@ -1,0 +1,16 @@
+  <div class="popup_box_container" tabindex="0" style="width: 650px; height: auto; margin-top: 50px;">
+  <div class="box_layout" onclick="boxQueue.skip=true;">
+    <div class="box_title_wrap">
+      <div class="box_x_button" aria-label="Закрыть" tabindex="0" role="button"></div>
+      <div class="box_title_controls"></div>
+      <div class="box_title">VKAntlers<sup><i></i></sup> история версий</div>
+    </div>
+
+    <div class="box_body box_no_buttons" style="padding:0px;">
+           <div class="vka_version_info">
+           </div></div>
+
+        <div class="box_controls_text _box_controls_text"></div>
+      </div>
+    <div>
+  </div></div></div></div>
