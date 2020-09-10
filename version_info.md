@@ -1,5 +1,5 @@
 <div style="font-family: Geneva, Arial, Helvetica, sans-serif">
-<header><h3 style="color: black; font-size: 26px; margin-bottom: 0; text-align: center">VKAntlers</h3></header><header><h3 style="color: black; font-size: 20px; margin-bottom: 0; margin-top:0px; text-align: center">Список обновлений</h3></header><header><h3 style="color: black; font-size: 12px; margin-bottom: 0; margin-top:0px; text-align: center">Чтобы закрыть это окно - щёлкните в любом месте левой кнопкой мыши</header>
+<header><h3 style="color: black; font-size: 28px; margin-bottom: 0; margin-top:0px; text-align: center">VKAntlers</h3></header><header><h3 style="color: black; font-size: 20px; margin-bottom: 0; margin-top:0px; text-align: center">Список обновлений</h3></header><header><h3 style="color: black; font-size: 12px; margin-bottom: 0; margin-top:0px; text-align: center">Чтобы закрыть это окно - щёлкните в любом месте левой кнопкой мыши</header>
 
 <hr>
 
