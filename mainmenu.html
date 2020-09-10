@@ -7,7 +7,7 @@
 		</div> 
 		<div class="vka_content">
 			<a class="vka_section">Стиль</a>     
-			<div class="vka_innerBlock" id="Section1">
+			<div class="vka_innerBlock vka_displayBlock" id="Section1">
 				<form class="vka_form">
 					<label> - Кастомная тема
 						<input class="vka_field"  type="checkbox" id="custom_theme" name="custom_theme_changer">
@@ -26,14 +26,14 @@
 							<input class="vka_field" type="radio" id="theme_type_custom" name="theme_style_custom" disabled>
 						</label>  <br>
 						<label for="S2-6">Подгрузка стиля с ...</label> <br> 
-						<input class="vka_field" type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
-						<input class="vka_field" type="submit" name="submit" value="Сохранить" disabled>
+						<input type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
+						<input type="submit" name="submit" value="Сохранить" disabled> <br>
 					<label> - Автопереключение темы
 						<input class="vka_field" type="checkbox" id="custom_theme_autotogggle" name="theme_changer">
 					</label>  <br>
 						<label>Время переключения</label> <br> 
-						с <input class="vka_field" type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input class="vka_field" type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;">
-						<input class="vka_field" type="submit" name="submit" value="Сохранить">
+						с <input type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;">
+						<input type="submit" name="submit" value="Сохранить">
 					<br>
 					<label> - Значок смены темы в правом верхнем углу
 						<input class="vka_field"  type="checkbox" id="custom_theme_icon" name="theme_icon">
