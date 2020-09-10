@@ -1,4 +1,5 @@
-<header><h3 style="color: black; font-size: 16px; margin-bottom: 0; text-align: center">VKAntlers Список обновлений</h3></header><header><h3 style="color: black; font-size: 12px; margin-bottom: 0; text-align: center">Чтобы закрыть это окно - щёлкните в любом месте левой кнопкой мыши</header>
+<div style="font-family: Geneva, Arial, Helvetica, sans-serif">
+<header><h3 style="color: black; font-size: 26px; margin-bottom: 0; text-align: center">VKAntlers</h3></header><header><h3 style="color: black; font-size: 20px; margin-bottom: 0; margin-top:0px; text-align: center">Список обновлений</h3></header><header><h3 style="color: black; font-size: 12px; margin-bottom: 0; margin-top:0px; text-align: center">Чтобы закрыть это окно - щёлкните в любом месте левой кнопкой мыши</header>
 
 <hr>
 
@@ -50,7 +51,7 @@
 			</li>
 			<li>Неписалка
 				<ul>
-					<li>Отключает статус "печатает сообщение...", другие пользователи не будут видеть что вы печатаете.)</li>				
+					<li>Отключает статус "печатает сообщение...", другие пользователи не будут видеть что вы печатаете.</li>				
 				</ul>
 			</li>
 			<li>Рогалик
@@ -110,7 +111,11 @@
 <hr>
 
 <header><h3 style="color: black; font-size:16px; margin-bottom: 0">Версия 0.1.0.0</h3></header>
-> Добавлено меню при нажатии на правый Alt<br/>
-> Меню не имеет никакого функционала<br/>
-> Добавлено открытие списка прикрепляемых файлов при двойном нажатии на Tab<br/>
-> Добавлены кастомные хэштеги во время пандемии 2020<br/>
+<ul>
+<li>Добавлено меню при нажатии на правый Alt</li>
+<li>Меню не имеет никакого функционала</li>
+<li>Добавлено открытие списка прикрепляемых файлов при двойном нажатии на Tab</li>
+<li>Добавлены кастомные хэштеги во время пандемии 2020</li>
+
+</ul>
+</div>
