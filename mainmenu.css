@@ -1,26 +1,26 @@
 	.vka_content::-webkit-scrollbar{
-	width: 3%;
-	border-radius: 10px;
+	-webkit-width: 3%;
+	-webkit-border-radius: 10px;
 	}
 	.vka_content::-webkit-scrollbar-button {
-	background-image:url('');
-	background-repeat:no-repeat;
-	width:50px;
-	height:0px
+	-webkit-background-image:url('');
+	-webkit-background-repeat:no-repeat;
+	-webkit-width:50px;
+	-webkit-height:0px
 	}
 
 	.vka_content::-webkit-scrollbar-track {
-	background-color:lightgrey;
+	-webkit-background-color:lightgrey;
 	}
 
 	.vka_content::-webkit-scrollbar-thumb {
 	-webkit-border-radius: 0px;
-	border-radius: 0px;
-	background-color:black;
+	-webkit-border-radius: 0px;
+	-webkit-background-color:black;
 	}
 
 	.vka_content::-webkit-scrollbar-thumb:hover{
-	background-color:grey;
+	-webkit-background-color:grey;
 	}
 }
 
@@ -38,9 +38,9 @@ width: 4px;
 	align-items: center;
 	align-content: center; 
 	justify-content: center; 
-	overflow: auto;
+	overflow: scroll;
 	background-color: rgba(0,0,0,0.5);
-	z-index: 99;
+	z-index: 999;
 }
 
 .vka_parent_flex{
