@@ -1,32 +1,4 @@
-	.vka_content::-webkit-scrollbar{
-	-webkit-width: 3%;
-	-webkit-border-radius: 10px;
-	}
-	.vka_content::-webkit-scrollbar-button {
-	-webkit-background-image:url('');
-	-webkit-background-repeat:no-repeat;
-	-webkit-width:50px;
-	-webkit-height:0px
-	}
 
-	.vka_content::-webkit-scrollbar-track {
-	-webkit-background-color:lightgrey;
-	}
-
-	.vka_content::-webkit-scrollbar-thumb {
-	-webkit-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	-webkit-background-color:black;
-	}
-
-	.vka_content::-webkit-scrollbar-thumb:hover{
-	-webkit-background-color:grey;
-	}
-}
-
-.vka_content::-webkit-scrollbar{
-width: 4px;
-}
 
 .vka_parent {
 	width: 100%;
