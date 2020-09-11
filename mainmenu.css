@@ -62,7 +62,7 @@ width: 4px;
 	z-index: 999;
 	padding: 2% 2% 2% 2%;
 	font-size: 15pt;
-	overflow: auto;
+	overflow-y: scroll;
 	width: 96.1%;
 	height: 71.1%;
 }
