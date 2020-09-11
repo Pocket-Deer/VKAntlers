@@ -13,35 +13,34 @@
 						<input class="vka_field"  type="checkbox" id="custom_theme" name="custom_theme_changer">
 					</label>  <br>
 					Темы: <br>
-						<label> - Тёмная ()
+						<label class="vka_label"> - Тёмная ()
 							<input class="vka_field" type="radio" id="theme_type_dark" name="theme_style_dark" checked>
 						</label>  <br>
-						<label> - Неоновая
+						<label class="vka_label"> - Неоновая
 							<input class="vka_field" type="radio" id="theme_type_neon" name="theme_style_neon" disabled>
 						</label>  <br>
-						<label> - Градиент
+						<label class="vka_label"> - Градиент
 							<input class="vka_field" type="radio" id="theme_type_gradient" name="theme_style_gradient" disabled>
 						</label>  <br>
-						<label> - Кастомная
+						<label class="vka_label"> - Кастомная
 							<input class="vka_field" type="radio" id="theme_type_custom" name="theme_style_custom" disabled>
 						</label>  <br>
-						<label for="S2-6">Подгрузка стиля с ...</label> <br> 
+						<label  class="vka_label">Подгрузка стиля с ...</label> <br> 
 						<input class="vka_textarea" type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
 						<input type="submit" name="submit" value="Сохранить" disabled> <br>
-					<label> - Автопереключение темы
+					<label class="vka_label"> - Автопереключение темы
 						<input class="vka_field" type="checkbox" id="custom_theme_autotoggle" name="theme_changer">
 					</label>  <br>
-						<label>Время переключения <br> 
+						<label class="vka_label">Время переключения <br> 
 						с <input class="vka_textarea" type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input class="vka_textarea" type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;">
-						<input type="submit" name="submit" value="Сохранить">
 					</label>  <br>
-					<label> - Значок смены темы в правом верхнем углу
+					<label class="vka_label"> - Значок смены темы в правом верхнем углу
 						<input class="vka_field"  type="checkbox" id="custom_theme_icon" name="theme_icon">
 					</label> <br>
-					<label> - Кастомные хэштеги
+					<label class="vka_label"> - Кастомные хэштеги
 						<input class="vka_field" type="checkbox" id="custom_hashtags" name="hashtag_toggle">
 					</label> <br>
-					<label> - Кнопка назад в новом дизайне диалогов
+					<label class="vka_label"> - Кнопка назад в новом дизайне диалогов
 						<input class="vka_field" type="checkbox" id="custom_back_button" name="hashtag_toggle">
 					</label> <br>
 				</form>
@@ -49,18 +48,18 @@
 			<hr>
 			<a class="vka_section">Текст</a>     
 			<div class="vka_innerBlock" id="Section2">
-				<label> - Замена мата на странице 
+				<label class="vka_label"> - Замена мата на странице 
 				<input class="vka_field"  type="checkbox" id="text_antifucker" name="S2-1" disabled>
 				</label> <br>
-				<label> - Кастомный шрифт
+				<label class="vka_label"> - Кастомный шрифт
 				<input class="vka_field" type="checkbox" id="text_custom_font" name="S2-2" disabled>
 				</label> <br>
 				<form>
-					<label for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
+					<label  class="vka_label" for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
 					<input class="vka_textarea" type="text" id="S2-6" name="S2-6" style="width: 50%;">
 					<input type="submit" name="submit" value="Сохранить">
 				</form>
-				<label>Размер шрифта
+				<label class="vka_label">Размер шрифта
 				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
 				<output name="ageOutputName" id="text_custom_font_size_output">14</output>
 				</label> <br>
@@ -68,22 +67,22 @@
 			<hr>
 			<a class="vka_section">Патчи</a>     
 			<div class="vka_innerBlock" id="Section3">
-				<label> - Нечиталка
+				<label class="vka_label"> - Нечиталка
 				<input class="vka_field"  type="checkbox" id="unread" name="unread">
 				</label> <br>
-				<label> - Неписалка
+				<label class="vka_label"> - Неписалка
 				<input class="vka_field" type="checkbox" id="untype" name="untype">
 				</label> <br>
-				<label> - Частичный оффлайн
+				<label class="vka_label"> - Частичный оффлайн
 				<input class="vka_field" type="checkbox" id="offline" name="offline" disabled>
 				</label> <br>
-				<label> - Полный оффлайн (критично)
+				<label class="vka_label"> - Полный оффлайн (критично)
 				<input class="vka_field" type="checkbox" id="full_offline" name="full_offline" disabled>
 				</label> <br>
-				<label> - Автолайки
+				<label class="vka_label"> - Автолайки
 				<input class="vka_field" type="checkbox" id="auto_likes" name="auto_likes" disabled>
 				</label> <br>
-				<label> - Рогалик
+				<label class="vka_label"> - Рогалик
 				<input class="vka_field" type="checkbox" id="antlers_exploit" name="S3-4">
 				</label> <br>
 			</div>
@@ -92,20 +91,20 @@
 			<div class="vka_innerBlock" id="Section3">
 				Темы: <br>
 				<form>
-					<label> - VK Classic
+					<label class="vka_label"> - VK Classic
 						<input class="vka_field" type="radio" id="" name="S1-5" disabled>
 					</label> <br>
-					<label> - VKAntlers 
+					<label class="vka_label"> - VKAntlers 
 						<input class="vka_field" type="radio" id="S1-5" name="S1-5" checked>
 					</label> <br>
-					<label for="S1-5"> - Custom:
+					<label  class="vka_label"> - Custom:
 						<input class="vka_field" type="radio" id="S1-5" name="S1-5" disabled>
 					</label> <br>
-					<label>1 color <br> 
+					<label class="vka_label">1 color <br> 
 						<input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
 						<output name="ageOutputName" id="custom_addon_color1_out">0</output>
 					</label> <br>
-					<label>2 color <br> 
+					<label class="vka_label">2 color <br> 
 						<input type="range" min="0" max="255" step="1" value="255" id="custom_addon_color2" name="S4-1" oninput="custom_addon_color2_out.value = custom_addon_color2.value">
 						<output name="ageOutputName" id="custom_addon_color2_out">255</output>
 					</label>
@@ -114,25 +113,25 @@
 			<hr>
 				<a class="vka_section">Тестовая секция</a>     
 				<div class="vka_innerBlock" id="Section4">
-					<label for="S4-1">Ползунок</label> <br> 
+					<label class="vka_label">Ползунок</label> <br> 
 					<input type="range" min="0" max="100" step="25" value="50" id="S4-1" name="S4-1"> <br> <br>
-					<label for="S4-2"> - Чекбокс 1</label> 
+					<label class="vka_label"> - Чекбокс 1</label> 
 					<input class="vka_field"  type="checkbox" id="S4-2" name="S4-2"> <br>
-					<label for="S4-3"> - Чекбокс 2</label> 
+					<label class="vka_label"> - Чекбокс 2</label> 
 					<input class="vka_field" type="checkbox" id="S4-3" name="S4-3"> <br>
-					<label for="S4-4"> - Чекбокс 3</label>  
+					<label class="vka_label"> - Чекбокс 3</label>  
 					<input class="vka_BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
 					<br>Радиокнопачки: <br>
 					<form>
-					<label for="S4-5"> - Радио 1</label> 
+					<label class="vka_label"> - Радио 1</label> 
 					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label for="S4-5"> - Радио 2</label> 
+					<label class="vka_label"> - Радио 2</label> 
 					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label for="S4-5"> - Радио 3</label> 
+					<label class="vka_label"> - Радио 3</label> 
 					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> 
 					</form> <br> <br>
 					<form>
-						<label for="S4-6">Текст с кнопкой</label> <br> 
+						<label class="vka_label">Текст с кнопкой</label> <br> 
 						<input type="text" id="S4-6" name="S4-6" style="width: 5%;"> - <input type="text" id="S4-7" name="S4-7" style="width: 5%;">
 						<input type="submit" name="submit">
 					</form>
