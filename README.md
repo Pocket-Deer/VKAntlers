@@ -6,7 +6,7 @@
 1. Для начала установите себе расширение для браузера TamperMonkey:
   * [Opera, Yandex](https://addons.opera.com/ru/extensions/details/tampermonkey-beta/)
   * [Google Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ru)
-2. После его успешной устаноки, щёлкните по [этой ссылке](https://github.com/Pocket-Deer/VKAntlers/raw/master/VKAntlers.user.js), чтобы поставить VKAntlers. Если шаги сделаны правильно - появится окно с установкой скрипта в TamperMonkey
+2. После его успешной установки, щёлкните по [этой ссылке](https://github.com/Pocket-Deer/VKAntlers/raw/master/VKAntlers.user.js), чтобы поставить VKAntlers. Если шаги сделаны правильно - появится окно с установкой скрипта в TamperMonkey
 3. Устанавливаете скрипт
 4. Проверяете его работоспособность в VK
 5. ???
