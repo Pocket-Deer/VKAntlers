@@ -45,7 +45,7 @@
     border: none;
   }
 
-  [dir=ltr] #page_header_cont .back
+  [dir=ltr] #page_header_cont
   {
     background: var(--vd);
     border-bottom: 1px solid var(--vd);
