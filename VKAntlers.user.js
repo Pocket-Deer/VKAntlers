@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      1.1.4
+// @version      1.1.5
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -69,14 +69,28 @@ var jquery_script = function() {
 }();
 
 var jquery = document.createElement('script');
-jquery.appendChild(document.createTextNode(jquery_script));
-(document.body || document.head || document.documentElement).appendChild(jquery);
+jquery.append(document.createTextNode(jquery_script));
+(document.body || document.head || document.documentElement).append(jquery);
 
 var main = function() {
 
-    //================================================
-    // ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ДО ЗАГРУЗКИ СТРАНИЦЫ =
-    //================================================
+//     $('._im_dialog_link').on('DOMContentLoaded', function(e) {
+//         $(function(){
+//             $("._im_dialog_link").css({"filter":"blur(4px)"});
+//         });
+//     });
+
+//     var observer = new MutationObserver(function(mutations) {
+//         mutations.forEach(function(mutation) {
+//             $(mutation.addedNodes).find('._im_dialog_link').each(function() {
+//                 /* do something */
+//                 $("._im_dialog_link").css({"filter":"blur(4px)"});
+//                 console.dir(this); // Note, it's a DOM element, use $(this) if needed
+//             });
+//         });
+//     });
+
+//     observer.observe(document.getElementByClass('_im_dialog_link'), { childList: true, subtree: true });
 
     // Очевидное сокращение JQuery до значка доллара
     var $ = window.jQuery;
@@ -160,7 +174,7 @@ var main = function() {
     var hashtag_list = ["флеймлучший", "задонать", "темнаятёма", "да", "дирохерел", "ачё\)", "сидидомаблэд", "фывапролджэ", "missingno",
                         "сижуахерел", "дистанционочка", "скибидивапа", "ойдевачьки", "настиле", "чайвсемуголова", "мрарф",
                         "гобухать", "сказочноебали", "дирлох", "ложка", "300bucks", "стыдпозорный", "ugotthat", "heybuddy", "яобязательновыживу",
-                        "нечиталОчка", "слышработать", "кофемания", "hohol", "(﻿ ͡° ͜ʖ ͡°)", "атлишна"];
+                        "нечиталОчка", "слышработать", "кофемания", "hohol", "(﻿ ͡° ͜ʖ ͡°)", "атлишна", "дагестанскаясвадьба"];
     // Смена хэштега в левом верхнем углу во время пандемии 2020.
     var logo_hashtag_text = hashtag_list[Math.floor(Math.random() * hashtag_list.length)];
 
@@ -175,7 +189,7 @@ var main = function() {
 
     var vka_config_default = {
         // version
-        version: "1.1.4",
+        version: "1.1.5",
 
         // style
         custom_theme: false,
@@ -183,9 +197,12 @@ var main = function() {
         custom_theme_autotoggle: false,
         ctt_end: "8",
         ctt_start: "20",
-        custom_theme_icon: true,
+        custom_theme_icon: false,
         custom_hashtags: true,
         custom_back_button: true,
+        hide_names: false,
+        hide_messages: false,
+        hide_photo: false,
 
         // patches
         unread: false,
@@ -297,7 +314,7 @@ var main = function() {
             $("body").append(mainMenu);
             // Создание кнопочки открывающей меню
             var vkantlers_menu = '<div class="head_nav_item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></div>';
-            $(".head_nav_item.fl_r").before(vkantlers_menu);
+            $(".HeaderNav").append(vkantlers_menu);
 
             //        $("body").append('<div style="position: absolute; top:0; right:0; z-index: 999">' + vka_version + '</div>');
             //========================================================================
@@ -571,16 +588,17 @@ var main = function() {
                 };
             };
         },
+
         custom_theme_icon: function(){
             // Создание кнопочки темы
-            //console.log("custom_theme_func running! And vka_config is: " + vka_config.custom_theme_icon);
             var dark_theme_block_button = '<div class="head_nav_item moon" style="float: right;padding: 9px;"><a id="dark_theme_toggle" style="font-size: 20px;">🌒</a></div>';
             if (vka_config.custom_theme_icon == true){
-                $(".head_nav_item.fl_r").before(dark_theme_block_button);
+                $(".HeaderNav").append(dark_theme_block_button);
             } else {
                 $(".head_nav_item.moon").remove();
             }
         },
+
         custom_hashtags: function(){
             //Изменение названия возле диалога с хештегом
             if (vka_config.custom_hashtags == true){
@@ -593,6 +611,7 @@ var main = function() {
                 $(".vka_hashtags").remove();
             };
         },
+
         custom_back_button: function(){
             // Выравнимание онлайна под именем в новом дизайне
             $("body").on('DOMSubtreeModified', '.im-page--title-wrapper', function() {
@@ -609,6 +628,22 @@ var main = function() {
                 };
             });
         },
+
+//         hide_names: function(){
+
+//         },
+
+        hide_messages: function(){
+        },
+
+        hide_photo: function(){
+        },
+    }
+
+    if (vka_config.hide_names == true){
+//         $(function(){
+//         $("._im_dialog_link").css({"filter":"blur(4px)"});
+//         });
     }
 
     function test_onclick(data){
@@ -684,14 +719,12 @@ var main = function() {
                 //document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
                 //console.log(h + ":" + m + ":" + s);
                 if ((h >= vka_config.ctt_start || h < vka_config.ctt_end) && chck == 0){
-                    //                GM_setValue ("dark_style", 1);
-                    vka_config.custom_theme = true; // Скорее всего надо будет поменять глобальную настройку!!!!!!!!
+                    vka_config.custom_theme = true;
                     func.custom_theme(true);
                     chck = 1;
                     console.log("DARK_THEME ON");
                     console.log("Dark Theme LOADED with THEME_CHANGER");
                 } if ((h < vka_config.ctt_start && h >= vka_config.ctt_end) && chck == 1){
-                    //                GM_setValue ("dark_style", 0);
                     vka_config.custom_theme = false;
                     func.custom_theme(true);
                     chck = 0;
@@ -715,4 +748,3 @@ var code = main.toString().match(/^.+?\{([\s\S]+)\}$/)[1];
 var script = document.createElement('script');
 script.appendChild(document.createTextNode(code));
 (document.body || document.head || document.documentElement).appendChild(script);
-
