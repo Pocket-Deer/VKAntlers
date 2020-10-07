@@ -3,6 +3,11 @@
 
 <hr>
 <div style="color: #777777; font-size: 16px;">
+	<header><h3 style="color: black; font-size: 18px; margin-bottom: 0; margin-top: 0">Версия 1.1.5</h3><h3 style="color: black; font-size: 14px; margin-bottom: 0; margin-top: 0">(07/10/20)</h3></header>
+<ul>
+	<li> Мелкие исправления, ввиду изменения классов на стороне ВК</li>
+	</ul>
+	<hr>
 <header><h3 style="color: black; font-size: 20px; margin-bottom: 0">"Outbreak update"</h3></header>
 <header><h3 style="color: black; font-size: 18px; margin-bottom: 0; margin-top: 0">Версия 1.1.4</h3><h3 style="color: black; font-size: 14px; margin-bottom: 0; margin-top: 0">(10/09/20)</h3></header>
 <ul>
