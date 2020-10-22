@@ -1,150 +1,112 @@
-<div class="vka_parent">
-	<div class="vka_block">
-		<div class="vka_title">
-			<a style="color: white;">VKAntlers</a>
-			<a style="font-size: 10px; color: white;margin-left: 10px;">v. 1.1.4</a>
-			<div class="vka_close" style="float: right; color: white; cursor: pointer; font-family: 'Montserrat', sans-serif;">Close</div>
+<div class="parent">
+	<div class="block">
+		<div class="title">
+			<font size="5">VkAntlers</font>
+			<font style="float: right; padding-top: 8px;" size="2">v1.1.6</font>
 		</div> 
-		<div class="vka_content">
-			<a class="vka_section">Стиль</a>     
-			<div class="vka_innerBlock" id="Section1">
-				<form class="vka_form">
-					<label class="vka_label"> - Кастомная тема
-						<input class="vka_field"  type="checkbox" id="custom_theme" name="custom_theme_changer">
-					</label>  <br>
-					Темы: <br>
-						<label class="vka_label"> - Тёмная ()
-							<input class="vka_field" type="radio" id="theme_type_dark" name="theme_style_dark" checked>
-						</label>  <br>
-						<label class="vka_label"> - Неоновая
-							<input class="vka_field" type="radio" id="theme_type_neon" name="theme_style_neon" disabled>
-						</label>  <br>
-						<label class="vka_label"> - Градиент
-							<input class="vka_field" type="radio" id="theme_type_gradient" name="theme_style_gradient" disabled>
-						</label>  <br>
-						<label class="vka_label"> - Кастомная
-							<input class="vka_field" type="radio" id="theme_type_custom" name="theme_style_custom" disabled>
-						</label>  <br>
-						<label  class="vka_label">Подгрузка стиля с ...</label> <br> 
-						<input class="vka_textarea" type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
-						<input type="submit" name="submit" value="Сохранить" disabled> <br>
-					<label class="vka_label"> - Автопереключение темы
-						<input class="vka_field" type="checkbox" id="custom_theme_autotoggle" name="theme_changer">
-					</label>  <br>
-						<label class="vka_label">Время переключения <br> 
-						с <input class="vka_textarea" type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input class="vka_textarea" type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;">
-					</label>  <br>
-					<label class="vka_label"> - Значок смены темы в правом верхнем углу
-						<input class="vka_field"  type="checkbox" id="custom_theme_icon" name="theme_icon">
-					</label> <br>
-					<label class="vka_label"> - Кастомные хэштеги
-						<input class="vka_field" type="checkbox" id="custom_hashtags" name="hashtag_toggle">
-					</label> <br>
-					<label class="vka_label"> - Кнопка назад в новом дизайне диалогов
-						<input class="vka_field" type="checkbox" id="custom_back_button" name="hashtag_toggle">
-					</label> <br>
-					<label class="vka_label"> - Скрыть имена в списке диалогов
-						<input class="vka_field" type="checkbox" id="hide_names" name="hide_names">
-					</label> <br>
-					<label class="vka_label"> - Скрыть сообщения в списке диалогов
-						<input class="vka_field" type="checkbox" id="hide_messages" name="hide_messages">
-					</label> <br>
-					<label class="vka_label"> - Скрыть аватарки в списке диалогов
-						<input class="vka_field" type="checkbox" id="hide_photo" name="hide_photo">
-					</label> <br>
+		<div class="content">
+			<div class="sectionName"><a onclick="ShowSection('Section1','arrow1','plhld1')"><font size="5px" face="Impact">Секция 1 </font> <div class="arrow" id="arrow1">ᐯ</div></div> </a> 
+			<div class="innerBlock" id="Section1" style="opacity: 0;">
+				<label for="S1-1">Ползунок</label> <br> 
+				<input type="range" min="0" max="100" step="25" value="50" id="S1-1" name="S1-1"> <br> <br>
+				<label for="S1-2"> - Чекбокс 1</label> 
+				<input class="BlockCheckbox"  type="checkbox" id="S1-2" name="S1-2"> <br>
+				<label for="S1-3"> - Чекбокс 2</label> 
+				<input class="BlockCheckbox" type="checkbox" id="S1-3" name="S1-3"> <br>
+				<label for="S1-4"> - Чекбокс 3</label>  
+				<input class="BlockCheckbox" type="checkbox" id="S1-4" name="S1-4"> <br>
+				<br>Радиокнопачки: <br>
+				<label for="S1-5"> - Радио 1</label> 
+				<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5"> <br>
+				<label for="S1-5"> - Радио 2</label> 
+				<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5"> <br>
+				<label for="S1-5"> - Радио 3</label> 
+				<input class="BlockCheckbox" type="radio" id="S1-5" name="S1-5"> <br> <br>
+				<form>
+					<label for="S1-6">Текст с кнопкой</label> <br> 
+					<input type="text" id="S1-6" name="S1-6" style="width: 5%;"> - <input type="text" id="S1-7" name="S1-7" style="width: 5%;">
+					<input type="submit" name="submit">
 				</form>
 			</div>
+			<div class="placeholdAnim" id="plhld1"></div> 
 			<hr>
-			<a class="vka_section">Текст</a>     
-			<div class="vka_innerBlock" id="Section2">
-				<label class="vka_label"> - Замена мата на странице 
-				<input class="vka_field"  type="checkbox" id="text_antifucker" name="S2-1" disabled>
-				</label> <br>
-				<label class="vka_label"> - Кастомный шрифт
-				<input class="vka_field" type="checkbox" id="text_custom_font" name="S2-2" disabled>
-				</label> <br>
+			<div class="sectionName"><a onclick="ShowSection('Section2','arrow2','plhld2')"><font size="5px" face="Impact">Секция 2</font> <div class="arrow" id="arrow2">ᐯ</div></div> </a> 
+			<div class="placeholdAnim"></div>   
+			<div class="innerBlock" id="Section2" style="opacity: 0;">
+				<label for="S2-1">Ползунок</label> <br> 
+				<input type="range" min="0" max="100" step="25" value="50" id="S2-1" name="S2-1"> <br> <br>
+				<label for="S2-2"> - Чекбокс 1</label> 
+				<input class="BlockCheckbox"  type="checkbox" id="S2-2" name="S2-2"> <br>
+				<label for="S2-3"> - Чекбокс 2</label> 
+				<input class="BlockCheckbox" type="checkbox" id="S2-3" name="S2-3"> <br>
+				<label for="S2-4"> - Чекбокс 3</label>  
+				<input class="BlockCheckbox" type="checkbox" id="S2-4" name="S2-4"> <br>
+				<br>Радиокнопачки: <br>
+				<label for="S2-5"> - Радио 1</label> 
+				<input class="BlockCheckbox" type="radio" id="S2-5" name="S2-5"> <br>
+				<label for="S2-5"> - Радио 2</label> 
+				<input class="BlockCheckbox" type="radio" id="S2-5" name="S2-5"> <br>
+				<label for="S2-5"> - Радио 3</label> 
+				<input class="BlockCheckbox" type="radio" id="S2-5" name="S2-5"> <br> <br>
 				<form>
-					<label  class="vka_label" for="S2-6">Подгрузка шрифта с Google Fonts</label> <br> 
-					<input class="vka_textarea" type="text" id="S2-6" name="S2-6" style="width: 50%;">
-					<input type="submit" name="submit" value="Сохранить">
+					<label for="S2-6">Текст с кнопкой</label> <br> 
+					<input type="text" id="S2-6" name="S2-6" style="width: 5%;"> - <input type="text" id="S2-7" name="S2-7" style="width: 5%;">
+					<input type="submit" name="submit">
 				</form>
-				<label class="vka_label">Размер шрифта
-				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
-				<output name="ageOutputName" id="text_custom_font_size_output">14</output>
-				</label> <br>
 			</div>
+			<div class="placeholdAnim" id="plhld2"></div> 
 			<hr>
-			<a class="vka_section">Патчи</a>     
-			<div class="vka_innerBlock" id="Section3">
-				<label class="vka_label"> - Нечиталка
-				<input class="vka_field"  type="checkbox" id="unread" name="unread">
-				</label> <br>
-				<label class="vka_label"> - Неписалка
-				<input class="vka_field" type="checkbox" id="untype" name="untype">
-				</label> <br>
-				<label class="vka_label"> - Частичный оффлайн
-				<input class="vka_field" type="checkbox" id="offline" name="offline" disabled>
-				</label> <br>
-				<label class="vka_label"> - Полный оффлайн (критично)
-				<input class="vka_field" type="checkbox" id="full_offline" name="full_offline" disabled>
-				</label> <br>
-				<label class="vka_label"> - Автолайки
-				<input class="vka_field" type="checkbox" id="auto_likes" name="auto_likes" disabled>
-				</label> <br>
-				<label class="vka_label"> - Рогалик
-				<input class="vka_field" type="checkbox" id="antlers_exploit" name="S3-4">
-				</label> <br>
-			</div>
-			<hr>
-			<a class="vka_section">Аддон</a>     
-			<div class="vka_innerBlock" id="Section3">
-				Темы: <br>
+			<div class="sectionName"><a onclick="ShowSection('Section3','arrow3','plhld3')"><font size="5px" face="Impact">Секция 3</font> <div class="arrow" id="arrow3">ᐯ</div></div> </a>
+			<div class="placeholdAnim"></div>     
+			<div class="innerBlock" id="Section3" style="opacity: 0;">
+				<label for="S3-1">Ползунок</label> <br> 
+				<input type="range" min="0" max="100" step="25" value="50" id="S3-1" name="S3-1"> <br> <br>
+				<label for="S3-2"> - Чекбокс 1</label> 
+				<input class="BlockCheckbox"  type="checkbox" id="S3-2" name="S3-2"> <br>
+				<label for="S3-3"> - Чекбокс 2</label> 
+				<input class="BlockCheckbox" type="checkbox" id="S3-3" name="S3-3"> <br>
+				<label for="S3-4"> - Чекбокс 3</label>  
+				<input class="BlockCheckbox" type="checkbox" id="S3-4" name="S3-4"> <br>
+				<br>Радиокнопачки: <br>
+				<label for="S3-5"> - Радио 1</label> 
+				<input class="BlockCheckbox" type="radio" id="S3-5" name="S3-5"> <br>
+				<label for="S3-5"> - Радио 2</label> 
+				<input class="BlockCheckbox" type="radio" id="S3-5" name="S3-5"> <br>
+				<label for="S3-5"> - Радио 3</label> 
+				<input class="BlockCheckbox" type="radio" id="S3-5" name="S3-5"> <br> <br>
 				<form>
-					<label class="vka_label"> - VK Classic
-						<input class="vka_field" type="radio" id="" name="S1-5" disabled>
-					</label> <br>
-					<label class="vka_label"> - VKAntlers 
-						<input class="vka_field" type="radio" id="S1-5" name="S1-5" checked>
-					</label> <br>
-					<label  class="vka_label"> - Custom:
-						<input class="vka_field" type="radio" id="S1-5" name="S1-5" disabled>
-					</label> <br>
-					<label class="vka_label">1 color <br> 
-						<input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
-						<output name="ageOutputName" id="custom_addon_color1_out">0</output>
-					</label> <br>
-					<label class="vka_label">2 color <br> 
-						<input type="range" min="0" max="255" step="1" value="255" id="custom_addon_color2" name="S4-1" oninput="custom_addon_color2_out.value = custom_addon_color2.value">
-						<output name="ageOutputName" id="custom_addon_color2_out">255</output>
-					</label>
-				</form><br>
+					<label for="S3-6">Текст с кнопкой</label> <br> 
+					<input type="text" id="S3-6" name="S3-6" style="width: 5%;"> - <input type="text" id="S3-7" name="S3-7" style="width: 5%;">
+					<input type="submit" name="submit">
+				</form>
 			</div>
+			<div class="placeholdAnim" id="plhld3"></div> 
 			<hr>
-				<a class="vka_section">Тестовая секция</a>     
-				<div class="vka_innerBlock" id="Section4">
-					<label class="vka_label">Ползунок</label> <br> 
-					<input type="range" min="0" max="100" step="25" value="50" id="S4-1" name="S4-1"> <br> <br>
-					<label class="vka_label"> - Чекбокс 1</label> 
-					<input class="vka_field"  type="checkbox" id="S4-2" name="S4-2"> <br>
-					<label class="vka_label"> - Чекбокс 2</label> 
-					<input class="vka_field" type="checkbox" id="S4-3" name="S4-3"> <br>
-					<label class="vka_label"> - Чекбокс 3</label>  
-					<input class="vka_BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
-					<br>Радиокнопачки: <br>
-					<form>
-					<label class="vka_label"> - Радио 1</label> 
-					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label class="vka_label"> - Радио 2</label> 
-					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label class="vka_label"> - Радио 3</label> 
-					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> 
-					</form> <br> <br>
-					<form>
-						<label class="vka_label">Текст с кнопкой</label> <br> 
-						<input type="text" id="S4-6" name="S4-6" style="width: 5%;"> - <input type="text" id="S4-7" name="S4-7" style="width: 5%;">
-						<input type="submit" name="submit">
-					</form>
-				</div>
+			<div class="sectionName"><a onclick="ShowSection('Section4','arrow4','plhld4')"><font size="5px" face="Impact">Секция 4</font> <div class="arrow" id="arrow4">ᐯ</div></div> </a> 
+			<div class="placeholdAnim"></div> 
+			<div class="innerBlock" id="Section4" style="opacity: 0;">
+				<label for="S4-1">Ползунок</label> <br> 
+				<input type="range" min="0" max="100" step="25" value="50" id="S4-1" name="S4-1"> <br> <br>
+				<label for="S4-2"> - Чекбокс 1</label> 
+				<input class="BlockCheckbox"  type="checkbox" id="S4-2" name="S4-2"> <br>
+				<label for="S4-3"> - Чекбокс 2</label> 
+				<input class="BlockCheckbox" type="checkbox" id="S4-3" name="S4-3"> <br>
+				<label for="S4-4"> - Чекбокс 3</label>  
+				<input class="BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
+				<br>Радиокнопачки: <br>
+				<label for="S4-5"> - Радио 1</label> 
+				<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
+				<label for="S4-5"> - Радио 2</label> 
+				<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
+				<label for="S4-5"> - Радио 3</label> 
+				<input class="BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br> <br>
+				<form>
+					<label for="S4-6">Текст с кнопкой</label> <br> 
+					<input type="text" id="S4-6" name="S4-6" style="width: 5%;"> - <input type="text" id="S4-7" name="S4-7" style="width: 5%;">
+					<input type="submit" name="submit">
+				</form>
+			</div>
+			<div class="placeholdAnim" id="plhld4"></div> 
 			<hr>			     			     			     			     
 		</div>
 	</div>
