@@ -1,3 +1,5 @@
+<style type="text/css">
+
 /*@media (max-width: 800px) {   для разрешения экрана от 470 до 930 пикселей 
   .block {
   	display: none;
@@ -24,7 +26,7 @@
   background: #555;
 }
 
-.parent {
+.vka_parent {
 	-webkit-touch-callout: none; /* iOS Safari */
   	-webkit-user-select: none;   /* Chrome/Safari/Opera */
   	-khtml-user-select: none;    /* Konqueror */
@@ -37,9 +39,14 @@
 	top: 0;
 	left: 0;
 	overflow: auto;
+	display: none;
 }
 
-.block {
+vka_parent_display {
+	display: block !important;
+}
+
+.vka_block {
 	position: relative;
 	border: 3px solid #4b77a8;
 	margin-top: 23px;
@@ -52,7 +59,7 @@
 	border-radius: 10px 10px 5px 5px;
 }
 
-.block:after, .block:before {
+.vka_block:after, .block:before {
 	bottom: 100%;
 	left: 75%;
 	margin-bottom: 0.1px;
@@ -64,20 +71,20 @@
 	pointer-events: none;
 }
 
-.block:after {
+.vka_block:after {
 	border-color: rgba(136, 183, 213, 0);
 	border-bottom-color: white;
 	border-width: 20px;
 	margin-left: -20px;
 }
-.block:before {
+.vka_block:before {
 	border-color: rgba(194, 225, 245, 0);
 	border-bottom-color: #4b77a8;
 	border-width: 24px;
 	margin-left: -24px;
 }
 
-.content {
+.vka_content {
 	z-index: 999;
 	padding: 2% 2% 2% 2%;
 	margin: 2% 2% 2% 2.5%;
@@ -86,19 +93,19 @@
 	width: 90%;
 	height: 86%;
 	border: solid;
-	border-color: black;
+	border-color: #4e4da9;
 	border-width: 1px;
 }
-.title {
+.vka_title {
 	color:black;
 	border-radius: 7px 7px 0 0;
 	height: 5%;
 	margin: 5% 3% 2% 3%;
 }
-.section {
+.vka_section {
 	margin-right: 90%; 
 }
-.innerBlock {
+.vka_innerBlock {
 	z-index: 0;
 	margin-top: 1%;
 	padding: 5% 0 0% 0%;
@@ -108,23 +115,23 @@
 	transition: opacity 0.2s;
 	display: none;
 }
-.BlockCheckbox {
+.vka_BlockCheckbox {
 	float: left;
 	transform:scale(1.3);
 	opacity:0.9;
     cursor:pointer;
     margin: 5px 7px 0px 5px;
 }
-.sectionName {
+.vka_sectionName {
 	width: 115px;
 	height: 20px;
 	transition: visibility 1s;
 }
-.arrow {
+.vka_arrow {
 	float: right;
 	font-size: 17pt;
 }
-.placeholdAnim {
+.vka_placeholdAnim {
 	width: 100%;
 	height: 2px;
 	transition: height 0.2s;
@@ -146,3 +153,4 @@ a:visited {
 a:active {
 	text-decoration: none;
 }
+</style>
