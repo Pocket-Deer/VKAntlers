@@ -246,7 +246,7 @@ var main = function() {
     var preload = {
         mainmenu: function(){
             var vkantlers_menu = '<li class="HeaderNav__item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
-            $('#top_nav').append(vkantlers_menu);
+            $('.im-page-wrapper._im-page-wrap').append(vkantlers_menu);
         },
         custom_hashtags: function(){
             $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
