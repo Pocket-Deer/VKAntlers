@@ -259,7 +259,7 @@ var main = function() {
     // TODO: Сделать её наконец, а то при добавлении на страницу с аудио
     // менюшка тупо ломается и добавляется в виде текста
     if(document.location.href.indexOf('audios') === -1){
-        preload_load('.HeaderNav__item.deer', preload.mainmenu);
+        preload_load('page_header_wrap', preload.mainmenu);
     };
 
     // ====================================================================
@@ -268,7 +268,7 @@ var main = function() {
     // Добавление меню на сайт
     $("head").after(vka_menu_css);
     $("body").ready(function() {
-        $(".im-page-wrapper._im-page-wrap").append(vka_menu);
+        $(".HeaderNav__item.deer").append(vka_menu);
     });
 
     $(document).on("click", "#vkantlers_toggle", function(){
