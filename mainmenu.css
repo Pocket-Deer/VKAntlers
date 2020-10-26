@@ -33,6 +33,7 @@
   	-moz-user-select: none;      /* Firefox */
   	-ms-user-select: none;       /* Internet Explorer/Edge */
   	user-select: none;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 25%;
