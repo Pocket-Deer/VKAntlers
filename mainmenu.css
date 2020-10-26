@@ -48,6 +48,7 @@
 }
 
 .vka_block {
+	overflow-y:scroll;
 	position: relative;
 	border: 3px solid #4b77a8;
 	margin-top: 23px;
