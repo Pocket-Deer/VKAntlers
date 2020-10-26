@@ -259,7 +259,7 @@ var main = function() {
     // TODO: Сделать её наконец, а то при добавлении на страницу с аудио
     // менюшка тупо ломается и добавляется в виде текста
     if(document.location.href.indexOf('audios') === -1){
-        preload_load('page_header_wrap', preload.mainmenu);
+        preload_load('.HeaderNav__item.deer', preload.mainmenu);
     };
 
     // ====================================================================
