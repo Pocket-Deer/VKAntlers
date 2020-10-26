@@ -85,12 +85,11 @@
 }
 
 .vka_content {
-	overflow-y:scroll;
 	z-index: 999;
 	padding: 2% 2% 2% 2%;
 	margin: 2% 2% 2% 2.5%;
 	font-size: 15pt;
-	overflow: auto;
+	overflow-y: scroll;
 	width: 90%;
 	height: 86%;
 	border: solid;
