@@ -50,39 +50,12 @@
 
 .vka_block {
 	position: relative;
-	border: 3px solid #4b77a8;
 	margin-top: 23px;
 	z-index: 5;
 	background: white;
 	height: 70%;
 	max-width: 500px;
 	max-height: 1000px;
-	border-radius: 10px 10px 5px 5px;
-}
-
-.vka_block:after, .block:before {
-	bottom: 100%;
-	left: 75%;
-	margin-bottom: 0.1px;
-	border: solid transparent;
-	content: "";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-}
-
-.vka_block:after {
-	border-color: rgba(136, 183, 213, 0);
-	border-bottom-color: white;
-	border-width: 20px;
-	margin-left: -20px;
-}
-.vka_block:before {
-	border-color: rgba(194, 225, 245, 0);
-	border-bottom-color: #4b77a8;
-	border-width: 24px;
-	margin-left: -24px;
 }
 
 .vka_content {
@@ -93,9 +66,6 @@
 	overflow-y: scroll;
 	width: 90%;
 	height: 86%;
-	border: solid;
-	border-color: #4e4da9;
-	border-width: 1px;
 }
 .vka_title {
 	color:black;
