@@ -36,7 +36,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 15%;
+	width: 25%;
 	height: 600px;
 	overflow: auto;
 	display: none;
@@ -129,6 +129,7 @@
 .vka_arrow {
 	float: right;
 	font-size: 17pt;
+	margin: 2px 44% 0 0;
 }
 .vka_placeholdAnim {
 	width: 100%;
