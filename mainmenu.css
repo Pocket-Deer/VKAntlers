@@ -47,7 +47,7 @@
 .vka_block {
 	position: relative;
 	border: 3px solid #4b77a8;
-	margin-top: 23px;
+	margin: 23px 0 0 50%;
 	z-index: 5;
 	background: white;
 	width: 100%;
