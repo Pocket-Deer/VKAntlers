@@ -6,27 +6,21 @@
   }
 }*/
 
-/* width */
+vka_parent::-webkit-scrollbar {
+    width: 2em;
+    height: 2em
+}
+vka_parent::-webkit-scrollbar-button {
+    background: #ccc
+}
+vka_parent::-webkit-scrollbar-track-piece {
+    background: #888
+}
+vka_parent::-webkit-scrollbar-thumb {
+    background: #eee
+}
 
 .vka_parent {
-	::-webkit-scrollbar {
-	  width: 6px;
-	}
-
-	/* Track */
-	::-webkit-scrollbar-track {
-	  background: #f1f1f1;
-	}
-
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-	  background: #888;
-	}
-
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-	  background: #555;
-	}
 	-webkit-touch-callout: none; /* iOS Safari */
   	-webkit-user-select: none;   /* Chrome/Safari/Opera */
   	-khtml-user-select: none;    /* Konqueror */
