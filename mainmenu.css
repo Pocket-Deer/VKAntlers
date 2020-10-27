@@ -61,7 +61,7 @@
 
 .vka_block:after, .vka_block:before {
 	bottom: 100.1%;
-	left: 50%;
+	left: 75%;
 	border: solid transparent;
 	content: "";
 	height: 0;
