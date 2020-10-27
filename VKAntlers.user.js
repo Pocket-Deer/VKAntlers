@@ -245,8 +245,8 @@ var main = function() {
     // Загрузка кода до полной загрузки страницы. Использует MutationObserver
     var preload = {
         mainmenu: function(){
-            var vkantlers_menu = '<li class="HeaderNav__item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
-            $('#top_nav').append(vkantlers_menu);
+            var vkantlers_menu = '<li class="HeaderNav__item deer" style="position: absolute; float: right; padding: 13px; margin-right: 46px; top: 0; right: 0;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
+            $('#page_header_wrap').append(vkantlers_menu);
         },
         custom_hashtags: function(){
             $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
@@ -268,7 +268,7 @@ var main = function() {
     // Добавление меню на сайт
     $("head").after(vka_menu_css);
     $("body").ready(function() {
-        $(".HeaderNav__item.deer").append(vka_menu);
+        $(".im-page-wrapper._im-page-wrap").append(vka_menu);
     });
 
     $(document).on("click", "#vkantlers_toggle", function(){
