@@ -79,8 +79,8 @@
 .vka_block:before {
 	border-color: rgba(216, 236, 245, 0);
 	border-bottom-color: grey;
-	border-width: 16px;
-	margin-left: -16px;
+	border-width: 11px;
+	margin-left: -11px;
 }
 
 .vka_content {
