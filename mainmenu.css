@@ -34,7 +34,7 @@ vka_parent::-webkit-scrollbar-thumb {
 	height: auto;
 	overflow: auto;
 	display: none;
-	margin: 2% 0 0 74%;
+	margin: 4.4% 0 0 74%;
 	padding-bottom: 2%;
 	padding-right: 2%;
 }
@@ -44,10 +44,10 @@ vka_parent::-webkit-scrollbar-thumb {
 }
 
 .vka_block {
-	box-shadow: 3px 3px 5px black;
+	box-shadow: 1px 1px 5px black;
 	position: relative;
 	border: 1px solid;
-	margin-top: 23px;
+	margin-top: 10px;
 	z-index: 5;
 	background: white;
 	height: 70%;
