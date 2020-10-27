@@ -72,13 +72,13 @@
 
 .vka_block:after {
 	border-color: rgba(0, 0, 0, 0);
-	border-bottom-color: #white;
+	border-bottom-color: white;
 	border-width: 10px;
 	margin-left: -10px;
 }
 .vka_block:before {
 	border-color: rgba(216, 236, 245, 0);
-	border-bottom-color: #d8ecf5;
+	border-bottom-color: grey;
 	border-width: 16px;
 	margin-left: -16px;
 }
