@@ -60,7 +60,7 @@
 }
 
 .vka_block:after, .vka_block:before {
-	bottom: 100%;
+	bottom: 100.1%;
 	left: 50%;
 	border: solid transparent;
 	content: "";
