@@ -88,7 +88,7 @@
 	font-family: cursive;
 	z-index: 999;
 	margin: 2% 0 0 3%;
-	font-size: 15pt;
+	font-size: 12pt;
 	overflow-y: scroll;
 	width: 97.2%;
 	height: 360px;
@@ -123,6 +123,7 @@
     margin: 5px 7px 0px 5px;
 }
 .vka_sectionName {
+	font-size: 15pt;
 	height: 20px;
 	transition: visibility 1s;
 }
