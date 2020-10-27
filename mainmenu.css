@@ -59,10 +59,9 @@
 	border-radius: 10px 10px 5px 5px;
 }
 
-.vka_block:after, .block:before {
+.vka_block:after, .vka_block:before {
 	bottom: 100%;
-	left: 75%;
-	margin-bottom: 0.1px;
+	left: 50%;
 	border: solid transparent;
 	content: "";
 	height: 0;
@@ -72,16 +71,16 @@
 }
 
 .vka_block:after {
-	border-color: rgba(136, 183, 213, 0);
-	border-bottom-color: white;
+	border-color: rgba(0, 0, 0, 0);
+	border-bottom-color: #white;
 	border-width: 10px;
 	margin-left: -10px;
 }
 .vka_block:before {
-	border-color: rgba(194, 225, 245, 0);
-	border-bottom-color: #4b77a8;
-	border-width: 14px;
-	margin-left: -14px;
+	border-color: rgba(216, 236, 245, 0);
+	border-bottom-color: #d8ecf5;
+	border-width: 16px;
+	margin-left: -16px;
 }
 
 .vka_content {
