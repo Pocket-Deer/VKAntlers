@@ -5,6 +5,24 @@
   	display: none;
   }
 }*/
+::-webkit-scrollbar vka_parent{
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track vka_parent{
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb vka_parent{
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover vka_parent{
+  background: #555;
+}
 
 .vka_parent {
 	-webkit-touch-callout: none; /* iOS Safari */
