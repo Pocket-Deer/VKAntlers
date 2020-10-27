@@ -30,10 +30,10 @@
 }
 
 .vka_block {
-	box-shadow: 1px 1px 5px black;
+	box-shadow: 1px 1px 5px grey;
 	position: relative;
-	border: 1px solid;
-	margin-top: 10px;
+	border: 1px solid grey;
+	margin-top: 15px;
 	z-index: 5;
 	background: white;
 	height: 70%;
