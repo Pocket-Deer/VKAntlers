@@ -77,6 +77,8 @@
 	height: 360px;
 }
 .vka_title {
+	font-size: 20pt;
+	font-family: cursive;
 	color:black;
 	border-radius: 7px 7px 0 0;
 	height: 5%;
