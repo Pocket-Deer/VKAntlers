@@ -5,22 +5,22 @@
   	display: none;
   }
 }*/
-::-webkit-scrollbar .vka_parent{
+.vka_content::-webkit-scrollbar{
   width: 6px;
 }
 
 /* Track */
-::-webkit-scrollbar-track .vka_parent{
+.vka_content::-webkit-scrollbar-track{
   background: #f1f1f1;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb .vka_parent{
+.vka_content::-webkit-scrollbar-thumb{
   background: #888;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover .vka_parent{
+.vka_content::-webkit-scrollbar-thumb:hover{
   background: #555;
 }
 
