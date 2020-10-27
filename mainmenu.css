@@ -81,12 +81,11 @@ vka_parent::-webkit-scrollbar-thumb {
 
 .vka_content {
 	z-index: 999;
-	padding: 2% 2% 2% 2%;
-	margin: 2% 2% 2% 2.5%;
+	margin: 2% 0 0 3%;
 	font-size: 15pt;
 	overflow-y: scroll;
 	width: 90%;
-	height: 86%;
+	height: 360px;
 }
 .vka_title {
 	color:black;
