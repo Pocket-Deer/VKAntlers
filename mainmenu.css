@@ -44,7 +44,7 @@ vka_parent::-webkit-scrollbar-thumb {
 
 .vka_block {
 	position: relative;
-	border: 3px solid #4b77a8;
+	border: 1px solid;
 	margin-top: 23px;
 	z-index: 5;
 	background: white;
@@ -87,9 +87,6 @@ vka_parent::-webkit-scrollbar-thumb {
 	overflow-y: scroll;
 	width: 90%;
 	height: 86%;
-	border: solid;
-	border-color: #4e4da9;
-	border-width: 1px;
 }
 .vka_title {
 	color:black;
