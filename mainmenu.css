@@ -68,6 +68,7 @@
 }
 
 .vka_content {
+	font-family: cursive;
 	z-index: 999;
 	margin: 2% 0 0 3%;
 	font-size: 15pt;
