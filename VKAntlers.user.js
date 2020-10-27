@@ -245,8 +245,8 @@ var main = function() {
     // Загрузка кода до полной загрузки страницы. Использует MutationObserver
     var preload = {
         mainmenu: function(){
-            var vkantlers_menu = '<li class="HeaderNav__item deer" style="position: absolute; float: right; padding: 13px; margin-right: 46px; top: 0; right: 0;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
-            $('#page_header_wrap').append(vkantlers_menu);
+            var vkantlers_menu = '<li class="HeaderNav__item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
+            $('#top_nav').append(vkantlers_menu);
         },
         custom_hashtags: function(){
             $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
@@ -259,7 +259,7 @@ var main = function() {
     // TODO: Сделать её наконец, а то при добавлении на страницу с аудио
     // менюшка тупо ломается и добавляется в виде текста
     if(document.location.href.indexOf('audios') === -1){
-        preload_load('page_header_wrap', preload.mainmenu);
+        preload_load('HeaderNav__item', preload.mainmenu);
     };
 
     // ====================================================================
