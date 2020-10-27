@@ -92,6 +92,7 @@
 	overflow-y: scroll;
 	width: 97.2%;
 	height: 360px;
+	overflow-x: scroll;
 }
 .vka_title {
 	font-size: 18pt;
