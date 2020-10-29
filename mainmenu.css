@@ -101,9 +101,6 @@
 	height: 5%;
 	margin: 3% 3% 5% 2%;
 }
-.vka_section {
-	margin-right: 90%; 
-}
 .vka_innerBlock {
 	z-index: 0;
 	margin-top: 1%;
@@ -127,6 +124,7 @@
     margin: 5px 7px 0px 5px;
 }
 .vka_section {
+	margin-right: 90%;
 	font-size: 15pt;
 	height: 20px;
 	transition: visibility 1s;
