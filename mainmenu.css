@@ -130,7 +130,10 @@
 }
 .vka_section:hover {
 	cursor: pointer;	
+	text-decoration: none;
+	color: darkgrey;
 }
+
 .vka_arrow {
 	float: right;
 	font-size: 15pt;
