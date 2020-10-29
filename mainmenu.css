@@ -114,6 +114,11 @@
 	transition: opacity 0.2s;
 	display: none;
 }
+
+.vka_displayBlock {
+	display: block;
+}
+
 .vka_BlockCheckbox {
 	float: left;
 	transform:scale(1.3);
