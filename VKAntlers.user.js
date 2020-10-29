@@ -255,9 +255,9 @@ var main = function() {
         }
     };
 
-    // Не добавлять менюшку в аудиозаписи
+    // Не добавлять кнопку менюшки в аудиозаписи
     // TODO: Сделать её наконец, а то при добавлении на страницу с аудио
-    // менюшка тупо ломается и добавляется в виде текста
+    // кнопка менюшки тупо ломается и добавляется в виде текста
     if(document.location.href.indexOf('audios') === -1){
         preload_load('HeaderNav__item', preload.mainmenu);
     };
@@ -265,10 +265,10 @@ var main = function() {
     // ====================================================================
     // Основные команды
 
-    // Добавление меню на сайт
+    // Добавление блока меню на сайт
     $("head").after(vka_menu_css);
     $("body").ready(function() {
-        $(".im-page-wrapper._im-page-wrap").append(vka_menu);
+        $(".HeaderNav__item.deer").append(vka_menu);
     });
 
     $(document).on("click", "#vkantlers_toggle", function(){
@@ -342,13 +342,19 @@ var main = function() {
     // ====================================================================
     // Функции
 
+    // Отвечает за раскрытие пунктов в меню
+    $(document).on("click", ".vka_section", function() {
+        $(this).next('.vka_innerBlock').toggleClass('vka_displayBlock');
+    });
+
+    // Открытие меню по клику на оленя
     function vka_menu_toggle(){
         console.log("Clicked on deer");
         $('.vka_parent').toggleClass('vka_parent_display');
     };
 
+    // Добавляет кнопку менюшки во время загрузки страницы
     function preload_load(class_target, func){
-        // Добавляет кнопку менюшки во время загрузки страницы
         var observer = new MutationObserver(function(mutations) {
             for (var i=0; i<mutations.length; i++) {
                 var mutationAddedNodes = mutations[i].addedNodes;
