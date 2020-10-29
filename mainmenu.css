@@ -124,10 +124,12 @@
     margin: 5px 7px 0px 5px;
 }
 .vka_section {
-	margin-right: 90%;
 	font-size: 15pt;
 	height: 20px;
 	transition: visibility 1s;
+}
+.vka_section::hover {
+	cursor: pointer;	
 }
 .vka_arrow {
 	float: right;
