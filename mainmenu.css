@@ -128,8 +128,10 @@
 	height: 20px;
 	transition: visibility 1s;
 }
-.vka_section:hover * {
+.vka_section:hover {
 	cursor: pointer;	
+}
+.vka_section:hover * {	
 	text-decoration: none;
 	color: darkgrey;
 }
