@@ -153,12 +153,12 @@
 	font-family: cursive;
 }
 .vka_copyright {
-	margin-top: 5px;
+	margin-top: 15px;
 }
 .vka_giticon {
 	position: absolute;
 	top: 424px;
-	left: 100px;
+	left: 210px;
 }
 .vka_parent a {
 	cursor: pointer;
