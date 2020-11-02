@@ -148,7 +148,8 @@
 	transition: height 0.2s;
 }
 .vka_footer {
-	height: 50px;
+	margin: 5% 0 0 3%;
+	height: 30px;
 	font-family: cursive;
 }
 a {
