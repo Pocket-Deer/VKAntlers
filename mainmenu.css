@@ -156,7 +156,9 @@
 	margin-top: 5px;
 }
 .vka_giticon {
-	float: right;
+	position: absolute;
+	top: 424px;
+	left: 100px;
 }
 .vka_parent a {
 	cursor: pointer;
