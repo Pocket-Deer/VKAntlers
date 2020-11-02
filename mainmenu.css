@@ -152,21 +152,21 @@
 	height: 30px;
 	font-family: cursive;
 }
-a {
+vka_parent a {
 	cursor: pointer;
 	color: black;
 }
-a:link {
+vka_parent a:link {
 	text-decoration: none;
 }
-a:hover {
+vka_parent a:hover {
 	text-decoration: none;
 	color: darkgrey;
 }
-a:visited {
+vka_parent a:visited {
 	text-decoration: none;
 }
-a:active {
+vka_parent a:active {
 	text-decoration: none;
 }
 </style>
