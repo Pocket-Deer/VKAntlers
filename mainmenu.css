@@ -23,7 +23,9 @@
 .vka_content::-webkit-scrollbar-thumb:hover{
   background: #555;
 }
-
+.vka_content hr {
+	margin-right:3%;
+}
 .vka_parent {
 	-webkit-touch-callout: none; /* iOS Safari */
   	-webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -106,7 +108,7 @@
 	margin-top: 1%;
 	padding: 5% 0 0% 0%;
 	background-color: white;
-	height: 350px;
+	height: auto;
 	width: 200px;
 	transition: opacity 0.2s;
 	display: none;
