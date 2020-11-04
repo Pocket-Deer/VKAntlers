@@ -127,6 +127,7 @@
 }
 .vka_section {
 	font-size: 15pt;
+	font-family: 'Montserrat', sans-serif;
 	height: 20px;
 	transition: visibility 1s;
 }
