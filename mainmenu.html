@@ -163,3 +163,29 @@
 		</div>
 	</div>
 </div>
+										  
+<script type="text/javascript">	
+	async function ShowSection(id, arrow, placeholder) {	
+		element = document.getElementById(id);	
+		if (element.style.opacity == "0") {	
+			document.getElementById(placeholder).style.height = "370px";	
+			document.getElementById(arrow).style.WebkitTransition="transform 0.5s";	
+			document.getElementById(arrow).style.webkitTransform = 'rotate(-180deg)';	
+			await new Promise(r => setTimeout(r, 200));	
+			element.style.display = "block";	
+			document.getElementById(placeholder).style.display = "none";	
+			await new Promise(r => setTimeout(r, 200));	
+			element.style.opacity = "1";	
+		} 	
+		else {	
+			document.getElementById(arrow).style.WebkitTransition="transform 0.5s";	
+			document.getElementById(arrow).style.webkitTransform = 'rotate(0deg)';	
+			element.style.opacity = "0";	
+			await new Promise(r => setTimeout(r, 200));	
+			element.style.display = "none";	
+			document.getElementById(placeholder).style.display = "block";	
+			await new Promise(r => setTimeout(r, 200));	
+			document.getElementById(placeholder).style.height = "2px";	
+		}	
+	}	
+</script>
