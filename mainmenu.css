@@ -98,7 +98,7 @@
 .vka_title {
 	font-size: 18pt;
 	font-family: cursive;
-	color:black;
+	color: var(--black);
 	border-radius: 7px 7px 0 0;
 	height: 5%;
 	margin: 3% 3% 5% 2%;
@@ -107,7 +107,7 @@
 	z-index: 0;
 	margin-top: 1%;
 	padding: 5% 0 0% 0%;
-	background-color: white;
+	background-color: var(--white);
 	height: auto;
 	width: 200px;
 	transition: opacity 0.2s;
@@ -140,7 +140,7 @@
 }
 .vka_section:hover * {	
 	text-decoration: none;
-	color: darkgrey;
+	color: var(--gray_600);
 }
 .vka_arrow {
 	float: right;
@@ -167,14 +167,14 @@
 }
 .vka_parent a {
 	cursor: pointer;
-	color: black;
+	color: var(--black);
 }
 .vka_parent a:link {
 	text-decoration: none;
 }
 .vka_parent a:hover {
 	text-decoration: none;
-	color: darkgrey;
+	color: var(--gray_600);
 }
 .vka_parent a:visited {
 	text-decoration: none;
