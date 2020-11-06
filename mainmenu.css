@@ -54,7 +54,7 @@
 	border: 1px solid grey;
 	margin-top: 15px;
 	z-index: 5;
-	background: white;
+	background: var(--white);
 	height: 70%;
 	max-width: 500px;
 	max-height: 1000px;
