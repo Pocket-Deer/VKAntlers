@@ -97,7 +97,7 @@
 }
 .vka_title {
 	font-size: 18pt;
-	font-family: cursive;
+	font-family: 'Montserrat', sans-serif;
 	color: var(--black);
 	border-radius: 7px 7px 0 0;
 	height: 5%;
@@ -123,6 +123,10 @@
 	opacity:0.9;
     	cursor:pointer;
     	margin: 3px 7px 0px 5px;
+}
+
+.vka_label {
+	display: flex;
 }
 
 .vka_label:hover {
