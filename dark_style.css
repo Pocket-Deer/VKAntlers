@@ -45,7 +45,7 @@
     border: none;
   }
 
-  [dir=ltr] #page_header_cont
+  [dir=ltr] #page_header_cont .back
   {
     background: var(--vd);
     border-bottom: 1px solid var(--vd);
@@ -585,7 +585,6 @@
     -webkit-transform: scale3d(1.2,1.2,1.2);
     transform: scale3d(1.2,1.2,1.2);
   }
-}
 
 [dir] .audio_page_player2 .audio_page_player_play .icon:hover,[dir] .audio_page_player2 .audio_page_player_play.audio_playing .icon:hover
 {
@@ -3366,7 +3365,7 @@ html[dir]
 [dir] .pv_cont .pv_closed_commments_placeholder
 {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAA6BAMAAAA5Jaa0AAAAIVBMVEVHcEzW4OrZ4+vW4OrW4OrX4erY4evV3+l8g4sxNzxfZmxQFOOZAAAAB3RSTlMA6B+wjnBU+CPn7wAAAMNJREFUOMtjYIACpmBBQVMFBjTA5F4OBCXo4onlZgpMyeViqKKs5UYgSrk8AEU4vRRCh5ehmCwOVcVaiGw6SzGMZe6AJKxehMkCGWkAYzGXIgmbJ8BYbMVIwuJwi5gKkYURTGThcqzMYSTMIl6OAQodGDw6sIAWBomZWEAjQwU24fZBKTxrJTbhGR0dnViEO8rLO7AIt5eXV2AKzwIJryRWGIchuKyc0V6BzYEz2ytm0lt4RRcJATtYEwSOhIwj2WPPJADVy9uIDXFJGQAAAABJRU5ErkJggg==);
-}
+}}
 
 @-moz-document url-prefix("https://connect.vk.com")
 {
