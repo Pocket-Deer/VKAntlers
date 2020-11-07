@@ -139,6 +139,7 @@
 	font-family: 'Montserrat', sans-serif;
 	height: 20px;
 	transition: visibility 1s;
+	padding: 0px 5px;
 }
 .vka_section:hover {
 	cursor: pointer;	
