@@ -127,6 +127,7 @@
 
 .vka_label {
 	display: flex;
+	margin: 1px;
 }
 
 .vka_label:hover {
