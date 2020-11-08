@@ -1,7 +1,7 @@
   *
   {
     color: #c8d4e2 !important;
-    border-color: #696D7D !important;
+    border-color: none !important;
     -webkit-transition: background-color .3s !important;
     -moz-transition: background-color .3s !important;
     -ms-transition: background-color .3s !important;
@@ -12,6 +12,11 @@
 [dir] #page_header_cont {
     background-color: rgb(36 46 58) !important;
     border-bottom: none;
+}
+
+[dir=ltr] .im-page_classic.im-page .im-page--dialogs-footer {
+    box-shadow: none;
+ border-top: none; 
 }
 
  .vka_block
