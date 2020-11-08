@@ -9,6 +9,11 @@
     transition: background-color .3s !important;
   }
 
+[dir] #page_header_cont {
+    background-color: rgb(36 46 58) !important;
+    border-bottom: none;
+}
+
  .vka_block
  {
     background-color: rgb(37, 48, 60) !important;
