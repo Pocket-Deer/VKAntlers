@@ -9,6 +9,21 @@
     transition: background-color .3s !important;
   }
 
+ .vka_block
+ {
+    background-color: rgb(37, 48, 60) !important;
+ }
+
+.vka_innerBlock
+{
+background-color: rgb(36 46 58) !important;
+}
+
+.vka_block:after
+{
+border-bottom-color: rgb(36 46 58) !important;
+}
+
   .audio_row.audio_row_current .audio_row_inner, .audio_row.audio_row_playing .audio_row_inner, .audio_row.audio_row_current .audio_row_inner:hover, .audio_row.audio_row_playing .audio_row_inner:hover
   {
     background-color: #25303c;
