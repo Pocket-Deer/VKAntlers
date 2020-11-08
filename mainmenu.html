@@ -1,195 +1,268 @@
 <div class="vka_parent">
-	<div class="vka_block">
-		<div class="vka_title">
-			<font>VKAntlers</font>
-			<font id="vka_version" style="float: right; padding-top: 10px;" size="2">v 1.2</font>
-		</div> 
-		<hr>
-		<div class="vka_content">
-			<div class="vka_section"><a>Стиль</a><div class="vka_arrow" id="arrow1">ᐯ</div></div>
-			<div class="vka_innerBlock" id="Section1">
-				<form class="vka_form">
-					<label class="vka_label">
-						<input class="vka_field"  type="checkbox" id="custom_theme" name="custom_theme_changer"> - <div>Кастомная тема</div>
-					</label>
-					<ul>
-						<div>Темы:</div>
-						<li><label class="vka_label">
-							<input class="vka_field" type="radio" id="theme_type_dark" name="theme_style_dark" checked> - <div>Тёмная ()</div>
-							</label></li>
-						<li><label class="vka_label">
-							<input class="vka_field" type="radio" id="theme_type_neon" name="theme_style_neon" disabled> - <div>Неоновая</div>
-						</label></li>
-						<li>
-						<label class="vka_label">
-							<input class="vka_field" type="radio" id="theme_type_gradient" name="theme_style_gradient" disabled> - <div>Градиент</div>
-						</label></li>
-						<li>
-						<label class="vka_label">
-							<input class="vka_field" type="radio" id="theme_type_custom" name="theme_style_custom" disabled> - <div>Кастомная</div>
-						</label></li>
-						<li>
-						<label  class="vka_label">Подгрузка стиля с ...</label>
-						<input class="vka_textarea" type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
-					</ul>
-					<label class="vka_label">
-						<input class="vka_field" type="checkbox" id="custom_theme_autotoggle" name="theme_changer" disabled> - <div>Автопереключение темы</div>
-					</label>
-					<label class="vka_label"><div>Время переключения</div>
-						<div>с <input class="vka_textarea" type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input class="vka_textarea" type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;"></div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="checkbox" id="custom_theme_icon" name="theme_icon" disabled> - <div>Значок смены темы в правом верхнем углу</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="checkbox" id="custom_hashtags" name="hashtag_toggle"> - <div>Кастомные хэштеги</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="checkbox" id="custom_back_button" name="hashtag_toggle"> - <div>Кнопка назад в новом дизайне диалогов</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="checkbox" id="hide_names" name="hide_names"> - <div>Скрыть имена в списке диалогов</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="checkbox" id="hide_messages" name="hide_messages"> - <div>Скрыть сообщения в списке диалогов</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="checkbox" id="hide_photo" name="hide_photo"> - <div>Скрыть аватарки в списке диалогов</div>
-					</label>
-				</form>
-			</div>
-			<hr>
-			<div class="vka_section"><a>Текст<div class="vka_arrow" id="arrow1">ᐯ</div></a></div>    
-			<div class="vka_innerBlock" id="Section2">
-				<label class="vka_label"> 
-					<input class="vka_field"  type="checkbox" id="msg_changer" name="msg_changer" disabled> - <div>Замена сообщений</div>
-				</label>
-					Тип замены:
-					<label class="vka_label">
-						<input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - <div>@all "сообщение"</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - <div>Свой символ перед сообщением</div>
-					</label>
-				<label class="vka_label"> 
-				<input class="vka_field"  type="checkbox" id="text_cipher" name="text_cipher" disabled> - <div>Шифровка сообщений</div>
-				</label>
-					Тип шифровки:
-					<label class="vka_label">
-						<input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - <div>Цезарь</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - <div>PGP</div>
-					</label>
-				<label class="vka_label">
-				<input class="vka_field" type="checkbox" id="custom_font" name="custom_font" disabled> - <div>Кастомный шрифт</div>
-				</label>
-				<form>
-					<label  class="vka_label" for="S2-6">Ссылка с <link> из Google Fonts</label>
-					<input class="vka_textarea" type="text" id="custom_font_type" name="custom_font_type" style="width: 100%;" disabled>
-					<label  class="vka_label" for="S2-6">Ссылка с CSS rules из Google Fonts</label>
-					<input class="vka_textarea" type="text" id="custom_font_css" name="custom_font_css" style="width: 100%;" disabled>
-				</form>
-				<label class="vka_label">Размер шрифта
-				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
-				<output name="ageOutputName" id="text_custom_font_size_output">14</output>
-				</label>
-				<label class="vka_label"> 
-				<input class="vka_field"  type="checkbox" id="custom_left_menu" name="custom_left_menu"> - <div>Кастомизация левого меню</div>
-					</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_pr" placeholder="Моя страница" value="Моя страница" name="l_pr" style="width: 100%;">
-						</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_nwsf" placeholder="Новости" value="Новости" name="l_nwsf" style="width: 100%;">
-						</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_msg" placeholder="Мессенджер" value="Сообщения" name="l_msg" style="width: 100%;">
-						</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_fr" placeholder="Друзья" value="Друзья" name="S2-6" style="width: 100%;">
-						</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_gr" placeholder="Сообщества" value="Группы" name="S2-6" style="width: 100%;">
-						</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_ph" placeholder="Фотографии" value="Фотографии" name="S2-6" style="width: 100%;">
-						</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_aud" placeholder="Музыка" value="Музыка" name="S2-6" style="width: 100%;">
-						</label>
-					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_vid" placeholder="Видео" value="Видео" name="S2-6" style="width: 100%;">
-				</label>
-			</div>
-			<hr>
-			<div class="vka_section"><a>Патчи<div class="vka_arrow" id="arrow1">ᐯ</div></a></div>     
-			<div class="vka_innerBlock" id="Section3">
-				<label class="vka_label">
-					<input class="vka_field"  type="checkbox" id="unread" name="unread"> - <div>Нечиталка</div>
-				</label>
-				<label class="vka_label">
-				<input class="vka_field" type="checkbox" id="untype" name="untype"> - <div>Неписалка</div>
-				</label>
-				<label class="vka_label">
-				<input class="vka_field" type="checkbox" id="unnotify" name="unnotify"> - <div>Неуведомлялка</div>
-				</label>
-				<label class="vka_label">
-				<input class="vka_field" type="checkbox" id="offline" name="offline"> - <div>Частичный оффлайн</div>
-				</label>
-				<label class="vka_label">
-				<input class="vka_field" type="checkbox" id="auto_likes" name="auto_likes" disabled> - <div>Автолайки</div>
-				</label>
-				<label class="vka_label">
-				<input class="vka_field" type="checkbox" id="antlers_exploit" name="antlers_exploit"> - <div>Рогалик</div>
-				</label>
-			</div>
-			<hr>
-			<div class="vka_section"><a>Аддон<div class="vka_arrow" id="arrow1">ᐯ</div></a></div>     
-			<div class="vka_innerBlock" id="Section3">
-				Темы: <br>
-				<form>
-					<label class="vka_label">
-						<input class="vka_field" type="radio" id="" name="S1-5" disabled> - <div>VKClassic</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="radio" id="" name="S1-5" checked> - <div>VKAntlers (new)</div>
-					</label>
-					<label class="vka_label">
-						<input class="vka_field" type="radio" id="S1-5" name="S1-5" disabled> - <div>VKAntlers (old)</div>
-					</label>
-					<label  class="vka_label">
-						<input class="vka_field" type="radio" id="S1-5" name="S1-5" disabled> - <div>Custom:</div>
-					</label>
-					<label class="vka_label">1 color <br> 
-						<input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
-						<output name="ageOutputName" id="custom_addon_color1_out">0</output>
-					</label>
-					<label class="vka_label">2 color <br> 
-						<input type="range" min="0" max="255" step="1" value="255" id="custom_addon_color2" name="S4-1" oninput="custom_addon_color2_out.value = custom_addon_color2.value">
-						<output name="ageOutputName" id="custom_addon_color2_out">255</output>
-					</label>
-				</form><br>
-			</div>
-			<hr>
-				<div class="vka_section"><a>Другое<div class="vka_arrow" id="arrow1">ᐯ</div></a></div>     
-				<div class="vka_innerBlock" id="Section4">
-				<label class="vka_label">
-					<input class="vka_field"  type="checkbox" id="rainbow_text" name="rainbow_text"> - <div>Радужный текст!!1!</div>
-				</label>
-				</div>
-			<hr>			     			     			     			     
-		</div>
-		<hr>
-		<div class="vka_footer">
-			<div class="vka_copyright">
-				Copyright 2020 - 2020 = 0
-			</div>
-			<div class="vka_giticon">
-				<a href="https://github.com/Pocket-Deer/VKAntlers">
-				<img width="25" height="25" src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg">
-				</a>		
-			</div>
-		</div>
-	</div>
+   <div class="vka_block">
+      <div class="vka_title">
+         <font>VKAntlers</font>
+         <font id="vka_version" style="float: right; padding-top: 10px;" size="2">v 1.2</font>
+      </div>
+      <hr>
+      <div class="vka_content">
+         <div class="vka_section">
+            <a>Стиль</a>
+            <div class="vka_arrow" id="arrow1">ᐯ</div>
+         </div>
+         <div class="vka_innerBlock" id="Section1">
+            <form class="vka_form">
+               <label class="vka_label">
+                  <input class="vka_field"  type="checkbox" id="custom_theme" name="custom_theme_changer"> - 
+                  <div>Кастомная тема</div>
+               </label>
+               <ul>
+                  <div>Темы:</div>
+                  <li>
+                     <label class="vka_label">
+                        <input class="vka_field" type="radio" id="theme_type_dark" name="theme_style_dark" checked> - 
+                        <div>Тёмная ()</div>
+                     </label>
+                  </li>
+                  <li>
+                     <label class="vka_label">
+                        <input class="vka_field" type="radio" id="theme_type_neon" name="theme_style_neon" disabled> - 
+                        <div>Неоновая</div>
+                     </label>
+                  </li>
+                  <li>
+                     <label class="vka_label">
+                        <input class="vka_field" type="radio" id="theme_type_gradient" name="theme_style_gradient" disabled> - 
+                        <div>Градиент</div>
+                     </label>
+                  </li>
+                  <li>
+                     <label class="vka_label">
+                        <input class="vka_field" type="radio" id="theme_type_custom" name="theme_style_custom" disabled> - 
+                        <div>Кастомная</div>
+                     </label>
+                  </li>
+                  <li>
+                     <label  class="vka_label">Подгрузка стиля с ...</label>
+                     <input class="vka_textarea" type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
+                  </li>
+                  <li>
+                     <label class="vka_label">
+                        <input class="vka_field" type="checkbox" id="custom_theme_autotoggle" name="theme_changer" disabled> - 
+                        <div>Автопереключение темы</div>
+                     </label>
+                  </li>
+                  <li>
+                     <label class="vka_label">
+                        <div>Время переключения</div>
+                        <div>с <input class="vka_textarea" type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input class="vka_textarea" type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;"></div>
+                     </label>
+                  <li>
+                  <li>
+                     <label class="vka_label">
+                        <input class="vka_field" type="checkbox" id="custom_theme_icon" name="theme_icon" disabled> - 
+                        <div>Значок смены темы в правом верхнем углу</div>
+                     </label>
+                  </li>
+               </ul>
+               <label class="vka_label">
+                  <input class="vka_field" type="checkbox" id="custom_hashtags" name="hashtag_toggle"> - 
+                  <div>Кастомные хэштеги</div>
+               </label>
+               <label class="vka_label">
+                  <input class="vka_field" type="checkbox" id="custom_back_button" name="hashtag_toggle"> - 
+                  <div>Кнопка назад в новом дизайне диалогов</div>
+               </label>
+               <label class="vka_label">
+                  <input class="vka_field" type="checkbox" id="hide_names" name="hide_names"> - 
+                  <div>Скрыть имена в списке диалогов</div>
+               </label>
+               <label class="vka_label">
+                  <input class="vka_field" type="checkbox" id="hide_messages" name="hide_messages"> - 
+                  <div>Скрыть сообщения в списке диалогов</div>
+               </label>
+               <label class="vka_label">
+                  <input class="vka_field" type="checkbox" id="hide_photo" name="hide_photo"> - 
+                  <div>Скрыть аватарки в списке диалогов</div>
+               </label>
+            </form>
+         </div>
+         <hr>
+         <div class="vka_section">
+            <a>
+               Текст
+               <div class="vka_arrow" id="arrow1">ᐯ</div>
+            </a>
+         </div>
+         <div class="vka_innerBlock" id="Section2">
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="msg_changer" name="msg_changer" disabled> - 
+               <div>Замена сообщений</div>
+            </label>
+            Тип замены:
+            <label class="vka_label">
+               <input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - 
+               <div>@all "сообщение"</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - 
+               <div>Свой символ перед сообщением</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="text_cipher" name="text_cipher" disabled> - 
+               <div>Шифровка сообщений</div>
+            </label>
+            Тип шифровки:
+            <label class="vka_label">
+               <input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - 
+               <div>Цезарь</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - 
+               <div>PGP</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="checkbox" id="custom_font" name="custom_font" disabled> - 
+               <div>Кастомный шрифт</div>
+            </label>
+            <form>
+               <label  class="vka_label" for="S2-6">
+                  Ссылка с 
+                  <link>
+                  из Google Fonts
+               </label>
+               <input class="vka_textarea" type="text" id="custom_font_type" name="custom_font_type" style="width: 100%;" disabled>
+               <label  class="vka_label" for="S2-6">Ссылка с CSS rules из Google Fonts</label>
+               <input class="vka_textarea" type="text" id="custom_font_css" name="custom_font_css" style="width: 100%;" disabled>
+            </form>
+            <label class="vka_label">Размер шрифта
+            <input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
+            <output name="ageOutputName" id="text_custom_font_size_output">14</output>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="custom_left_menu" name="custom_left_menu"> - 
+               <div>Кастомизация левого меню</div>
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_pr" placeholder="Моя страница" value="Моя страница" name="l_pr" style="width: 100%;">
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_nwsf" placeholder="Новости" value="Новости" name="l_nwsf" style="width: 100%;">
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_msg" placeholder="Мессенджер" value="Сообщения" name="l_msg" style="width: 100%;">
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_fr" placeholder="Друзья" value="Друзья" name="S2-6" style="width: 100%;">
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_gr" placeholder="Сообщества" value="Группы" name="S2-6" style="width: 100%;">
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_ph" placeholder="Фотографии" value="Фотографии" name="S2-6" style="width: 100%;">
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_aud" placeholder="Музыка" value="Музыка" name="S2-6" style="width: 100%;">
+            </label>
+            <label class="vka_label">
+            <input class="vka_textarea" type="text" id="vka_l_vid" placeholder="Видео" value="Видео" name="S2-6" style="width: 100%;">
+            </label>
+         </div>
+         <hr>
+         <div class="vka_section">
+            <a>
+               Патчи
+               <div class="vka_arrow" id="arrow1">ᐯ</div>
+            </a>
+         </div>
+         <div class="vka_innerBlock" id="Section3">
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="unread" name="unread"> - 
+               <div>Нечиталка</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="checkbox" id="untype" name="untype"> - 
+               <div>Неписалка</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="checkbox" id="unnotify" name="unnotify"> - 
+               <div>Неуведомлялка</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="checkbox" id="offline" name="offline"> - 
+               <div>Частичный оффлайн</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="checkbox" id="auto_likes" name="auto_likes" disabled> - 
+               <div>Автолайки</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field" type="checkbox" id="antlers_exploit" name="antlers_exploit"> - 
+               <div>Рогалик</div>
+            </label>
+         </div>
+         <hr>
+         <div class="vka_section">
+            <a>
+               Аддон
+               <div class="vka_arrow" id="arrow1">ᐯ</div>
+            </a>
+         </div>
+         <div class="vka_innerBlock" id="Section3">
+            Темы: <br>
+            <form>
+               <label class="vka_label">
+                  <input class="vka_field" type="radio" id="" name="S1-5" disabled> - 
+                  <div>VKClassic</div>
+               </label>
+               <label class="vka_label">
+                  <input class="vka_field" type="radio" id="" name="S1-5" checked> - 
+                  <div>VKAntlers (new)</div>
+               </label>
+               <label class="vka_label">
+                  <input class="vka_field" type="radio" id="S1-5" name="S1-5" disabled> - 
+                  <div>VKAntlers (old)</div>
+               </label>
+               <label  class="vka_label">
+                  <input class="vka_field" type="radio" id="S1-5" name="S1-5" disabled> - 
+                  <div>Custom:</div>
+               </label>
+               <label class="vka_label">1 color <br> 
+               <input type="range" min="0" max="255" step="1" value="0" id="custom_addon_color1" name="S4-1" oninput="custom_addon_color1_out.value = custom_addon_color1.value">
+               <output name="ageOutputName" id="custom_addon_color1_out">0</output>
+               </label>
+               <label class="vka_label">2 color <br> 
+               <input type="range" min="0" max="255" step="1" value="255" id="custom_addon_color2" name="S4-1" oninput="custom_addon_color2_out.value = custom_addon_color2.value">
+               <output name="ageOutputName" id="custom_addon_color2_out">255</output>
+               </label>
+            </form>
+            <br>
+         </div>
+         <hr>
+         <div class="vka_section">
+            <a>
+               Другое
+               <div class="vka_arrow" id="arrow1">ᐯ</div>
+            </a>
+         </div>
+         <div class="vka_innerBlock" id="Section4">
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="rainbow_text" name="rainbow_text"> - 
+               <div>Радужный текст!!1!</div>
+            </label>
+         </div>
+         <hr>
+      </div>
+      <hr>
+      <div class="vka_footer">
+         <div class="vka_copyright">
+            Copyright 2020 - 2020 = 0
+         </div>
+         <div class="vka_giticon">
+            <a href="https://github.com/Pocket-Deer/VKAntlers">
+            <img width="25" height="25" src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg">
+            </a>		
+         </div>
+      </div>
+   </div>
 </div>
