@@ -82,8 +82,8 @@
 				</label>
 				<form>
 					<label  class="vka_label" for="S2-6">Подгрузка шрифта с Google Fonts</label>
-					<input class="vka_textarea" type="text" id="S2-6" name="S2-6" style="width: 50%;">
-					<input type="submit" name="submit" value="Сохранить">
+					<input class="vka_textarea" type="text" id="S2-6" name="S2-6" style="width: 60%;" disabled>
+					<input type="submit" name="submit" value="Сохранить" disabled>
 				</form>
 				<label class="vka_label">Размер шрифта
 				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
@@ -93,28 +93,28 @@
 				<input class="vka_field"  type="checkbox" id="custom_left_menu" name="custom_left_menu"> - <div>Кастомизация левого меню</div>
 					</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_pr" value="Моя страница" name="l_pr" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_pr" placeholder="Моя страница" value="Моя страница" name="l_pr" style="width: 100%;">
 						</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_nwsf" value="Новости" name="l_nwsf" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_nwsf" placeholder="Новости" value="Новости" name="l_nwsf" style="width: 100%;">
 						</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_msg" value="Мессенджер" name="l_msg" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_msg" placeholder="Мессенджер" value="Сообщения" name="l_msg" style="width: 100%;">
 						</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_fr" value="Друзья" name="S2-6" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_fr" placeholder="Друзья" value="Друзья" name="S2-6" style="width: 100%;">
 						</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_gr" value="Сообщества" name="S2-6" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_gr" placeholder="Сообщества" value="Группы" name="S2-6" style="width: 100%;">
 						</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_ph" value="Фотографии" name="S2-6" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_ph" placeholder="Фотографии" value="Фотографии" name="S2-6" style="width: 100%;">
 						</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_aud" value="Музыка" name="S2-6" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_aud" placeholder="Музыка" value="Музыка" name="S2-6" style="width: 100%;">
 						</label>
 					<label class="vka_label">
-				<input class="vka_textarea" type="text" id="vka_l_vid" value="Видео" name="S2-6" style="width: 100%;">
+				<input class="vka_textarea" type="text" id="vka_l_vid" placeholder="Видео" value="Видео" name="S2-6" style="width: 100%;">
 				</label>
 			</div>
 			<hr>
@@ -169,28 +169,9 @@
 			<hr>
 				<div class="vka_section"><a>Другое<div class="vka_arrow" id="arrow1">ᐯ</div></a></div>     
 				<div class="vka_innerBlock" id="Section4">
-					<label class="vka_label">Ползунок</label> <br> 
-					<input type="range" min="0" max="100" step="25" value="50" id="S4-1" name="S4-1"> <br> <br>
-					<label class="vka_label"> - Чекбокс 1</label> 
-					<input class="vka_field"  type="checkbox" id="S4-2" name="S4-2"> <br>
-					<label class="vka_label"> - Чекбокс 2</label> 
-					<input class="vka_field" type="checkbox" id="S4-3" name="S4-3"> <br>
-					<label class="vka_label"> - Чекбокс 3</label>  
-					<input class="vka_BlockCheckbox" type="checkbox" id="S4-4" name="S4-4"> <br>
-					<br>Радиокнопачки: <br>
-					<form>
-					<label class="vka_label"> - Радио 1</label> 
-					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label class="vka_label"> - Радио 2</label> 
-					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> <br>
-					<label class="vka_label"> - Радио 3</label> 
-					<input class="vka_BlockCheckbox" type="radio" id="S4-5" name="S4-5"> 
-					</form> <br> <br>
-					<form>
-						<label class="vka_label">Текст с кнопкой</label> <br> 
-						<input type="text" id="S4-6" name="S4-6" style="width: 5%;"> - <input type="text" id="S4-7" name="S4-7" style="width: 5%;">
-						<input type="submit" name="submit">
-					</form>
+				<label class="vka_label">
+					<input class="vka_field"  type="checkbox" id="rainbow_text" name="rainbow_text"> - <div>Радужный текст!!1!</div>
+				</label>
 				</div>
 			<hr>			     			     			     			     
 		</div>
