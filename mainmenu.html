@@ -78,12 +78,13 @@
 						<input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - <div>PGP</div>
 					</label>
 				<label class="vka_label">
-				<input class="vka_field" type="checkbox" id="text_custom_font" name="text_custom_font" disabled> - <div>Кастомный шрифт</div>
+				<input class="vka_field" type="checkbox" id="text_custom_font" name="text_custom_font"> - <div>Кастомный шрифт</div>
 				</label>
 				<form>
-					<label  class="vka_label" for="S2-6">Подгрузка шрифта с Google Fonts</label>
-					<input class="vka_textarea" type="text" id="S2-6" name="S2-6" style="width: 60%;" disabled>
-					<input type="submit" name="submit" value="Сохранить" disabled>
+					<label  class="vka_label" for="S2-6">Ссылка с <link> из Google Fonts</label>
+					<input class="vka_textarea" type="text" id="custom_font_type" name="custom_font_type" style="width: 100%;">
+					<label  class="vka_label" for="S2-6">Ссылка с CSS rules из Google Fonts</label>
+					<input class="vka_textarea" type="text" id="custom_font_css" name="custom_font_css" style="width: 100%;">
 				</form>
 				<label class="vka_label">Размер шрифта
 				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
