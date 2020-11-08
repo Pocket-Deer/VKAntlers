@@ -58,8 +58,25 @@
 			<div class="vka_section"><a>Текст<div class="vka_arrow" id="arrow1">ᐯ</div></a></div>    
 			<div class="vka_innerBlock" id="Section2">
 				<label class="vka_label"> 
+					<input class="vka_field"  type="checkbox" id="msg_changer" name="msg_changer" disabled> - <div>Замена сообщений</div>
+				</label>
+					Тип замены:
+					<label class="vka_label">
+						<input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - <div>@all "сообщение"</div>
+					</label>
+					<label class="vka_label">
+						<input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - <div>Свой символ перед сообщением</div>
+					</label>
+				<label class="vka_label"> 
 				<input class="vka_field"  type="checkbox" id="text_cipher" name="text_cipher" disabled> - <div>Шифровка сообщений</div>
 				</label>
+					Тип шифровки:
+					<label class="vka_label">
+						<input class="vka_field" type="radio" id="cipher_type" name="cipher_type" checked> - <div>Цезарь</div>
+					</label>
+					<label class="vka_label">
+						<input class="vka_field" type="radio" id="cipher_type" name="cipher_type" checked> - <div>PGP</div>
+					</label>
 				<label class="vka_label">
 				<input class="vka_field" type="checkbox" id="text_custom_font" name="text_custom_font" disabled> - <div>Кастомный шрифт</div>
 				</label>
@@ -71,6 +88,19 @@
 				<label class="vka_label">Размер шрифта
 				<input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
 				<output name="ageOutputName" id="text_custom_font_size_output">14</output>
+				</label>
+				<label class="vka_label"> 
+				<input class="vka_field"  type="checkbox" id="custom_left_menu" name="custom_left_menu"> - <div>Кастомизация левого меню</div>
+					</label>
+					<label class="vka_label">
+				<input class="vka_textarea" type="text" id="vka_l_pr" value="Моя страница" name="S2-6" style="width: 50%;">
+				<input class="vka_textarea" type="text" id="vka_l_nwsf" value="Новости" name="S2-6" style="width: 50%;">
+				<input class="vka_textarea" type="text" id="vka_l_msg" value="Мессенджер" name="S2-6" style="width: 50%;">
+				<input class="vka_textarea" type="text" id="vka_l_fr" value="Друзья" name="S2-6" style="width: 50%;">
+				<input class="vka_textarea" type="text" id="vka_l_gr" value="Сообщества" name="S2-6" style="width: 50%;">
+				<input class="vka_textarea" type="text" id="vka_l_ph" value="Фотографии" name="S2-6" style="width: 50%;">
+				<input class="vka_textarea" type="text" id="vka_l_aud" value="Музыка" name="S2-6" style="width: 50%;">
+				<input class="vka_textarea" type="text" id="vka_l_vid" value="Видео" name="S2-6" style="width: 50%;">
 				</label>
 			</div>
 			<hr>
