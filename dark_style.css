@@ -14,6 +14,18 @@
     border-bottom: none;
 }
 
+[dir] .im-page_classic .im-page--chat-header {
+    margin-top: -15px;
+    border: solid 1px var(--steel_gray_60);
+    border-top-width: 15px;
+    border-color: rgb(36 46 58) !important;
+    border-radius: 0;
+}
+
+[dir=ltr] .im-page--toolsw {
+    border-radius: 0;
+}
+
 [dir=ltr] .im-page_classic.im-page .im-page--dialogs-footer {
     box-shadow: none;
  border-top: none; 
