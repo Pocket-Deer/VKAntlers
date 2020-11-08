@@ -12,22 +12,26 @@
 					<label class="vka_label">
 						<input class="vka_field"  type="checkbox" id="custom_theme" name="custom_theme_changer"> - <div>Кастомная тема</div>
 					</label>
-					<div>Темы:</div>
-						<label class="vka_label">
+					<ul>
+						<div>Темы:</div>
+						<li><label class="vka_label">
 							<input class="vka_field" type="radio" id="theme_type_dark" name="theme_style_dark" checked> - <div>Тёмная ()</div>
-						</label>
-						<label class="vka_label">
+							</label></li>
+						<li><label class="vka_label">
 							<input class="vka_field" type="radio" id="theme_type_neon" name="theme_style_neon" disabled> - <div>Неоновая</div>
-						</label>
+						</label></li>
+						<li>
 						<label class="vka_label">
 							<input class="vka_field" type="radio" id="theme_type_gradient" name="theme_style_gradient" disabled> - <div>Градиент</div>
-						</label>
+						</label></li>
+						<li>
 						<label class="vka_label">
 							<input class="vka_field" type="radio" id="theme_type_custom" name="theme_style_custom" disabled> - <div>Кастомная</div>
-						</label>
+						</label></li>
+						<li>
 						<label  class="vka_label">Подгрузка стиля с ...</label>
 						<input class="vka_textarea" type="text" id="theme_style_url" name="theme_style_url" style="width: 50%;" disabled>
-						<input type="submit" name="submit" value="Сохранить" disabled>
+					</ul>
 					<label class="vka_label">
 						<input class="vka_field" type="checkbox" id="custom_theme_autotoggle" name="theme_changer" disabled> - <div>Автопереключение темы</div>
 					</label>
