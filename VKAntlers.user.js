@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      1.1.5
+// @version      1.2
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -16,45 +16,12 @@
 // @match        *://*.userstyles.org/*
 // @match        https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
-// @grant        GM_addStyle
-// @grant        GM_setValue
-// @grant        GM_getValue
-// @grant        GM_xmlhttpRequest
 // @run-at       document-start
 // @noframes
 // ==/UserScript==
 
-// =============================== ВАЖНО ==================================
-//
-// Прочитайте, если вы зашли в исходник кода по какой-то своей причине
-// и уделите пожалуйста этому хотя бы немного внимания.
-// Если вы зашли сюда что-то поменять, или же что-то использовать для
-// своих целей, то скажу сразу - да, я не профессиональный кодер и
-// мой код можно считать говнокодом, есть косяки, есть недочёты,
-// есть костыли и прочее, так что поймите меня правильно и прошу вас
-// обойтись без лишней критики.
-// Итак
-// Во первых, если вы зашли сюда что-то поменять, поругать меня и
-// исправить в своём стиле - для этого есть чёртов гит. Я его
-// использую именно для этого, чтобы вы могли давать свои идеи и
-// я мог их реализовать, так же вы могли бы сказать мол
-// "Вот тут лучше использовать такой код, а не такой", и
-// я отнесусь к этом с понимаением и постараюсь разобраться со всем,
-// или же сообщать мне об ошибках, которые я постараюсь решить
-// в скором времени.
-// Во вторых, если вы скопировали этот код с репозитория, и собираетесь
-// использовать его в своих целях, или ж в своём проекте, прошу,
-// ссылайтесь хоть как-то на исходник, т.е. сюда, откуда вы взяли
-// тот или иной кусочек. Так вы хотя бы выразите свою благодарность
-// в предоставлении вам какой-либо идеи и её реализации.
-// Ну и так же завоюете моё уважение, если я встречу свой кусочек
-// кода в вашем проекте
-//
-// С любовью, ваш говнокодер - Pocket Deer
-//
 // ========================================================================
-
-
+// Добавление на страницу исходник JQuery
 var jquery_script = function() {
     var tmp = null;
     window.jQuery.ajax({ type: "GET",
@@ -68,683 +35,476 @@ var jquery_script = function() {
     return tmp;
 }();
 
-var jquery = document.createElement('script');
-jquery.append(document.createTextNode(jquery_script));
-(document.body || document.head || document.documentElement).append(jquery);
+var jquery = window.document.createElement('script');
+jquery.type = 'text/javascript';
+jquery.append(window.document.createTextNode(jquery_script));
+(window.document.body || window.document.head || window.document.documentElement).append(jquery);
 
+// ========================================================================
+// Исходный скрипт, который потом добавляется на страницу
 var main = function() {
 
-//     $('._im_dialog_link').on('DOMContentLoaded', function(e) {
-//         $(function(){
-//             $("._im_dialog_link").css({"filter":"blur(4px)"});
-//         });
-//     });
-
-//     var observer = new MutationObserver(function(mutations) {
-//         mutations.forEach(function(mutation) {
-//             $(mutation.addedNodes).find('._im_dialog_link').each(function() {
-//                 /* do something */
-//                 $("._im_dialog_link").css({"filter":"blur(4px)"});
-//                 console.dir(this); // Note, it's a DOM element, use $(this) if needed
-//             });
-//         });
-//     });
-
-//     observer.observe(document.getElementByClass('_im_dialog_link'), { childList: true, subtree: true });
-
-    // Очевидное сокращение JQuery до значка доллара
+    // VKAntlers loves you!
+    // --------------------------------------------------------------------
+    // Очевидное сокращение команды
     var $ = window.jQuery;
 
-    //-----------------------------------------------------------------
-    // Перехватчик AJAX запросов
-    (function(send){
-        XMLHttpRequest.prototype.send = function(body) {
-            // your code
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Конфигурация
+    var vka_dev = false;
 
-            if (/act=a_send/.test(body)) {
-                //var newstr = body.replace(/msg=/i, 'msg=%CC%A3');
-                //body = newstr;
-            };
-
-            if (/act=a_mark_read/.test(body)) {
-                if (vka_config.unread == true){
-                    //console.log("READ ABORTED!");
-                    XMLHttpRequest.abort();
-                }
-            };
-
-            if(/act=a_activity/.test(body) && /type=typing/.test(body)){
-                if (vka_config.untype == true){
-                    //console.log("TYPE ABORTED!");
-                    XMLHttpRequest.abort();
-                };
-            };
-
-            send.call(this, body);
-            //console.log ("Request sended!");
-        };
-    })(XMLHttpRequest.prototype.send);
-
-    //-----------------------------------------------------------------
-    // Переадресация при введении vk.com в адресную строку
-    if(document.location == "https://vk.com/feed"){
-        window.location.replace("https://vk.com/im")
-    };
-
-    //========================================================================
-    document.addEventListener ("DOMContentLoaded", DOM_ContentReady);
-    window.addEventListener ("load", pageFullyLoaded);
-
-    //-----------------------------------------------------------------
-    //Подгрузка стилей главного меню
-    var mainMenu = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html');
-    var mainMenu_css = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.css');
-    //var update_info_menu = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/popupupdate.html');
-    var version_info = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/version_info.md');
-    var mainMenu_stylein = '<style type="text/css">';
-    var mainMenu_styleout = '</style>';
-
-    $("head").after(mainMenu_stylein + mainMenu_css + mainMenu_styleout);
-    $("head").after('<style type="text/css"> .background_deer {height: 25%; position: fixed; justify-content: center; margin: auto; left: 0; right: 0; top: 0; bottom: 0;} </style>');
-    $("head").after('<div class="background_deer" style="display: none"><img style="display:inline-block; width: auto; height: 100%;" src="https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/files/vkantlers_logo_dark_theme.png"></div>');
-    $("head").after('<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@500&display=swap" rel="stylesheet">');
-    $("head").after('<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">');
-    $("head").after('<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">');
-
-    //$("#box_layer").after(update_info_menu);
-    //$(".box_controls_text._box_controls_text").after(update_info);
-
-    //-----------------------------------------------------------------
-    // Подгрузка тем с исходников с гита
-    // Данная тёмная тема принадлежит SayRus
-    // Найдено на Stylish
-    // https://userstyles.org/styles/175597/vk-dark-theme-material
-    var dark_theme = GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
-    if (dark_theme != null || dark_theme != undefined){
-        console.log("Dark Theme Downloaded!");
-    } else
-    {
-        console.log("Dark Theme NOT downloaded! CHECK THIS");
-    }
-    //----------------
-    //var timenow = new Date();
-
-    //-----------------------------------------------------------------
-    // Список всех возможных хэштегов
-    var hashtag_list = ["флеймлучший", "задонать", "темнаятёма", "да", "дирохерел", "ачё\)", "сидидомаблэд", "фывапролджэ", "missingno",
-                        "сижуахерел", "дистанционочка", "скибидивапа", "ойдевачьки", "настиле", "чайвсемуголова", "мрарф",
-                        "гобухать", "сказочноебали", "дирлох", "ложка", "300bucks", "стыдпозорный", "ugotthat", "heybuddy", "яобязательновыживу",
-                        "нечиталОчка", "слышработать", "кофемания", "hohol", "(﻿ ͡° ͜ʖ ͡°)", "атлишна", "дагестанскаясвадьба"];
-    // Смена хэштега в левом верхнем углу во время пандемии 2020.
-    var logo_hashtag_text = hashtag_list[Math.floor(Math.random() * hashtag_list.length)];
-
-    //========================================================================
-    // Получение данных сохранённых в TamperMonkey
-    //var dark_style = GM_getValue("dark_style");
-    //var theme_changer = GM_getValue("theme_changer");
-
-    // По сути, вытаскивает первое значение
-    //GM_setValue("vka_version", GetSourceFromSite('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/version_info').split('Версия ').shift().split('\n')[0]);
-    //var vka_version = GM_getValue("vka_version");
-
+    // Дефолтный конфиг
     var vka_config_default = {
         // version
-        version: "1.1.5",
+        version: "1.2",
 
         // style
         custom_theme: false,
-        theme_type: "dark",
+        custom_theme_type: "dark",
         custom_theme_autotoggle: false,
         ctt_end: "8",
         ctt_start: "20",
         custom_theme_icon: false,
-        custom_hashtags: true,
+        custom_hashtags: false,
         custom_back_button: true,
         hide_names: false,
         hide_messages: false,
         hide_photo: false,
 
+        // left menu customization
+        custom_left_menu: false,
+        vka_l_pr: "Моя страница",
+        vka_l_nwsf: "Новости",
+        vka_l_msg: "Мессенджер",
+        vka_l_fr: "Друзья",
+        vka_l_gr: "Сообщества",
+        vka_l_ph: "Фотографии",
+        vka_l_aud: "Музыка",
+        vka_l_vid: "Видео",
+
+        // text
+        msg_changer: false,
+        msg_changer_type: "",
+        cipher: false,
+        cipher_type: "none",
+        custom_font: false,
+        custom_font_type: "none",
+        custom_font_css: "none",
+        custom_font_size: "14",
+
         // patches
         unread: false,
         untype: false,
+        unnotify: false,
         offline: false,
         full_offline: false,
+        autolikes: false,
+        antlers_exploit: false,
 
-        // test
-        test: true,
-        test2: false,
-        text: "test_text"
-    }
+        //others
+        rainbow_text: false,
 
-    var vka_config;
-    //var vka_version_text;
-    vka_config = JSON.parse(localStorage.getItem("vka_config"));
-    //console.log ("Config loaded and: " + JSON.stringify(vka_config));
+        // development
+        dev_alerts: false,
+        dev_msg: false
+    };
 
-    if (vka_config == undefined || vka_config == null){
+    // Подгрузка конфига с локального хранилища
+    var vka_config = JSON.parse(localStorage.getItem("vka_config"));
+    if (vka_config){
+        // Сообщает о успешной загрузке конфига
+        console.log ("Config loaded successfully!");
+        //console.log ("Config is: " + JSON.stringify(vka_config)); // Показывает весь конфиг
+    } else {
+        // Ставит дефолтный если не существует конфига
+        console.log('Config not exists! Default config loaded!');
         vka_config = vka_config_default;
         localStorage.setItem("vka_config", JSON.stringify(vka_config));
-
-        $("body").ready(function() {
-            update_show();
-        });
-
-        //console.log("Приветственное сообщение о установке свежего скрипта");
+        // TODO: Убрать костыль с перезагрузкой из-за установки конфига. А может и не надо?
+        // Прикол заключается в MutationObserver - который не ждёт загрузки конфига
+        location.reload();
     };
 
-
+    // Обновление конфига при обновлении версии
+    // TODO: Сделать обновление лишь пунктов конфига, а не полностью заменять на дефолтный
     if(vka_config_default.version > vka_config.version){
-        console.log ("BEFORE vka_config is:" + vka_config.version + " default is: " + vka_config_default.version);
-        vka_config.version = vka_config_default.version;
-        vka_config_set("version", vka_config.version);
-
-        $("body").ready(function() {
-            update_show();
-        });
-
-        //console.log("Сообщение что нового при обновлении");
+        console.log ("Config updated! From verion: " + vka_config.version + " to: " + vka_config_default.version);
+        vka_config = vka_config_default;
+        localStorage.setItem("vka_config", JSON.stringify(vka_config));
+        // TODO: Убрать костыль с перезагрузкой из-за установки конфига. А может и не надо?
+        // Прикол заключается в MutationObserver - который не ждёт загрузки конфига
+        location.reload();
     }
 
-    if (vka_config.custom_theme == true){
-        $("head").after('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
-        console.log("Theme changed on Dark by condition");
+    // Перечисление всех возможных хэштегов
+    var hashtag_list = ["флеймлучший", "задонать", "темнаятёма", "да", "дирохерел", "ачё\)", "сидидомаблэд", "фывапролджэ", "missingno",
+                        "сижуахерел", "дистанционОчка", "скибидивапа", "ойдевачьки", "настиле", "чайвсемуголова", "мрарф",
+                        "гобухать", "сказочноебали", "дирлох", "ложка", "300bucks", "стыдпозорный", "ugotthat", "heybuddy", "яобязательновыживу",
+                        "нечиталОчка", "слышработать", "кофемания", "hohol", "(﻿ ͡° ͜ʖ ͡°)", "атлишна", "42"];
+    // Выбор случайного хэштега из списка
+    var logo_hashtag_text = hashtag_list[Math.floor(Math.random() * hashtag_list.length)];
+
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Загрузка главного меню
+
+    // Функция загрузки текста с левых сайтов
+    function vka_getraw(URL_Address){
+        var tmp = null;
+        $.ajax({ type: "GET",
+                url: URL_Address,
+                async: false,
+                success : function(text){
+                    tmp = text;
+                }
+               });
+        return tmp;
     };
 
-    // Работа меню с базой данных
-    $(".vka_content").ready(function() {
-        $("input[type='checkbox'], input[type='radio']").on("click", function() {
-            menu.onclick(this);
-        });
-        $("input[type='text']").keyup(function() {
-            //$(this).change(function() {
-                menu.onclick(this);
-            //});
+    // Загрузка кнопки меню
+    var vkantlers_menu = '<li class="HeaderNav__item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
 
-        });
+    // Загрузка меню и его стиля [devchange]
+    var vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html");
+    var vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.css");
 
-        menu.onload();
+    // Загрузка тёмной темы [devchange]
+    // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
+    var dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
+
+
+    // Загрузка кода до полной загрузки страницы. Переменные используются в MutationObserver
+    var preload = {
+        custom_hashtags: function(){
+            $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
+            $(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center"});
+            $(".top_home_logo").css({"margin":"0px 10px 0 0"});
+        },
+        mainmenu: function(){
+            $('#top_nav').append(vkantlers_menu);
+            // Добавление главного меню в код сайта
+            $("head").after(vka_menu_css);
+            $(".HeaderNav__item.deer").append(vka_menu);
+            vka_loadmenu();
+        }
+    };
+
+    // Сам MutationObserver. Позволяет вставить элемент до полной загрузки страницы
+    // class target - Класс, к которому присоединится func
+    function preload_load(class_target, func){
+        var observer = new MutationObserver(function(mutations) {
+            for (var i=0; i<mutations.length; i++) {
+                var mutationAddedNodes = mutations[i].addedNodes;
+                for (var j=0; j<mutationAddedNodes.length; j++) {
+                    var node = mutationAddedNodes[j];
+                    if (node.classList && node.classList.contains(class_target)) {
+                        node.firstElementChild.innerHTML = node.firstElementChild.innerHTML.replace(/[\d.]+/g, function(m) { return 2 * m });
+                        // don't hog resources any more as we've just done what we wanted
+                        func();
+                        observer.disconnect();
+                        return;
+                    }
+                }
+            }
+        });
+        observer.observe(document, {childList: true, subtree: true});
+    };
+
+    // Добавление кнопки вызова меню и само меню на сайт до загрузки страницы
+    // TODO: Пофиксить костыль с аудиозаписями
+    if(document.location.href.indexOf('audios') === -1){ //Не добавлять кнопку в аудиозаписи
+        preload_load('HeaderNav__item', preload.mainmenu);
+    };
+
+    // Функция включения меню при клике на значок меню
+    $(document).on("click", "#vkantlers_toggle", function(){
+        console.log("Clicked on deer");
+        $('.vka_parent').toggleClass('vka_parent_display');
     });
 
-    //console.log("ds: " + dark_style + " tc: " + theme_changer + " vka_v: " + vka_version);
+    // Функция переключения пунктов меню
+    $(document).on("click", ".vka_section", function() {
+        $(this).next('.vka_innerBlock').toggleClass('vka_displayBlock');
+    });
 
-    //GM_setValue("theme_changer", "0"); // Для отключения автопереключения тёмной темы, замените 1 на 0
-    //https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Функционал самого аддона
 
-    // Решительно неясно, как это вообще использовать, фу
-    //===================================================
-    // ВСЁ ЧТО НИЖЕ ЗАПУСКАЕТСЯ ПОСЛЕ ЗАГРУЗКИ СТРАНИЦЫ =
-    //===================================================
-    function DOM_ContentReady () {
-        (function (window, undefined) { //Одна из важных частей, не удалять. Связана с }(window)
-            //========================================================================
-            //========================================================================
-            //         var w;
-            //         if (typeof unsafeWindow != undefined) {
-            //             w = unsafeWindow
-            //         } else {
-            //             w = window;
-            //         };
-            //         // [3] не запускаем скрипт во фреймах
-            //         // без этого условия скрипт будет запускаться несколько раз на странице с фреймами
-            //         if (w.self != w.top) {
-            //             return;
-            //         };
-            //========================================================================
-            // Не хочешь соглашаться с VKConnect?
-            // upd: В жопу эту херь, она мне вк ломает.
-            //      Когда-нибудь я справлюсь с этим
-            //      Когда-нибудь...
-            //$(".scroll_fix_wrap.fixed").remove();
-            //$("#box_layer_bg.fixed").remove();
-            //$("body").attr('style', 'overflow: auto;');
-            //========================================================================
-
-            //      $( "span.left_label inl_bl" ).replaceWith( "<span href=\"vk.com/feed/\" class=\"left_label inl_bl\">Новости</span>" );
-
-            //========================================================================
-            //====================== СОЗДАНИЕ ГЛАВНОГО МЕНЮ ==========================
-            // var mainMenu = '';
-            // var mainMenu_css = '';
-
-            // Создание левых стилей и встраивание их на сайт
-            //$("body").append('<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">');
-            //GM_addStyle ('.body_im {font-family: "Comfortaa", cursive !important; }');
-
-            // Создание главного меню
-            $("body").append(mainMenu);
-            // Создание кнопочки открывающей меню
-            var vkantlers_menu = '<div class="head_nav_item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></div>';
-            $(".HeaderNav").append(vkantlers_menu);
-
-            //        $("body").append('<div style="position: absolute; top:0; right:0; z-index: 999">' + vka_version + '</div>');
-            //========================================================================
-            //         $(".vka_content").ready(function() {
-            //             console.log( 'SERIALIZED:' + $(".vka_innerBlock:first").serialize() );
-            //         });
-
-//             $(".vka_content").ready(function() {
-//                 function showValues() {
-//                     var str = $("form.vka_form").serialize();
-//                     console.log("Serialize:" + str)
-//                 }
-//                 $("input[type='checkbox'], input[type='radio']").on( "click", showValues );
-//                 $("select").on( "change", showValues );
-//                 showValues();
-//             });
-
-            // Всплывающее уведомление
-
-            // <div id="notifiers_wrap" class="fixed" style="bottom: 0px;"><div class="notifier_baloon_wrap" style="visibility: visible;">
-            //                     <div class="notifier_baloon notifier_type_mail" style="opacity: 1;">
-            //                       <div class="notifier_baloon_head clear_fix">
-            //                         <a class="notifier_close_wrap" role="link" title="Закрыть" aria-label="Закрыть"></a>
-            //                         <h4 class="notifier_baloon_title">Установлено обновление</h4>
-            //                       </div>
-            //                       <div class="notifier_baloon_body clear_fix">
-            //                         <div class="notifier_image_wrap"><a href="/id527557359"><img alt="" src="/images/camera_100.png?ava=1" class="notifier_image"></a></div>
-            //                         <div class="notifier_baloon_msg wrapped"><span class="notifier_author_quote"><a href="/id527557359" class="mem_link">VKAntlers</a></span> Нажмите на меня что-бы узнать подробности!</div>
-            //                       </div>
-            //                     </div></div></div>
-
-            //         console.log("Config_style_theme_type is: " + vka_config.style.theme_type);
-            //         console.log('Unstringify Config: ' + JSON.parse(JSON.stringify(vka_config)));
-            //         console.log("Config is: " + JSON.stringify(vka_config));
-
-            //========================================================================
-
-//             $.each(vka_config, function (key, value) {
-//                 var field = document.getElementById(key);
-//                 if(field.type == 'radio' || field.type == 'checkbox'){
-//                     field.checked = value;
-//                 }else{
-//                     field.value = value;
-//                 }
-//             });
-
-            // Тыканье на кнопку пееркючения темы в шапке
-            $(document).ready(function() { // Без неё, клик не работает, что очень интересно, надо изучить
-                $("#dark_theme_toggle").on("click", function(){
-                    $("#custom_theme").click();
-                });
-            });
-
-
-            // Тыкалка для открытия менюшки
-            $("#vkantlers_toggle").on("click", function vkantlers_menu_toggle(){
-                //console.log("CLicked on deer");
-                $('.vka_parent').toggleClass('vka_parent_flex');
-            });
-
-            $('.vka_section').on("click",function() {
-                $(this).next('.vka_innerBlock').toggleClass('vka_displayBlock');
-            });
-
-            $('.vka_close').on("click",function() {
-                $('.vka_parent').removeClass('vka_parent_flex');
-            });
-
-            //========================================================================
-
-            //         $('.menu_toggle').on('click',test($(this).attr('id')));
-
-            //         function test (a) {
-            //             alert ("It is alerted by " + a);
-            //         };
-
-            // (function(xhr) {
-            //     function banana(xhrInstance) { // Example
-            //         console.log('Monkey RS: ' + xhrInstance.readyState);
-            //     }
-            //     // Capture request before any network activity occurs:
-            //     var send = xhr.send;
-            //     xhr.send = function(data) {
-            //         var rsc = this.onreadystatechange;
-            //         if (rsc) {
-            //             // "onreadystatechange" exists. Monkey-patch it
-            //             this.onreadystatechange = function() {
-            //                 banana(this);
-            //                 return rsc.apply(this, arguments);
-            //             };
-            //         }
-            //         return send.apply(this, arguments);
-            //     };
-            // })(XMLHttpRequest.prototype);
-            //========================================================================
-            // Нажатие кнопки на клавиатуре
-            var delta = 500;
-            var lastKeypressTime = 0;
-            document.addEventListener("keyup", function(e){
-                var key = e.key + e.location;
-                if(key == "Control1") // Левый CTRL
-                {
-                    //alert('Left Control');
-                }
-                if(key == "Control2") // Правый CTRL
-                {
-                    // do nothing, of course
-                }
-                if(event.keyCode == 9) // TAB
-                {
-                    var thisKeypressTime = new Date();
-                    if ( thisKeypressTime - lastKeypressTime <= delta )
-                    {
-                        $('div.ms_items_more_wrap.ms_items_more_wrap_vector.to_up').toggleClass('shown');
-                        // optional - if we'd rather not detect a triple-press
-                        // as a second double-press, reset the timestamp
-                        thisKeypressTime = 0;
-                    }
-                    lastKeypressTime = thisKeypressTime;
-                }
-            });
-
-            //========================================================================
-            //Пишет в консоль ASCII нажатой клавиши
-            //         document.addEventListener("keydown", function(event) {
-            //             console.log(event.which);
-            //         })
-            //========================================================================
-            // Принудительно показывать кнопку НАЗАД в новых диалогах
-            //$(".im-page--back").css({"display":"block"});
-            //========================================================================
-
-            //========================================================================
-
-            //         $.ajaxSetup({
-            //             beforeSend: function (xhr,settings) {
-            //                 alert(settings.data);
-            //                 alert(settings.url);
-            //                 alert("Ajax calling!");
-            //             }
-            //         });
-            //         $( document ).ajaxSuccess(function( event, request, settings ) {
-            //             console.log(request.status);
-            //         });
-
-            //            onRequestQuery: function(url, query, options) {
-            //                var prefix = (query.gid) ? 'gim' : 'im';
-            //                if (url === 'al_im.php') {
-            //                    if (query.type === 'typing'  && vkopt.settings.get(prefix + '_block_typing')) {
-            //                        return false;
-            //                    }
-            //                    /* something interesting:
-            //                    a_mark_answered
-            //                    a_mark
-            //                    a_restore_dialog
-            //                    */
-            //                    if (query.act === 'a_mark_read' && vkopt.settings.get(prefix + '_block_mark_read')) {
-            //                        return false;
-            //                    }
-            //                 }
-            //            };
-            //         ========================================================================
-            //$("body").fadeIn(1000);
-            //========================================================================
-
-        })(window); //Одна из важных частей, не удалять. Связана с (function (window, undefined)
-    }
-    //========================================================================
-    function pageFullyLoaded () {
-        console.log ("==> Page is fully loaded, including images.", new Date() );
-    };
-
-    //============================== FUNCTIONS ===============================
-
-    // Выставление значений к дефолтным
-    // function vka_config_set_default (){
-    // //    GM_setValue("vka_config", vka_config_default);
-    //     vka_config = vka_config_default;
-    //     console.log ("vka_config is resetti! Reload page?");
-    // }
-
-    function update_show(){
-        var version_info_in = '<div class="version_info" style="height: 100%;width: 100%;z-index: 999;background-color: rgba(0,0,0,0.5);display: flex;position: fixed;top: 0;left: 0;align-items: center;/* align-content: center; */justify-content: center;">';
-        var version_info_out = '</div>';
-        $("body").append(version_info_in + '<div style="background-color: white; color: black; font-size: 18px; width: 50%; padding: 20px; overflow: auto; height: 75%; border: 4px solid black; border-radius: 10px;">' + version_info + "</div>" + version_info_out);
-        $('.version_info').on('click', function() {
-            $(this).remove();
-        });
-    };
-
-    var menu = {
-        onclick: function (name){
-            //console.log("Clicked on: " + name.id + ". Checked: " + name.checked + " Value: " + name.value);
-            if (name.type == "radio" || name.type == "checkbox"){
-                vka_config_set(name.id, name.checked);
-            }
-            if (name.type == "text"){
-                vka_config_set(name.id, name.value);
-            }
-            if ($.isEmptyObject(func[name.id])){
-            } else {
-                var onclick = true;
-                func[name.id](onclick);
-            };
-        },
-
-        onload: function (){
-            $(".vka_field, .vka_textarea").each(function(){
-                if (this.type == "radio" || this.type == "checkbox"){
-                    //console.log("TESTED checkbox\radio: \"" + this.id + "\" and value is: " + this.checked);
-                    $(this).prop("checked", vka_config_get(this.id));
-                    if ($.isEmptyObject(func[this.id])){
-                    } else {
-                        func[this.id]();
-                    };
-                    //console.log("Checked?");
-                    //                        mngrFields[this.id] = this.checked;
-                } if (this.type == "text") {
-                    //console.log("TESTED textarea: " + this.id + " and value is: " + this.value);
-                    //                        mngrFields[this.id] = this.value;
-                    $(this).prop("value", vka_config_get(this.id));
-                    if ($.isEmptyObject(func[this.id])){
-                    } else {
-                        func[this.id]();
-                    };
-                } else {
-                    //console.log("TESTED other ones: \"" + this.id + "\" and value is: " + this.value);
-                };
-            });
-        },
-    };
-
-    // Все функции переключения и прочего, важная часть
-    var func = {
-        custom_theme: function (onclick){
-            //console.log("dark_theme_func is running! custom_theme is: " + vka_config.custom_theme);
-            //$(".background_deer").css({'display':'flex'});
-
-            if (vka_config.custom_theme == true && vka_config.theme_type == "dark"){
-                if (onclick == true){
-                    $(".background_deer").css({'display':'flex'});
-                    $("body").fadeOut(500, function() {
-                        // Switch the stylesheet
-                        $("head").after('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
-                        //console.log("Theme changed on Dark by function");
-                        // And then:
-                        $("body").fadeIn(1000, 'swing', function() {
-                            $(".background_deer").css({'display':'none'});
-                        });
-                    } );
-                    $("html").css('background', '#edeef0');
-                } else {
-                    //$("head").after('<style type="text/css" id="dark_theme_style">' + dark_theme + mainMenu_styleout);
-                }
-
-            } if (vka_config.custom_theme == false) {
-                if (onclick == true){
-                    $(".background_deer").css({'display':'flex'});
-                    $("body").fadeOut(500, function() {
-                        // Switch the stylesheet
-                        $("#dark_theme_style").remove();
-                        //console.log("Theme changed on Standart by function");
-                        // And then:
-                        $("body").fadeIn(1000, 'swing', function() {
-                            $(".background_deer").css({'display':'none'});
-                        });
-                    } );
-                    $("html").css('background', '#24282d');
-                } else {
-                    //$("#dark_theme_style").remove();
-                };
-            };
-        },
-
-        custom_theme_icon: function(){
-            // Создание кнопочки темы
-            var dark_theme_block_button = '<div class="head_nav_item moon" style="float: right;padding: 9px;"><a id="dark_theme_toggle" style="font-size: 20px;">🌒</a></div>';
-            if (vka_config.custom_theme_icon == true){
-                $(".HeaderNav").append(dark_theme_block_button);
-            } else {
-                $(".head_nav_item.moon").remove();
-            }
-        },
-
-        custom_hashtags: function(){
-            //Изменение названия возле диалога с хештегом
-            if (vka_config.custom_hashtags == true){
-                //            var hashtagname = GM_getValue("logo_hashtag_text");
-                //        $("div.CovidLogo__hashtag").replaceWith("<div class=\"CovidLogo__hashtag \">#" + hashtagname + "</div>");
-                $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
-                $(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center"});
-                $(".top_home_logo").css({"margin":"0px 10px 0 0"});
-            } else {
-                $(".vka_hashtags").remove();
-            };
-        },
-
-        custom_back_button: function(){
-            // Выравнимание онлайна под именем в новом дизайне
-            $("body").on('DOMSubtreeModified', '.im-page--title-wrapper', function() {
-                if (vka_config.custom_back_button == true){
-                    $(".im-page--back").css({"display":"block"});
-                    $(".im-page--title").css({"align-items":"center", "flex-direction":"column", "padding":"8px 20px 20px 20px"});
-                    $(".im-page--title-main").css({"overflow":"unset"});
-                    $(".im-page--title-meta._im_page_peer_online").css({"margin-left":"0"});
-                } else {
-                    $(".im-page--back").css({"display":"none"});
-                    $(".im-page--title").css({"align-items":"center", "flex-direction":"none", "padding":"15px 20px"});
-                    $(".im-page--title-main").css({"overflow":"hidden"});
-                    $(".im-page--title-meta._im_page_peer_online").css({"margin-left":"8px"});
-                };
-            });
-        },
-
-//         hide_names: function(){
-
-//         },
-
-        hide_messages: function(){
-        },
-
-        hide_photo: function(){
-        },
-    }
-
-    if (vka_config.hide_names == true){
-//         $(function(){
-//         $("._im_dialog_link").css({"filter":"blur(4px)"});
-//         });
-    }
-
-    function test_onclick(data){
-        alert(data);
-        return (this.checked=!this.checked);
-    };
-
+    // Функции работы с конфигом
     function vka_config_set(name, value) {
         vka_config[name] = value;
-//        console.log("vka_config_set_func is running and values is: " + vka_config[name] + "=" + value);
         localStorage.setItem("vka_config", JSON.stringify(vka_config));
     };
 
-    function vka_config_get(name) {
+    function vka_config_get(name){
         var vkac = JSON.parse(localStorage.getItem("vka_config"));
         return vkac[name];
-    };
+    }
 
-    // SLEEP Функция
-    function sleep(milliseconds) {
-        var start = new Date().getTime();
-        for (var i = 0; i < 1e7; i++) {
-            if ((new Date().getTime() - start) > milliseconds){
-                break;
+    // Функционал кнопок при нажатии
+    $(".vka_content").ready(function() {
+        $("input[type='checkbox'], input[type='radio']").on("click", function() {
+            if (this.type == "radio" || this.type == "checkbox"){
+                vka_config_set(this.id, this.checked);
             }
+            if (this.type == "text"){
+                vka_config_set(this.id, this.value);
+            }
+            vka_func(this.id);
+        });
+        $("input[type='text']").keyup(function() {
+            vka_config_set(this.id, this.value);
+            vka_func(this.id);
+        });
+        // Загрузка меню по конфигу
+        //vka_loadmenu();
+    });
+
+    // Заполняет меню по конфигу
+    function vka_loadmenu(){
+        $(".vka_field, .vka_textarea").each(function(){
+            if (this.type == "radio" || this.type == "checkbox"){
+                $(this).prop("checked", vka_config_get(this.id));
+                vka_func(this.id);
+            } if (this.type == "text") {
+                $(this).prop("value", vka_config_get(this.id));
+                vka_func(this.id);
+            }
+        });
+    }
+
+    function vka_func(func_name){
+        switch (func_name){
+                // ---------------------------------------------------- Style
+            case "custom_theme":
+                if (vka_config.custom_theme == true && vka_config.custom_theme_type == "dark"){
+                    $("head").append('<style type="text/css" id="vka_theme_dark">' + dark_theme + '</style>');
+                } else {
+                    $("#vka_theme_dark").remove();
+                };
+                break;
+
+            case "custom_theme_type":
+                break;
+
+            case "custom_theme_autotoggle":
+                break;
+
+            case "ctt_end":
+                break;
+
+            case "ctt_start":
+                break;
+
+            case "custom_theme_icon":
+                break;
+
+            case "custom_hashtags":
+                if (vka_config.custom_hashtags == true){
+                    $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
+                    $(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center","color":"var(--white)"});
+                    $(".top_home_logo").css({"margin":"0px 10px 0 0"});
+                } else {
+                    $(".vka_hashtags").remove();
+                };
+                break;
+
+            case "custom_back_button":
+                $("body").on('DOMSubtreeModified', '.im-page--title-wrapper', function() {
+                    if (vka_config.custom_back_button == true){
+                        $(".im-page--back").css({"display":"block"});
+                        $(".im-page--title").css({"align-items":"center", "flex-direction":"column", "padding":"8px 20px 20px 20px"});
+                        $(".im-page--title-main").css({"overflow":"unset"});
+                        $(".im-page--title-meta._im_page_peer_online").css({"margin-left":"0"});
+                    } else {
+                        $(".im-page--back").css({"display":"none"});
+                        $(".im-page--title").css({"align-items":"center", "flex-direction":"none", "padding":"15px 20px"});
+                        $(".im-page--title-main").css({"overflow":"hidden"});
+                        $(".im-page--title-meta._im_page_peer_online").css({"margin-left":"8px"});
+                    };
+                });
+                break;
+
+            case "hide_names":
+                if (vka_config.hide_names == true){
+                    $('head').append('<style id="vka_hide_names" type="text/css">.nim-dialog .nim-dialog--name .nim-dialog--name-w{filter: blur(4px) !important} .im-right-menu .im-right-menu--text{filter: blur(4px) !important} .im-page--title-main{filter: blur(4px) !important} .im-mess-stack--lnk{filter: blur(4px) !important} ._im_replied_author_link{filter: blur(4px) !important} .top_profile_vkconnect_name{filter: blur(4px) !important} .top_profile_name{filter: blur(4px) !important} юim-page-pinned--name{filter: blur(4px) !important} ._im_dialog_typing{filter: blur(4px) !important} ._im_typing_name{filter: blur(4px) !important}</style>');
+                } else {
+                    $('#vka_hide_names').remove();
+                };
+                break;
+
+            case "hide_messages":
+                if (vka_config.hide_messages == true){
+                    $('head').append('<style id="vka_hide_messages" type="text/css">nim-dialog--inner-text{filter: blur(4px) !important} .nim-dialog--text-preview{filter: blur(4px) !important}</style>');
+                } else {
+                    $('#vka_hide_messages').remove()
+                };
+                break;
+
+            case "hide_photo":
+                if (vka_config.hide_photo == true){
+                    //TODO: nim-peer--photo = убирает по сути вообще все фотки
+                    $('head').append('<style id="vka_hide_photo"type="text/css">.nim-dialog.nim-dialog_classic .nim-dialog--photo{filter: blur(10px) !important} .im-prebody{filter: brightness(0) !important} .im-mess-stack--photo{filter: blur(10px) !important} .nim-dialog--photo{filter: blur(10px) !important} .top_profile_img{filter: brightness(0) !important} .top_profile_vkconnect_img{filter: brightness(0) !important} .im-page--aside-photo{filter: brightness(0) !important}</style>');
+                } else {
+                    $('#vka_hide_photo').remove()
+                };
+                break;
+
+                // ---------------------------------------------------- Text
+
+            case "msg_changer":
+                break;
+
+            case "msg_changer_type":
+                break;
+
+            case "cipher":
+                break;
+
+            case "cipher_type":
+                break;
+
+                // Custom left menu
+                // TODO: Сделать эту херь попроще, не повторяя постоянно одни и те же функции
+            case "vka_l_pr":
+            case "vka_l_nwsf":
+            case "vka_l_msg":
+            case "vka_l_fr":
+            case "vka_l_gr":
+            case "vka_l_ph":
+            case "vka_l_aud":
+            case "vka_l_vid":
+            case "custom_left_menu":
+                    if (vka_config.custom_left_menu == true){
+                        $('#l_pr').find('.left_label.inl_bl').text(vka_config.vka_l_pr);
+                        $('#l_nwsf').find('.left_label.inl_bl').text(vka_config.vka_l_nwsf);
+                        $('#l_msg').find('.left_label.inl_bl').text(vka_config.vka_l_msg);
+                        $('#l_fr').find('.left_label.inl_bl').text(vka_config.vka_l_fr);
+                        $('#l_gr').find('.left_label.inl_bl').text(vka_config.vka_l_gr);
+                        $('#l_ph').find('.left_label.inl_bl').text(vka_config.vka_l_ph);
+                        $('#l_aud').find('.left_label.inl_bl').text(vka_config.vka_l_aud);
+                        $('#l_vid').find('.left_label.inl_bl').text(vka_config.vka_l_vid);
+                    } else {
+                        $('#l_pr').find('.left_label.inl_bl').text(vka_config_default.vka_l_pr);
+                        $('#l_nwsf').find('.left_label.inl_bl').text(vka_config_default.vka_l_nwsf);
+                        $('#l_msg').find('.left_label.inl_bl').text(vka_config_default.vka_l_msg);
+                        $('#l_fr').find('.left_label.inl_bl').text(vka_config_default.vka_l_fr);
+                        $('#l_gr').find('.left_label.inl_bl').text(vka_config_default.vka_l_gr);
+                        $('#l_ph').find('.left_label.inl_bl').text(vka_config_default.vka_l_ph);
+                        $('#l_aud').find('.left_label.inl_bl').text(vka_config_default.vka_l_aud);
+                        $('#l_vid').find('.left_label.inl_bl').text(vka_config_default.vka_l_vid);
+                    }
+                break;
+
+            case "custom_font":
+                if (vka_config.custom_font == true){
+                    if (vka_config.custom_font_type == "none" || vka_config.custom_font_css == "none"){
+                        alert ('Прежде чем включить шрифт - вставьте необходимые ссылки в нужные поля, которая будет содержать блок <link href="ссылка">');
+                    } else {
+                        $("head").append(vka_config.custom_font_type);
+                        $('head').append('<style id="vka_custom_font"> *{' + vka_config.custom_font_css + '} </style>');
+                    }
+                } else {
+                    vka_config.custom_font_type = "none";
+                    vka_config.custom_font_css = "none";
+                    if ($('#vka_custom_font').length > 0){
+                        $('#vka_custom_font').remove();
+                        location.reload();
+                    }
+                    //location.reload();
+                }
+                break;
+
+            case "custom_font_type":
+                break;
+
+            case "custom_font_size":
+                break;
+
+                // ---------------------------------------------------- Patches
+            case "unread":
+                break;
+
+            case "untype":
+                break;
+
+            case "unnotify":
+                break;
+
+            case "offline":
+                break;
+
+            case "full_offline":
+                break;
+
+            case "autolikes":
+                break;
+
+            case "antlers_exploit":
+                break;
+
+                // ---------------------------------------------------- Others
+
+            case "rainbow_text":
+                if (vka_config.rainbow_text == true){
+                $('head').append('<style id="vka_rainbow_text">@keyframes colorRotate { from {color: rgb(255, 0, 0);} 16.6% { color: rgb(255, 0, 255);} 33.3% {color: rgb(0, 0, 255);} 50% {color: rgb(0, 255, 255);} 66.6% {color: rgb(0, 255, 0); } 83.3% {color: rgb(255, 255, 0);} to {color: rgb(255, 0, 0);}} a, span{animation: colorRotate 6s linear 0s infinite;}');
+                } else {
+                $('#vka_rainbow_text').remove();
+                }
+                    break;
+
+            case "dev_alerts":
+                break;
+
+            case "dev_msg":
+                break;
+
+            default:
+                break;
+
         }
     }
 
-    // Взятие текста по ссылке
-    function GetSourceFromSite(URL_Address){
-        var tmp = null;
-        $.ajax({ type: "GET",
-                url: URL_Address,
-                async: false,
-                success : function(text)
-                {
-                    tmp = text;
-                    //                alert("lol");
-                }
-               });
-        return tmp;
-    };
-
-    // Взятие стиля из Stylish по ссылке
-    // Не используется из-за политики CORS
-    function GetSourceFromStylish(URL_Address){
-        var tmp = null;
-        $.ajax({ type: "GET",
-                url: URL_Address,
-                async: false,
-                //dataType: 'jsonp',
-                success : function(text)
-                {
-                    tmp = $("#stylish-code").text();;
-                }
-               });
-        return tmp;
-    };
-
-    // Парсинг системного времени и изменение стиля в зависимости от времени
-    if (vka_config.custom_theme_autotoggle == true){
-        (function (){
-            function checkTime(i) {
-                return (i < 10) ? "0" + i : i;
+    // Перехватчик разных запросов
+    // Здесь все - нечиталка, неписалка, оффлайн, уведомления
+    (function(send){
+        XMLHttpRequest.prototype.send = function(body) {
+            // Замена сообщения
+            if (/act=a_send/.test(body) && vka_config.msg_changer == true) {
+                var newstr = body.replace(/msg=/i, 'msg=' + vka_config.msg_changer_type + ' ');
+                body = newstr;
+            };
+            // Нечиталка
+            if (/act=a_mark_read/.test(body) && vka_config.unread == true) {
+                console.log("READ ABORTED!");
+                XMLHttpRequest.abort();
             }
-            var chck = 0;
-            function startTime() {
-                var today = new Date(),
-                    h = checkTime(today.getHours()),
-                    m = checkTime(today.getMinutes()),
-                    s = checkTime(today.getSeconds());
-
-                //document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-                //console.log(h + ":" + m + ":" + s);
-                if ((h >= vka_config.ctt_start || h < vka_config.ctt_end) && chck == 0){
-                    vka_config.custom_theme = true;
-                    func.custom_theme(true);
-                    chck = 1;
-                    console.log("DARK_THEME ON");
-                    console.log("Dark Theme LOADED with THEME_CHANGER");
-                } if ((h < vka_config.ctt_start && h >= vka_config.ctt_end) && chck == 1){
-                    vka_config.custom_theme = false;
-                    func.custom_theme(true);
-                    chck = 0;
-                    console.log("DARK_THEME OFF");
+            // Неписалка
+            if (/act=a_activity/.test(body) && /type=typing/.test(body) && vka_config.untype == true) {
+                console.log("TYPING ABORTED!");
+                XMLHttpRequest.abort();
+            }
+            // Отключение уведомлений
+            if (/act=a_clean_notify/.test(body) && vka_config.unnotify == true) {
+                console.log("MARKED ABORTED!");
+                XMLHttpRequest.abort();
+            }
+            // Частичный оффлайн
+            if ((/act=a_clean_notify/.test(body) || /act=a_activity/.test(body) || /type=typing/.test(body)
+                 || /act=a_mark_read/.test(body) || /act=a_send/.test(body)) && vka_config.offline == true) {
+                if (/act=a_send/.test(body)){
+                    alert('Вы не можете писать сообщения с частичным оффлайном! Чтобы отключить его - снимите галочку в настройках VKAntlers в разделе "Патчи" с пункта "Частичный оффлайн"');
                 };
-                var t = setTimeout(function () {
-                    startTime()
-                }, 60000);
+                XMLHttpRequest.abort();
             }
-            startTime();
-        })();
-    };
+            send.call(this, body);
+        };
+    })(XMLHttpRequest.prototype.send);
 
-    console.log ("==> Script end.", new Date() );
-    //console.log (GM_getValue("foo"));
-    //========================================================================
-
+    // End of VKAntlers script! There is nothing next!
+    // --------------------------------------------------------------------
 };
 
+// Добавление вышестоящего скрипта на страницу
 var code = main.toString().match(/^.+?\{([\s\S]+)\}$/)[1];
 var script = document.createElement('script');
+script.type = 'text/javascript';
 script.appendChild(document.createTextNode(code));
 (document.body || document.head || document.documentElement).appendChild(script);
+// ========================================================================

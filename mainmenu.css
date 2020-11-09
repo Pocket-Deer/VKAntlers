@@ -1,99 +1,202 @@
+<style type="text/css">
 
+/*@media (max-width: 800px) {   для разрешения экрана от 470 до 930 пикселей 
+  .block {
+  	display: none;
+  }
+}*/
+.vka_content::-webkit-scrollbar{
+  width: 6px;
+}
+
+/* Track */
+.vka_content::-webkit-scrollbar-track{
+  background: #f1f1f1;
+}
+
+/* Handle */
+.vka_content::-webkit-scrollbar-thumb{
+  background: #888;
+}
+
+/* Handle on hover */
+.vka_content::-webkit-scrollbar-thumb:hover{
+  background: #555;
+}
+
+.vka_content hr {
+	margin-right:3%;
+}
 
 .vka_parent {
-	width: 100%;
-	height: 100%;
-	position: fixed;
+	-webkit-touch-callout: none; /* iOS Safari */
+  	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+  	-khtml-user-select: none;    /* Konqueror */
+  	-moz-user-select: none;      /* Firefox */
+  	-ms-user-select: none;       /* Internet Explorer/Edge */
+  	user-select: none;
+	position: absolute;
 	top: 0;
 	left: 0;
+	width: 25%;
+	height: auto;
 	display: none;
-	align-items: center;
-	align-content: center; 
-	justify-content: center; 
-	overflow: scroll;
-	background-color: rgba(0,0,0,0.5);
-	z-index: 999;
+	margin: 3.9% 0 0 77.8%;
+	padding-bottom: 2%;
+	padding-right: 2%;
 }
 
-.vka_parent_flex{
-	display: flex;
-}
-
-.vka_section:hover{
-	cursor: pointer;
+.vka_parent_display {
+	display: block !important;
 }
 
 .vka_block {
-	border: solid black;
-	background: #edeef0;
-	width: 50%;
-	height: 50%;
-	border-radius: 30px 30px 5px 5px;
+	box-shadow: 1px 1px 5px grey;
+	position: relative;
+	border: 1px solid grey;
+	margin-top: 15px;
+	z-index: 5;
+	background: var(--white);
+	height: 70%;
+	max-width: 500px;
+	max-height: 1000px;
+	border-radius: 10px 10px 5px 5px;
 }
+
+.vka_block:after, .vka_block:before {
+	bottom: 100%;
+	left: 75%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.vka_block:after {
+	border-color: rgba(0, 0, 0, 0);
+	border-bottom-color: white;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.vka_block:before {
+	border-color: rgba(216, 236, 245, 0);
+	border-bottom-color: grey;
+	border-width: 11px;
+	margin-left: -11px;
+}
+
 .vka_content {
+	font-family: 'Montserrat', sans-serif;
 	z-index: 999;
-	padding: 2% 2% 2% 2%;
-	font-size: 15pt;
+	margin: 2% 0 0 3%;
+	font-size: 12pt;
 	overflow-y: scroll;
-	width: 96.1%;
-	height: 71.1%;
+	width: 97.2%;
+	height: 360px;
+	overflow-x: hidden;
 }
+
 .vka_title {
-	color: #edeef0;
-	border-radius: 25px 25px 0 0;
-	height: auto;
-	background-color: black;
-	padding: 14px;
-	font-family: 'Fira Sans Condensed', sans-serif;
-	font-size: 24px;
+	font-size: 18pt;
+	font-family: 'Montserrat', sans-serif;
+	color: var(--black);
+	border-radius: 7px 7px 0 0;
+	height: 5%;
+	margin: 4% 3% 0% 3%;
 }
+
 .vka_innerBlock {
+	z-index: 0;
 	margin-top: 1%;
-	padding: 1% 0 2% 2%;
-	background-color: #f0f1f3;
-	border-style: solid;
-	border-width: 0px 0px 0px 1px;
+	padding: 5% 0 0% 0%;
+	background-color: var(--white);
+	height: auto;
+	width: 200px;
+	transition: opacity 0.2s;
 	display: none;
 }
 
-.vka_label {
-	margin: 5px 7px 5px 5px;
-}
-.vka_field {
-	float: left;
-	transform:scale(1.3);
-	opacity:0.9;
-    cursor:pointer;
-    margin: 6px 2px 0px 0px;
+.vka_ul {
+    list-style-type: none;
+    padding-left: 10px;
+    border-left: black 1px solid;
+    margin-left: 12px;
 }
 
 .vka_displayBlock {
 	display: block;
 }
 
-[class*="vka_"] a {
-	color: black;
-	font-family: 'Montserrat', sans-serif;
-}
-[class*="vka_"] a:link {
-	text-decoration: none;
-}
-[class*="vka_"] a:hover {
-	text-decoration: none;
-	color: darkgrey;
-}
-[class*="vka_"] a:visited {
-	text-decoration: none;
-}
-[class*="vka_"] a:active {
-	text-decoration: none;
+.vka_field {
+	float: left;
+	opacity:0.9;
+    	cursor:pointer;
+    	margin: 3px 7px 0px 5px;
 }
 
-[class*="vka_"] label {
-	font-family: 'Montserrat', sans-serif;
-	color: black;
+.vka_label {
+	display: flex;
+	margin: 2px 1px;
 }
 
-[class*="vka_"] form {
-	margin-bottom: 0;
+.vka_label:hover {
+	cursor: pointer;
 }
+
+.vka_section {
+	font-size: 15pt;
+	font-family: 'Montserrat', sans-serif;
+	height: 20px;
+	transition: visibility 1s;
+	padding: 0px 5px;
+}
+.vka_section:hover {
+	cursor: pointer;	
+}
+.vka_section:hover * {	
+	text-decoration: none;
+	color: var(--gray_600);
+}
+.vka_arrow {
+	float: right;
+	font-size: 15pt;
+	margin: 1px 0 0 0;
+}
+.vka_placeholdAnim {
+	width: 100%;
+	height: 2px;
+	transition: height 0.2s;
+}
+.vka_footer {
+	margin: 5% 0 0 3%;
+	height: 30px;
+	font-family: cursive;
+}
+.vka_copyright {
+	margin-top: 15px;
+}
+.vka_giticon {
+	position: absolute;
+	top: 432px;
+	left: 210px;
+}
+.vka_parent a {
+	cursor: pointer;
+	color: var(--black);
+}
+.vka_parent a:link {
+	text-decoration: none;
+}
+.vka_parent a:hover {
+	text-decoration: none;
+	color: var(--gray_600);
+}
+.vka_parent a:visited {
+	text-decoration: none;
+}
+.vka_parent a:active {
+	text-decoration: none;
+}
+</style>
