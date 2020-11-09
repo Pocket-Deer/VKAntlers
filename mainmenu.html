@@ -16,7 +16,7 @@
                   <input class="vka_field"  type="checkbox" id="custom_theme" name="custom_theme_changer"> - 
                   <div>Кастомная тема</div>
                </label>
-               <ul>
+               <ul class="vka_ul">
                   <div>Темы:</div>
                   <li>
                      <label class="vka_label">
@@ -55,7 +55,7 @@
                   <li>
                      <label class="vka_label">
                         <div>Время переключения</div>
-                        <div>с <input class="vka_textarea" type="text" id="ctt_end" name="theme_changer_timestart" style="width: 5%; text-align: center;"> по <input class="vka_textarea" type="text" id="ctt_start" name="theme_changer_timeend" style="width: 5%; text-align: center;"></div>
+                        <div>с <input class="vka_textarea" type="text" id="ctt_start" name="ctt_start" style="width: 25%; text-align: center;"> по <input class="vka_textarea" type="text" id="ctt_end" name="ctt_end" style="width: 25%; text-align: center;"></div>
                      </label>
                   <li>
                   <li>
@@ -99,65 +99,105 @@
                <input class="vka_field"  type="checkbox" id="msg_changer" name="msg_changer"> - 
                <div>Замена сообщений</div>
             </label>
-            Текст перед сообщением:
-            <label class="vka_label">
-               <input class= "vka_textarea" type="text" id="msg_changer_type" placeholder="Я сказал:" name="msg_changer_type" style="width: 100%;"> 
-            </label>
+            <ul class="vka_ul">
+               <li>
+                  Текст перед сообщением:
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class= "vka_textarea" type="text" id="msg_changer_type" placeholder="Я сказал:" name="msg_changer_type" style="width: 100%;"> 
+                  </label>
+               </li>
+            </ul>
             <label class="vka_label">
                <input class="vka_field"  type="checkbox" id="text_cipher" name="text_cipher" disabled> - 
                <div>Шифровка сообщений</div>
             </label>
-            Тип шифровки:
-            <label class="vka_label">
-               <input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - 
-               <div>Цезарь</div>
-            </label>
-            <label class="vka_label">
-               <input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - 
-               <div>PGP</div>
-            </label>
+            <ul class="vka_ul">
+               <li>
+                  Тип шифровки:
+               </li>
+               <li>
+                  <label class="vka_label">
+                     <input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - 
+                     <div>Цезарь</div>
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                     <input class="vka_field" type="radio" id="cipher_type" name="cipher_type" disabled> - 
+                     <div>PGP</div>
+                  </label>
+               </li>
+            </ul>
             <label class="vka_label">
                <input class="vka_field" type="checkbox" id="custom_font" name="custom_font" disabled> - 
                <div>Кастомный шрифт</div>
             </label>
-            <form>
-               <label  class="vka_label" for="S2-6">Ссылка с link из Google Fonts </label>
-               <input class="vka_textarea" type="text" id="custom_font_type" name="custom_font_type" style="width: 100%;" disabled>
-               <label  class="vka_label" for="S2-6">Ссылка с CSS rules из Google Fonts</label>
-               <input class="vka_textarea" type="text" id="custom_font_css" name="custom_font_css" style="width: 100%;" disabled>
-            </form>
-            <label class="vka_label">Размер шрифта
-            <input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
-            <output name="ageOutputName" id="text_custom_font_size_output">14</output>
-            </label>
+            <ul class="vka_ul">
+               <form>
+                  <li>
+                     <label  class="vka_label" for="S2-6">Ссылка с link из Google Fonts </label>
+                     <input class="vka_textarea" type="text" id="custom_font_type" name="custom_font_type" style="width: 100%;" disabled>
+                  </li>
+                  <li>
+                     <label  class="vka_label" for="S2-6">Ссылка с CSS rules из Google Fonts</label>
+                     <input class="vka_textarea" type="text" id="custom_font_css" name="custom_font_css" style="width: 100%;" disabled>
+                  </li>
+               </form>
+               <li>
+                  <label class="vka_label">Размер шрифта
+                  <input type="range" style="width: 50%;"min="0" max="50" step="1" value="14" id="text_custom_font_size" name="S4-1" oninput="text_custom_font_size_output.value = text_custom_font_size.value">
+                  <output name="ageOutputName" id="text_custom_font_size_output">14</output>
+                  </label>
+               </li>
+            </ul>
             <label class="vka_label">
                <input class="vka_field"  type="checkbox" id="custom_left_menu" name="custom_left_menu"> - 
                <div>Кастомизация левого меню</div>
             </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_pr" placeholder="Моя страница" value="Моя страница" name="l_pr" style="width: 100%;">
-            </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_nwsf" placeholder="Новости" value="Новости" name="l_nwsf" style="width: 100%;">
-            </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_msg" placeholder="Мессенджер" value="Сообщения" name="l_msg" style="width: 100%;">
-            </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_fr" placeholder="Друзья" value="Друзья" name="S2-6" style="width: 100%;">
-            </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_gr" placeholder="Сообщества" value="Группы" name="S2-6" style="width: 100%;">
-            </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_ph" placeholder="Фотографии" value="Фотографии" name="S2-6" style="width: 100%;">
-            </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_aud" placeholder="Музыка" value="Музыка" name="S2-6" style="width: 100%;">
-            </label>
-            <label class="vka_label">
-            <input class="vka_textarea" type="text" id="vka_l_vid" placeholder="Видео" value="Видео" name="S2-6" style="width: 100%;">
-            </label>
+            <ul class="vka_ul">
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_pr" placeholder="Моя страница" value="Моя страница" name="l_pr" style="width: 100%;">
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_nwsf" placeholder="Новости" value="Новости" name="l_nwsf" style="width: 100%;">
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_msg" placeholder="Мессенджер" value="Сообщения" name="l_msg" style="width: 100%;">
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_fr" placeholder="Друзья" value="Друзья" name="S2-6" style="width: 100%;">
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_gr" placeholder="Сообщества" value="Группы" name="S2-6" style="width: 100%;">
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_ph" placeholder="Фотографии" value="Фотографии" name="S2-6" style="width: 100%;">
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_aud" placeholder="Музыка" value="Музыка" name="S2-6" style="width: 100%;">
+                  </label>
+               </li>
+               <li>
+                  <label class="vka_label">
+                  <input class="vka_textarea" type="text" id="vka_l_vid" placeholder="Видео" value="Видео" name="S2-6" style="width: 100%;">
+                  </label>
+               </li>
+            </ul>
          </div>
          <hr>
          <div class="vka_section">
