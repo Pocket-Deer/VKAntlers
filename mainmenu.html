@@ -96,17 +96,12 @@
          </div>
          <div class="vka_innerBlock" id="Section2">
             <label class="vka_label">
-               <input class="vka_field"  type="checkbox" id="msg_changer" name="msg_changer" disabled> - 
+               <input class="vka_field"  type="checkbox" id="msg_changer" name="msg_changer"> - 
                <div>Замена сообщений</div>
             </label>
-            Тип замены:
+            Текст перед сообщением:
             <label class="vka_label">
-               <input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - 
-               <div>@all "сообщение"</div>
-            </label>
-            <label class="vka_label">
-               <input class="vka_field" type="radio" id="msg_changer_type" name="msg_changer_type" disabled> - 
-               <div>Свой символ перед сообщением</div>
+               <input class= "vka_textarea" type="text" id="msg_changer_type" placeholder="Я сказал:" name="msg_changer_type" style="width: 100%;"> 
             </label>
             <label class="vka_label">
                <input class="vka_field"  type="checkbox" id="text_cipher" name="text_cipher" disabled> - 
@@ -126,11 +121,7 @@
                <div>Кастомный шрифт</div>
             </label>
             <form>
-               <label  class="vka_label" for="S2-6">
-                  Ссылка с 
-                  <link>
-                  из Google Fonts
-               </label>
+               <label  class="vka_label" for="S2-6">Ссылка с link из Google Fonts </label>
                <input class="vka_textarea" type="text" id="custom_font_type" name="custom_font_type" style="width: 100%;" disabled>
                <label  class="vka_label" for="S2-6">Ссылка с CSS rules из Google Fonts</label>
                <input class="vka_textarea" type="text" id="custom_font_css" name="custom_font_css" style="width: 100%;" disabled>
