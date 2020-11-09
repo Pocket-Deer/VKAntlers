@@ -142,7 +142,7 @@
 }
 
 .vka_label input[type='checkbox'] {
-	opacity: 0;
+	opacity: 1;
 }
 
 .vka_label:hover {
