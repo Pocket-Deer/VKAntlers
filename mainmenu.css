@@ -23,9 +23,11 @@
 .vka_content::-webkit-scrollbar-thumb:hover{
   background: #555;
 }
+
 .vka_content hr {
 	margin-right:3%;
 }
+
 .vka_parent {
 	-webkit-touch-callout: none; /* iOS Safari */
   	-webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -95,6 +97,7 @@
 	height: 360px;
 	overflow-x: hidden;
 }
+
 .vka_title {
 	font-size: 18pt;
 	font-family: 'Montserrat', sans-serif;
@@ -103,6 +106,7 @@
 	height: 5%;
 	margin: 4% 3% 0% 3%;
 }
+
 .vka_innerBlock {
 	z-index: 0;
 	margin-top: 1%;
@@ -112,6 +116,13 @@
 	width: 200px;
 	transition: opacity 0.2s;
 	display: none;
+}
+
+.vka_ul {
+    list-style-type: none;
+    padding-left: 10px;
+    border-left: black 1px solid;
+    margin-left: 12px;
 }
 
 .vka_displayBlock {
