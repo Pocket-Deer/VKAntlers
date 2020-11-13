@@ -227,18 +227,34 @@ border-bottom-color: rgb(36 46 58) !important;
   .post_upload_dropbox, .fakeinput, div[contenteditable=true], input.big_text, input.dark, input.search, textarea, .submit_post, .pv_cont .narrow_column, .ui_tabs_header, .ui_search, .page_block_header, .wall_module .reply_fakebox, #side_bar ol li .left_row:hover, .wall_module .post_like:hover, .wall_module .post_share:hover, .stl_active.over_fast #stl_bg, .ui_actions_menu, .pv_like:hover, .chat_onl_inner, .page_status_editor .editor, .my_current_info:hover, .no_current_info:hover, .profile_info_header, .profile_info_edit, .mention_tt_actions, .im-page .im-page--history-new-bar>span, .im-page .im-page--history-new-bar, #top_notify_wrap, .top_notify_header, .top_notify_show_all, #top_profile_menu, .privacy_dropdown .header, .privacy_dropdown .body, .box_body, .idd_popup .idd_header_wrap, .idd_popup .idd_item.idd_hl, .idd_popup .idd_items_content, .box_controls, #pv_author_block, .photos_choose_upload_area, .web_cam_photo, .choose_search_cont input, .mv_controls, #fc_contacts, .fc_content, .fc_tab_head, div.fc_clist_filter_wrap, #fc_clist_filter, div.fc_tab_txt, .fc_msgs_unread, .fc_msgs, #wk_box, .im-page--chat-body-wrap-inner._im_peer_history_w, .page_media_poll_wrap, .feedback_row_wrap.unread, .ts_cont_wrap, .im-create, #im_dialogs_creation_name, #im_dialogs_creation, .owner_photo_additional, .im-page--history.page_block._im_page_history, .mail_box_cont, .box_body .im_stickers_store_wrap .ui_tabs, .im_stickers_bl_wrap, .gifts_box_header, #payments_box .payments_about_votes, #payments_box_right_col, .payments_box_wide, .prefix_input_wrap, input#phone, .im-mess.im_in.im-mess_fav-search.im-mess_search._im_mess_search._im_mess.im-mess_fav, .audio_page_player, .fc_tab, .fc_tab_notify_wrap > *,.audio_row__more_action:hover
   {
     background-color: rgb(44, 61, 78) !important;
+    border-colot: rgb(44, 61, 78) !important;
   }
 
   .button_gray button, .replies_open, .wr_header, .chat_tab_wrap:hover, .ui_actions_menu_item:hover, .profile_more_info_link:hover, .friends_search_filters, .friends_search_import, .page_actions_header, .im-page .im-page--history-new-bar:after, .im-page .im-page--history-new-bar:before, .medadd_c_linkcon, .top_notify_show_all:hover, .feedback_row_wrap.reply_box_open, .top_profile_mrow:hover, .ok_msg, .privacy_dropdown .item_sel, .privacy_dropdown .item_sel_plus, .box_title_wrap, .idd_popup .idd_item.idd_hover, .idd_popup .idd_item.idd_hover_sublist_parent, .docs_choose_rows .docs_item:hover, .im-mess.im-mess_light, .photos_choose_upload_area:hover, .web_cam_photo:hover, .photo_upload_separator, .audio_friends_list, .audio_layer_bottom, .emoji_tt_wrap, .emoji_tabs_l_s, .emoji_tabs_r_s, .emoji_tab_sel, .emoji_tab_sel:hover, .emoji_tabs, .im_rc_emojibtn:hover, .im-mess.im-mess_selected, .im-mess.im-mess_selected:hover, .im-page .im-page--mess-search, .ui_tabs.ui_tabs_box, div.wdd, .wdd_list, .wddi_over, .wddi, .wddi_over, .wddi_no, .docs_choose_upload_area, .pv_comments_header, .im_editable.im-chat-input--text._im_text, .page_media_poll .page_poll_row, .wk_history_tabs, a.ts_contact.active, a.ts_search_link.active, .gift_tt_show_all, .page_actions_wrap, .im-create .im-create--tabs, .ui_grey_block, .ui_multiselect_cnt .token, .ui_search_filters_pane .token, .im-chat-placeholder, .im-chat-input, .im-page--header-chat._im_dialog_actionsб .feedback_unread_bar, .feedback_row_clickable:not(.feedback_row_touched):hover, .top_notify_cont .feedback_row_clickable.unread:hover, .wl_replies_header, .im_stickers_buy_header, .payments_getvotes_method_opt.payments_getvotes_active_row, .payments_getvotes_method_opt:hover, .button_cancel .button.hover, .button_cancel .button:hover, .button_cancel .button_hover, .button_cancel .leave_button:hover, .photos_go_to_album, .photos_period_delimiter_fixed, .lang_box_row:hover, .im-mess.im-mess_search:hover, #profile_groups_link:hover, .docs_panel, .settings_block_footer, .selector_container td.selector .token, .ms_items_more_helper, .ms_items_more, ._more_items, .ba_post, .ui_search_field, #dev_page_wrap1, .dev_page_block, #dev_left_nav, .dev_left_feature, .message_wrapper, .video_plb_wrap .video_plb_video,.app_rate_bg,.apps_options_bar,.wk_extpage_footer_wrap,.apps_footer,.ui_tabs .ui_tab_group_item:hover,.im-page.im-page_classic .im-page--header-inner, .im-page.im-page_classic .im-page--dcontent, .box_msg, .msg,.ui_suggester_results_list, .audio_row .audio_performer em, .audio_row .audio_title em,.sticker_hints_inner, .sticker_hints_arrow,.sticker_hints_tt, .wall_module .reply_form,.mv_info,.im-page .im-page--header-inner,.im-chat-input .im-chat-input--txt-wrap,.emoji_cat_title, .im-page--toolsw,.audio_row.audio_row__current .audio_row_content,.ui_search,.im-page .im-page--history-new-bar,.pe_editor .pe_sticker_packs_tabs,.pe_editor .pe_sticker_preview:hover
   {
     background-color: rgb(44, 61, 78) !important;
   }
+
+.
+{
+background: #fff url(data:image/svg+xml;charset=utf-8,%3Csvg%20height%3D%227%22%20viewBox%3D%220%200%2014%207%22%20width%3D%2214%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1.64.232c-.424-.354-1.055-.296-1.408.128s-.296%201.055.128%201.408l6%205c.371.309.91.309%201.28%200l6-5c.424-.354.482-.984.128-1.408s-.984-.482-1.408-.128l-5.36%204.467z%22%20fill%3D%22%239db4cc%22%2F%3E%3C%2Fsvg%3E) center 17px no-repeat !important;
+}
 /*цвет блоков*/
 
   .gift_price, .gift_free
   {
     background-color: rgb(48, 66, 84) !important;
   }
+
+.InfiniteScroll
+{
+    background-color: rgb(44, 61, 78) !important;
+}
+
+..im-page--chat-search-empty
+{
+background: none !important;
+}
 
   .wall_module .reply_fakebox_wrap,
 .im-page--chat-header
@@ -360,7 +376,6 @@ border-bottom-color: rgb(36 46 58) !important;
   .im_editable.im-chat-input--text._im_text
   {
     background-color: rgba(86, 113, 141, 0.3) !important;
-    padding: 11px 76px 8px 24px !important;
   }
 
   .im-chat-input .im-chat-input--textarea .placeholder
