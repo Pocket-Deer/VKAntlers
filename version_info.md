@@ -21,6 +21,7 @@
 			   <li>... а так же куча всякого в разделе "Другое"</li>
 		   </ul>
 	   </ul>
+	   <hr>
       <header>
          <h3 style="color: black; font-size: 20px; margin-bottom: 0">"Restyling update"</h3>
       </headeкЮ
