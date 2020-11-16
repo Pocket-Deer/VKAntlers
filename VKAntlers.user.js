@@ -66,7 +66,7 @@ var main = function() {
         custom_theme_icon: false,
         custom_hashtags: false,
         self_custom_hashtags_list: false,
-        custom_hashtags_list: "где",
+        custom_hashtags_list: "первый второй итакдалее",
         custom_back_button: true,
         hide_names: false,
         hide_messages: false,
