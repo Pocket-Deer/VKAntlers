@@ -2,14 +2,14 @@
    <div class="vka_block">
       <div class="vka_title">
          <font>VKAntlers</font>
-         <font id="vka_version" style="float: right; padding-top: 10px;" size="2">v 1.2</font>
+         <font id="vka_version" style="float: right; padding-top: 10px;" size="2">???</font>
       </div>
       <hr>
       <div class="vka_content">
          <div class="vka_section">
             <a>Стиль
             <div class="vka_arrow" id="arrow1">ᐯ</div>
-               </a>
+            </a>
          </div>
          <div class="vka_innerBlock" id="Section1">
             <form class="vka_form">
@@ -70,6 +70,18 @@
                   <input class="vka_field" type="checkbox" id="custom_hashtags" name="hashtag_toggle"> - 
                   <div>Кастомные хэштеги</div>
                </label>
+               <ul class="vka_ul">
+                  <li>
+                     <label class=vka_label>
+                        <input class="vka_field" type="checkbox" id="self_custom_hashtags_list" name="self_custom_hashtags_list"> - Использовать свои хэштеги
+                     </label>
+                  </li>
+                  <li>
+                     <label class=vka_label>
+                        <input class="vka_textarea" placeholder="здеся ихний тута евоный" type="text" id="custom_hashtags_list" name="custom_hashtags_list" style="resize: vertical">
+                     </label>
+                  </li>
+               </ul>
                <label class="vka_label">
                   <input class="vka_field" type="checkbox" id="custom_back_button" name="hashtag_toggle"> - 
                   <div>Кнопка назад в новом дизайне диалогов</div>
@@ -281,6 +293,33 @@
             <label class="vka_label">
                <input class="vka_field"  type="checkbox" id="rainbow_text" name="rainbow_text"> - 
                <div>Радужный текст!!1!</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="negative" name="negative"> - 
+               <div>Злой чел. Негативный</div>
+               </label>
+               <ul class="vka_ul">
+                  <li>
+                     <label class="vka_label">
+                     <input class="vka_field"  type="checkbox" id="negative_plus" name="negative_plus"> - 
+                     <div>Добрые картинки. Позитивные</div>
+                     </label>
+                  </li>
+               </ul>
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="sepia" name="sepia"> - 
+               <div>Дикий чел. Западный</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="blury" name="blury"> - 
+               <div>Сложный чел. Размытый</div>
+            </label>
+            <label class="vka_label">
+               <input class="vka_field"  type="checkbox" id="blackandwhite" name="blackandwhite"> - 
+               <div>Моно чел. Однотонный</div>
+            </label>
+            <label class="vka_label">
+               <button class="vka_button" type="button" id="vka_resetti" name="vka_resetti">Mr. Resetti</button>
             </label>
          </div>
          <hr>

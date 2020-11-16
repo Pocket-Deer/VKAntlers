@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      1.2
+// @version      1.2.1
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -55,7 +55,7 @@ var main = function() {
     // Дефолтный конфиг
     var vka_config_default = {
         // version
-        version: "1.2",
+        version: "1.2.1",
 
         // style
         custom_theme: false,
@@ -65,6 +65,8 @@ var main = function() {
         ctt_start: "20",
         custom_theme_icon: false,
         custom_hashtags: false,
+        self_custom_hashtags_list: false,
+        custom_hashtags_list: "первый второй итакдалее",
         custom_back_button: true,
         hide_names: false,
         hide_messages: false,
@@ -102,10 +104,17 @@ var main = function() {
 
         //others
         rainbow_text: false,
+        negative: false,
+        sepia: false,
+        blury: false,
+        blackandwhite: false,
 
         // development
         dev_alerts: false,
-        dev_msg: false
+        dev_msg: false,
+
+        // testified
+        testified: false
     };
 
     // Подгрузка конфига с локального хранилища
@@ -126,22 +135,45 @@ var main = function() {
 
     // Обновление конфига при обновлении версии
     // TODO: Сделать обновление лишь пунктов конфига, а не полностью заменять на дефолтный
+    // Временно убрано! Чтобы сбрость конфиги добавлена кнопка
     if(vka_config_default.version > vka_config.version){
         console.log ("Config updated! From verion: " + vka_config.version + " to: " + vka_config_default.version);
-        vka_config = vka_config_default;
+//         vka_config = vka_config_default;
+        vka_config.version = vka_config_default.version;
         localStorage.setItem("vka_config", JSON.stringify(vka_config));
         // TODO: Убрать костыль с перезагрузкой из-за установки конфига. А может и не надо?
         // Прикол заключается в MutationObserver - который не ждёт загрузки конфига
         location.reload();
     }
 
+// INDEV - Работа с конфигом, аля обновление динамичных элементов
+//     if(vka_config_default.version > vka_config.version){
+//         for (var i = 0; i < Object.keys(vka_config_default).length; i++){
+//             for (var j = 0; j < Object.keys(vka_config).length; j++){
+//                 console.log(Object.keys(vka_config_default)[j]);
+//             }
+//         }
+//     }
+
+
+//     alert('Saved testified is: ' + vka_config.testified);
+//     alert('Testified from localstorage is: ' + localStorage.getItem('vka_config').testified);
+
     // Перечисление всех возможных хэштегов
-    var hashtag_list = ["флеймлучший", "задонать", "темнаятёма", "да", "дирохерел", "ачё\)", "сидидомаблэд", "фывапролджэ", "missingno",
-                        "сижуахерел", "дистанционОчка", "скибидивапа", "ойдевачьки", "настиле", "чайвсемуголова", "мрарф",
-                        "гобухать", "сказочноебали", "дирлох", "ложка", "300bucks", "стыдпозорный", "ugotthat", "heybuddy", "яобязательновыживу",
-                        "нечиталОчка", "слышработать", "кофемания", "hohol", "(﻿ ͡° ͜ʖ ͡°)", "атлишна", "42"];
-    // Выбор случайного хэштега из списка
-    var logo_hashtag_text = hashtag_list[Math.floor(Math.random() * hashtag_list.length)];
+    var hashtag_list_default = ["флеймлучший", "задонать", "темнаятёма", "да", "дирохерел", "ачё)", "сидидомаблэд", "фывапролджэ", "missingno",
+                                "сижуахерел", "дистанционОчка", "скибидивапа", "ойдевачьки", "настиле", "чайвсемуголова", "мрарф",
+                                "гобухать", "сказочноебали", "дирлох", "ложка", "300bucks", "стыдпозорный", "ugotthat", "heybuddy", "яобязательновыживу",
+                                "нечиталОчка", "слышработать", "кофемания", "hohol", "(﻿ ͡° ͜ʖ ͡°)", "атлишна", "42", "frozengreyfire", "pocket_deer",
+                                "тыубилдъявола", "тыубилгольфиста", "иэтудверцу", "тщщщщщлен", "хэштег", "зачем", "затем", "breakingbed", "жалюзи",
+                                "коксакер", "эйгаррисоси", "щитщитщит"];
+
+    // Переменная, да
+    var logo_hashtag_text;
+
+    // Функция выбора случайного элемента из списка
+    function get_rand(mumble){
+        return mumble[Math.floor(Math.random() * mumble.length)];
+    }
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Загрузка главного меню
 
@@ -161,14 +193,23 @@ var main = function() {
     // Загрузка кнопки меню
     var vkantlers_menu = '<li class="HeaderNav__item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
 
-    // Загрузка меню и его стиля [devchange]
-    var vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html");
-    var vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.css");
-
-    // Загрузка тёмной темы [devchange]
-    // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
-    var dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
-
+    // Подгрузка исходников с гита, с ветки master или dev
+    var vka_menu;
+    var vka_menu_css;
+    var dark_theme;
+    if (vka_dev == true){
+        vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/mainmenu.html");
+        vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/mainmenu.css");
+        // Загрузка тёмной темы [devchange]
+        // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
+        dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/dark_style.css');
+    } else {
+        vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html");
+        vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.css");
+        // Загрузка тёмной темы [devchange]
+        // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
+        dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
+    }
 
     // Загрузка кода до полной загрузки страницы. Переменные используются в MutationObserver
     var preload = {
@@ -209,19 +250,29 @@ var main = function() {
 
     // Добавление кнопки вызова меню и само меню на сайт до загрузки страницы
     // TODO: Пофиксить костыль с аудиозаписями
-    if(document.location.href.indexOf('audios') === -1){ //Не добавлять кнопку в аудиозаписи
+    if(document.location.href.indexOf('audios') === -1 && document.location.href.indexOf('music') === -1){ //Не добавлять кнопку в аудиозаписи
         preload_load('HeaderNav__item', preload.mainmenu);
     };
 
     // Функция включения меню при клике на значок меню
     $(document).on("click", "#vkantlers_toggle", function(){
-        console.log("Clicked on deer");
+        //console.log("Clicked on deer");
         $('.vka_parent').toggleClass('vka_parent_display');
     });
 
     // Функция переключения пунктов меню
     $(document).on("click", ".vka_section", function() {
         $(this).next('.vka_innerBlock').toggleClass('vka_displayBlock');
+        $(this).find('.vka_arrow').toggleClass('vka_arrow_rotated');
+    });
+
+    // Закрытие меню при клике вне меню
+    $(document).mouseup(function(e) {
+        var container = $('.vka_block');
+        if (!container.is(e.target) && container.has(e.target).length === 0 && !$('.HeaderNav__item.deer').is(e.target) && $('.HeaderNav__item.deer').has(e.target).length === 0)
+        {
+            $('.vka_parent').removeClass('vka_parent_display');
+        }
     });
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Функционал самого аддона
@@ -239,7 +290,7 @@ var main = function() {
 
     // Функционал кнопок при нажатии
     $(".vka_content").ready(function() {
-        $("input[type='checkbox'], input[type='radio']").on("click", function() {
+        $('input[type="checkbox"], input[type="radio"], button[type="button"]').on("click", function() {
             if (this.type == "radio" || this.type == "checkbox"){
                 vka_config_set(this.id, this.checked);
             }
@@ -258,9 +309,13 @@ var main = function() {
 
     // Заполняет меню по конфигу
     function vka_loadmenu(){
+        // Выставление версии
+        vka_func('version');
+        // Выполнение заполняемых пунктов меню
         $(".vka_field, .vka_textarea").each(function(){
             if (this.type == "radio" || this.type == "checkbox"){
                 $(this).prop("checked", vka_config_get(this.id));
+                //console.log('get: ' + this.id + ' and changed to ' + vka_config_get(this.id));
                 vka_func(this.id);
             } if (this.type == "text") {
                 $(this).prop("value", vka_config_get(this.id));
@@ -271,6 +326,14 @@ var main = function() {
 
     function vka_func(func_name){
         switch (func_name){
+                // Update version in menu
+            case "version":
+                if (vka_dev == true){
+                    $('#vka_version').text('v. ' + vka_config_default.version + ' [dev]');
+                } else {
+                    $('#vka_version').text('v. ' + vka_config_default.version);
+                }
+                break;
                 // ---------------------------------------------------- Style
             case "custom_theme":
                 if (vka_config.custom_theme == true && vka_config.custom_theme_type == "dark"){
@@ -297,12 +360,28 @@ var main = function() {
 
             case "custom_hashtags":
                 if (vka_config.custom_hashtags == true){
+                    logo_hashtag_text = get_rand(hashtag_list_default);
                     $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
                     $(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center","color":"var(--white)"});
                     $(".top_home_logo").css({"margin":"0px 10px 0 0"});
                 } else {
                     $(".vka_hashtags").remove();
                 };
+                // А вот эта вещь ниже нужна чтобы не было предупреждения об ошибке, лол
+                // И это работает. Спасибо JSHint
+                // falls through
+
+            case "self_custom_hashtags_list":
+                console.log('executed');
+                if (vka_config.self_custom_hashtags_list == true){
+                    var custom_hashtags_list = vka_config.custom_hashtags_list.split(' ');
+                    console.log('1) ' + custom_hashtags_list);
+                    custom_hashtags_list = get_rand(custom_hashtags_list);
+                    console.log('2) ' + custom_hashtags_list);
+                    $('.vka_hashtags').text('#' + custom_hashtags_list);
+                } else {
+                    $('.vka_hashtags').text('#' + logo_hashtag_text);
+                }
                 break;
 
             case "custom_back_button":
@@ -371,6 +450,7 @@ var main = function() {
             case "vka_l_aud":
             case "vka_l_vid":
             case "custom_left_menu":
+                // TODO: Сделать сохранение с элементов, чтобы вернуть как было изначально
                     if (vka_config.custom_left_menu == true){
                         $('#l_pr').find('.left_label.inl_bl').text(vka_config.vka_l_pr);
                         $('#l_nwsf').find('.left_label.inl_bl').text(vka_config.vka_l_nwsf);
@@ -443,12 +523,56 @@ var main = function() {
 
             case "rainbow_text":
                 if (vka_config.rainbow_text == true){
-                $('head').append('<style id="vka_rainbow_text">@keyframes colorRotate { from {color: rgb(255, 0, 0);} 16.6% { color: rgb(255, 0, 255);} 33.3% {color: rgb(0, 0, 255);} 50% {color: rgb(0, 255, 255);} 66.6% {color: rgb(0, 255, 0); } 83.3% {color: rgb(255, 255, 0);} to {color: rgb(255, 0, 0);}} a, span{animation: colorRotate 6s linear 0s infinite;}');
+                    $('head').append('<style id="vka_rainbow_text">@keyframes colorRotate { from {color: rgb(255, 0, 0);} 16.6% { color: rgb(255, 0, 255);} 33.3% {color: rgb(0, 0, 255);} 50% {color: rgb(0, 255, 255);} 66.6% {color: rgb(0, 255, 0); } 83.3% {color: rgb(255, 255, 0);} to {color: rgb(255, 0, 0);}} a, span{animation: colorRotate 6s linear 0s infinite;}');
                 } else {
-                $('#vka_rainbow_text').remove();
+                    $('#vka_rainbow_text').remove();
                 }
                     break;
 
+            case "negative":
+                if (vka_config.negative == true){
+                    $('head').append('<style id="vka_negative">:root {filter: negative(1) !important}</style>');
+                } else {
+                    $('#vka_negative').remove();
+                }
+                // falls through
+            case "negative_plus":
+                if (vka_config.negative_plus == true){
+                    $('#vka_negative').text(':root {filter: invert(1) !important} img, a[aria-label="фотография"]{filter: invert(1) !important}');
+                } else {
+                    $('#vka_negative').text(':root {filter: invert(1) !important}');
+                }
+                break;
+            case "sepia":
+                if (vka_config.sepia == true){
+                    $('head').append('<style id="vka_sepia">:root {filter: sepia(1) !important}</style>');
+                } else {
+                    $('#vka_sepia').remove();
+                }
+                break;
+            case "blury":
+                if (vka_config.blury == true){
+                    $('head').append('<style id="vka_blury">:root {filter: blur(1px) !important}</style>');
+                } else {
+                    $('#vka_blury').remove();
+                }
+                break;
+            case "blackandwhite":
+                if (vka_config.blackandwhite == true){
+                    $('head').append('<style id="vka_blackandwhite">:root {filter: grayscale(1) !important}</style>');
+                } else {
+                    $('#vka_blackandwhite').remove();
+                }
+                break;
+
+                // Development
+
+            case "vka_resetti":
+                if (window.confirm("Вы уверены что хотите сбросить настройки VKAntlers по умолчанию?")) {
+                    localStorage.removeItem("vka_config");
+                    location.reload;
+                };
+                break;
             case "dev_alerts":
                 break;
 

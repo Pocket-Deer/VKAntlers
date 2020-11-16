@@ -141,6 +141,10 @@
 	margin: 2px 1px;
 }
 
+.vka_label input[type='checkbox'] {
+	opacity: 1;
+}
+
 .vka_label:hover {
 	cursor: pointer;
 }
