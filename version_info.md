@@ -7,9 +7,23 @@
    </header>
    <hr>
    <div style="color: #777777; font-size: 16px;">
+	<header>
+         <h3 style="color: black; font-size: 18px; margin-bottom: 0; margin-top: 0">Версия 1.2.1</h3>
+         <h3 style="color: black; font-size: 14px; margin-bottom: 0; margin-top: 0">(16/11/20)</h3>
+     	</header>
+	   <ul>
+		   <li>Мини обновление с мелкими изименениями</li>
+		   <ul>
+			   <li>Теперь меню закрывается при клике вне самого меню</li>
+			   <li>Добавлена возможность ставить свой список хэштегов</li>
+			   <li>Конфиг при обновлении версии не заменяется на дефолтный</li>
+			   <li>Добавлена ссылка на установку аддона при клике на версию в главном меню аддона. Так же там можно вручную проверять обновления</li>
+			   <li>... а так же куча всякого в разделе "Другое"</li>
+		   </ul>
+	   </ul>
       <header>
          <h3 style="color: black; font-size: 20px; margin-bottom: 0">"Restyling update"</h3>
-      </header>
+      </headeкЮ
        <header>
          <h3 style="color: black; font-size: 18px; margin-bottom: 0; margin-top: 0">Версия 1.2</h3>
          <h3 style="color: black; font-size: 14px; margin-bottom: 0; margin-top: 0">(09/11/20)</h3>
