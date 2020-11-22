@@ -9,7 +9,7 @@
     // Дефолтный конфиг
     var vka_config_default = {
         // version
-        version: "1.2.1",
+        version: "1.2.101",
 
         // style
         custom_theme: false,
@@ -66,7 +66,7 @@
         blackandwhite: false,
 
         // development
-        dev_alerts: false,
+        vka_devload: false,
         dev_msg: false,
 
         // testified
@@ -120,8 +120,8 @@
                                 "сижуахерел", "дистанционОчка", "скибидивапа", "ойдевачьки", "настиле", "чайвсемуголова", "мрарф",
                                 "гобухать", "сказочноебали", "дирлох", "ложка", "300bucks", "стыдпозорный", "ugotthat", "heybuddy", "яобязательновыживу",
                                 "нечиталОчка", "слышработать", "кофемания", "hohol", "(﻿ ͡° ͜ʖ ͡°)", "атлишна", "42", "frozengreyfire", "pocket_deer",
-                                "тыубилдъявола", "тыубилгольфиста", "иэтудверцу", "тщщщщщлен", "хэштег", "зачем", "затем", "breakingbed", "жалюзи",
-                                "коксакер", "эйгаррисоси", "щитщитщит"];
+                                "тыубилдъявола", "тыубилгольфиста", "этудверцу", "тщщщщщлен", "хэштег", "зачем", "затем", "breakingbed", "жалюзи",
+                                "коксакер", "эйгаррисоси", "щитщитщит", "slalixuy"];
 
     // Переменная, да
     var logo_hashtag_text;
@@ -153,16 +153,18 @@
     var vka_menu;
     var vka_menu_css;
     var dark_theme;
-    if (vka_dev == true){
+    if (vka_config.vka_devload == true){
+        console.log('Developer version loaded!');
         vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/mainmenu.html");
         vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/mainmenu.css");
-        // Загрузка тёмной темы [devchange]
+        // Загрузка тёмной темы
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/dark_style.css');
     } else {
+        console.log('Standart version loaded!');
         vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html");
         vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.css");
-        // Загрузка тёмной темы [devchange]
+        // Загрузка тёмной темы
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
     }
@@ -179,6 +181,7 @@
             // Добавление главного меню в код сайта
             $("head").after(vka_menu_css);
             $(".HeaderNav__item.deer").append(vka_menu);
+            // Предзагрузка всех функций в меню
             vka_loadmenu();
         }
     };
@@ -284,7 +287,7 @@
         switch (func_name){
                 // Update version in menu
             case "version":
-                if (vka_dev == true){
+                if (vka_config.vka_devload == true){
                     $('#vka_version').text('v. ' + vka_config_default.version + ' [dev]');
                 } else {
                     $('#vka_version').text('v. ' + vka_config_default.version);
@@ -544,7 +547,7 @@
                     location.reload();
                 };
                 break;
-            case "dev_alerts":
+            case "vka_dev":
                 break;
 
             case "dev_msg":
