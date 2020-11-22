@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         VKAntlers [dev]
+// @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
 // @version      2.0
 // @description  Make it more useful!
