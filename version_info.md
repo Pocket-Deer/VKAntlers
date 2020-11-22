@@ -7,6 +7,26 @@
    </header>
    <hr>
    <div style="color: #777777; font-size: 16px;">
+	    <header>
+         <h3 style="color: black; font-size: 20px; margin-bottom: 0">"Up-to-date update"</h3>
+	   </header>
+	<header>
+         <h3 style="color: black; font-size: 18px; margin-bottom: 0; margin-top: 0">Версия 1.2.2</h3>
+         <h3 style="color: black; font-size: 14px; margin-bottom: 0; margin-top: 0">(22/11/20)</h3>
+     	</header>
+	   <ul>
+		   <li>Обновление ради обновлений!</li>
+		   <ul>
+			   <li>Весь код перенесён на гитхаб, теперь обновления не зависят от расширения, и они будут приходить практически сразу</li>
+		   </ul>
+		   <li>А также мелкие изменения</li>
+		   <ul>
+			   <li>Добавлено скрытие групп в левом меню в раздел "Стиль"</li>
+			   <li>Также добавлено скрытие всплывающих уведомлений</li>
+			   <li>Теперь при клике на версию - вас перносит сюда!</li>
+		   </ul>
+	   </ul>
+	   <hr>
 	<header>
          <h3 style="color: black; font-size: 18px; margin-bottom: 0; margin-top: 0">Версия 1.2.1</h3>
          <h3 style="color: black; font-size: 14px; margin-bottom: 0; margin-top: 0">(16/11/20)</h3>
@@ -24,7 +44,7 @@
 	   <hr>
       <header>
          <h3 style="color: black; font-size: 20px; margin-bottom: 0">"Restyling update"</h3>
-      </headeкЮ
+	   </header>
        <header>
          <h3 style="color: black; font-size: 18px; margin-bottom: 0; margin-top: 0">Версия 1.2</h3>
          <h3 style="color: black; font-size: 14px; margin-bottom: 0; margin-top: 0">(09/11/20)</h3>
@@ -33,7 +53,7 @@
          <li>Обновлён стиль главного меню</li>
 	      <ul>
 		      <li>Теперь меню не появляется на весь экран, а занимает достаточно маленькое пространство справа сверху</li>
-		      <li>Стиль меню теперь частично копирет стиль ВК. А это значит что есть поддержка левосторонних стилей! Например VKStyles</li>
+		      <li>Стиль меню теперь частично копирует стиль ВК. А это значит что есть поддержка левосторонних стилей! Например VKStyles</li>
 		      <li>Добавлено и изменено кучу всего! Если вы пользователь старых версий - вы их точно заметите</li>
 		      <li>Мне просто лень перечислять, реально</li>
       	      </ul>
