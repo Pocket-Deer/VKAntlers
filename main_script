@@ -9,7 +9,7 @@
     // Дефолтный конфиг
     var vka_config_default = {
         // version
-        version: "1.2.101",
+        version: "1.2.2",
 
         // style
         custom_theme: false,
