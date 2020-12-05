@@ -5,6 +5,20 @@
   	display: none;
   }
 }*/
+
+/* Some holiday stuff in there */
+
+.vka_holiday_garland{
+    border: 0;
+    width: 100%;
+    position: absolute;
+    /* top: -6px; */
+    bottom: -45px;
+    left: 0;
+}
+
+/* Main menu */
+
 .vka_content::-webkit-scrollbar{
   width: 6px;
 }
