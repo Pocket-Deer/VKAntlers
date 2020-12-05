@@ -5,6 +5,30 @@
   	display: none;
   }
 }*/
+
+/* Some holiday stuff in there */
+
+	#snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.vka_holiday_garland{
+    border: 0;
+    width: 100%;
+    position: absolute;
+    /* top: -6px; */
+    bottom: -45px;
+    left: 0;
+}
+
+/* Main menu */
+
 .vka_content::-webkit-scrollbar{
   width: 6px;
 }

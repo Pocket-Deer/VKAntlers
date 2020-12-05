@@ -9,7 +9,7 @@
     // Дефолтный конфиг
     var vka_config_default = {
         // version
-        version: "1.2.2",
+        version: "1.2.3",
 
         // style
         custom_theme: false,
@@ -60,6 +60,7 @@
 
         //others
         rainbow_text: false,
+        letitsnow: true,
         negative: false,
         sepia: false,
         blury: false,
@@ -96,6 +97,11 @@
         console.log ("Config updated! From verion: " + vka_config.version + " to: " + vka_config_default.version);
 //         vka_config = vka_config_default;
         vka_config.version = vka_config_default.version;
+        
+         // TODO: Мануальное обновление недостающих и новых компонентов
+        // Убрать к чертям это. И сделать что-то новенькое, более удобное
+        vka_config.letitsnow = true;
+        
         localStorage.setItem("vka_config", JSON.stringify(vka_config));
         // TODO: Убрать костыль с перезагрузкой из-за установки конфига. А может и не надо?
         // Прикол заключается в MutationObserver - который не ждёт загрузки конфига
@@ -153,20 +159,32 @@
     var vka_menu;
     var vka_menu_css;
     var dark_theme;
+    var letitsnow_source;
+    var particles = vka_getraw("https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js");
     if (vka_config.vka_devload == true){
         console.log('Developer version loaded!');
+        // Загрузка главного меню
         vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/mainmenu.html");
         vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/mainmenu.css");
+
+        // Загрузка остальных компонентов
         // Загрузка тёмной темы
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/dark_style.css');
+        // Эффект снежка
+        letitsnow_source = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/effects/snow.js');
     } else {
         console.log('Standart version loaded!');
+        // Загрузка главного меню
         vka_menu = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.html");
         vka_menu_css = vka_getraw("https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/mainmenu.css");
+
+        // Загрузка остальных компонентов
         // Загрузка тёмной темы
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/dark_style.css');
+        // Эффект снежка
+        letitsnow_source = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/effects/snow.js');
     }
 
     // Загрузка кода до полной загрузки страницы. Переменные используются в MutationObserver
@@ -180,6 +198,7 @@
             $('#top_nav').append(vkantlers_menu);
             // Добавление главного меню в код сайта
             $("head").after(vka_menu_css);
+            $('head').after('<script>'+particles+'</script>');
             $(".HeaderNav__item.deer").append(vka_menu);
             // Предзагрузка всех функций в меню
             vka_loadmenu();
@@ -536,6 +555,72 @@
                     $('head').append('<style id="vka_blackandwhite">:root {filter: grayscale(1) !important}</style>');
                 } else {
                     $('#vka_blackandwhite').remove();
+                }
+                break;
+
+            case "letitsnow":
+                if (vka_config.letitsnow == true || vka_config.letitsnow == null || vka_config.letitsnow == undefined){
+                    $('body').prepend('<div id="snow"></div>');
+                    particlesJS("snow", {
+                        "particles": {
+                            "number": {
+                                "value": 100,
+                                "density": {
+                                    "enable": true,
+                                    "value_area": 800
+                                }
+                            },
+                            "color": {
+                                "value": "#ffffff"
+                            },
+                            "opacity": {
+                                "value": 0.8,
+                                "random": false,
+                                "anim": {
+                                    "enable": false
+                                }
+                            },
+                            "size": {
+                                "value": 5,
+                                "random": true,
+                                "anim": {
+                                    "enable": false
+                                }
+                            },
+                            "line_linked": {
+                                "enable": false
+                            },
+                            "move": {
+                                "enable": true,
+                                "speed": 3,
+                                "direction": "bottom",
+                                "random": true,
+                                "straight": false,
+                                "out_mode": "out",
+                                "bounce": false,
+                                "attract": {
+                                    "enable": true,
+                                    "rotateX": 300,
+                                    "rotateY": 1200
+                                }
+                            }
+                        },
+                        "interactivity": {
+                            "events": {
+                                "onhover": {
+                                    "enable": false
+                                },
+                                "onclick": {
+                                    "enable": false
+                                },
+                                "resize": false
+                            }
+                        },
+                        "retina_detect": true
+                    });
+                } else {
+                    $('#vka_letitsnow').remove();
+                    $('#snow').remove();
                 }
                 break;
 
