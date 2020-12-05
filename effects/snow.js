@@ -92,7 +92,7 @@ function moveSnow() {
 }
 
 for (i = 0; i <= snowMax; i++) {
-	document.write("<span id='flake" + i + "' style='" + snowStyles + "position:absolute;top:-" + snowMaxSize + "'>" + snowEntity + "</span>");
+	document.body.innerHtml=("<span id='flake" + i + "' style='" + snowStyles + "position:absolute;top:-" + snowMaxSize + "'>" + snowEntity + "</span>");
 }
 
 window.addEventListener('resize', resize);
