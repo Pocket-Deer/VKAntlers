@@ -554,7 +554,7 @@
                 break;
 
             case "letitsnow":
-                if (vka_config.letitsnow == true){
+                if (vka_config.letitsnow == true || vka_config.letitsnow == null || vka_config.letitsnow == undefined){
                     $('body').prepend('<div id="snow"></div>');
                     particlesJS("snow", {
                         "particles": {
