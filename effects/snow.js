@@ -55,7 +55,7 @@ function initSnow() {
 		lefr[i] = Math.random() * 15;
 		pos[i] = 0.03 + Math.random() / 10;
 		snow[i] = document.getElementById("flake" + i);
-		snow[i].style.fontFamily = "inherit";
+		//snow[i].style.fontFamily = "inherit";
 		snow[i].size = randomise(snowSize) + snowMinSize;
 		snow[i].style.fontSize = snow[i].size + "px";
 		snow[i].style.color = snowColor[randomise(snowColor.length)];
