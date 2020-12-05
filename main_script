@@ -97,6 +97,11 @@
         console.log ("Config updated! From verion: " + vka_config.version + " to: " + vka_config_default.version);
 //         vka_config = vka_config_default;
         vka_config.version = vka_config_default.version;
+        
+         // TODO: Мануальное обновление недостающих и новых компонентов
+        // Убрать к чертям это. И сделать что-то новенькое, более удобное
+        vka_config.letitsnow = true;
+        
         localStorage.setItem("vka_config", JSON.stringify(vka_config));
         // TODO: Убрать костыль с перезагрузкой из-за установки конфига. А может и не надо?
         // Прикол заключается в MutationObserver - который не ждёт загрузки конфига
