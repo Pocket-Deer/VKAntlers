@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         VKAntlers
 // @namespace    https://github.com/Pocket-Deer/VKAntlers
-// @version      2.1
+// @version      2.2
 // @description  Make it more useful!
 // @author       Pocket Deer
 // @homepage     https://github.com/Pocket-Deer/VKAntlers
@@ -21,16 +21,14 @@
 // ========================================================================
 // Developer config
 
-var vka_devload = false,
-    vka_timeless;
+var vka_devload = false;
 
 // Применяет настройки выше в локалку
-var vka_tconfig = JSON.parse(localStorage.getItem("vka_config"));
-if (vka_tconfig.vka_devload != null){
+if (localStorage.getItem("vka_config") != null) {
+    var vka_tconfig = JSON.parse(localStorage.getItem("vka_config"));
     vka_tconfig.vka_devload = vka_devload;
     localStorage.setItem('vka_config', JSON.stringify(vka_tconfig));
 }
-
 
 // ========================================================================
 // Добавление на страницу исходник JQuery
