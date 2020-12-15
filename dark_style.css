@@ -1,4 +1,9 @@
-  *
+:root
+{
+--steel_gray_80: #1A222B !important;
+}
+
+*
   {
     color: #c8d4e2 !important;
     border-color: none !important;
