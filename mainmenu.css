@@ -29,6 +29,10 @@
 
 /* Main menu */
 
+.vka_hr{
+	border: 1px solid #1E2630;
+}
+
 .vka_content::-webkit-scrollbar{
   width: 6px;
 }
