@@ -1,10 +1,11 @@
 :root
 {
+  --steel_gray_60: #1E2630 !important;
   --steel_gray_80: #1E2630 !important;
   --steel_gray_100: #1E2630 !important;
-  --light_blue_100: #1E2630 !important;
   --light_blue_40: #1E2630 !important;
-    --light_blue_80: #1E2630 !important;
+  --light_blue_80: #1E2630 !important;
+  --light_blue_100: #1E2630 !important;
 }
 
 *
