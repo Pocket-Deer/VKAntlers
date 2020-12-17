@@ -1,8 +1,4 @@
-    // VKAntlers loves you!
-    // --------------------------------------------------------------------
-    // Очевидное сокращение команды
-    var $ = window.jQuery;
-
+// VKAntlers loves you!
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Конфигурация
     var vka_dev = false;
 
@@ -97,11 +93,11 @@
         console.log ("Config updated! From verion: " + vka_config.version + " to: " + vka_config_default.version);
 //         vka_config = vka_config_default;
         vka_config.version = vka_config_default.version;
-        
+
          // TODO: Мануальное обновление недостающих и новых компонентов
         // Убрать к чертям это. И сделать что-то новенькое, более удобное
         vka_config.letitsnow = true;
-        
+
         localStorage.setItem("vka_config", JSON.stringify(vka_config));
         // TODO: Убрать костыль с перезагрузкой из-за установки конфига. А может и не надо?
         // Прикол заключается в MutationObserver - который не ждёт загрузки конфига
@@ -142,7 +138,7 @@
     // Функция загрузки текста с левых сайтов
     function vka_getraw(URL_Address){
         var tmp = null;
-        $.ajax({ type: "GET",
+        window.jQuery.ajax({ type: "GET",
                 url: URL_Address,
                 async: false,
                 success : function(text){
@@ -190,16 +186,16 @@
     // Загрузка кода до полной загрузки страницы. Переменные используются в MutationObserver
     var preload = {
         custom_hashtags: function(){
-            $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
-            $(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center"});
-            $(".top_home_logo").css({"margin":"0px 10px 0 0"});
+            window.jQuery(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
+            window.jQuery(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center"});
+            window.jQuery(".top_home_logo").css({"margin":"0px 10px 0 0"});
         },
         mainmenu: function(){
-            $('#top_nav').append(vkantlers_menu);
+            window.jQuery('#top_nav').append(vkantlers_menu);
             // Добавление главного меню в код сайта
-            $("head").after(vka_menu_css);
-            $('head').after('<script>'+particles+'</script>');
-            $(".HeaderNav__item.deer").append(vka_menu);
+            window.jQuery("head").after(vka_menu_css);
+            window.jQuery('head').after('<script>'+particles+'</script>');
+            window.jQuery(".HeaderNav__item.deer").append(vka_menu);
             // Предзагрузка всех функций в меню
             vka_loadmenu();
         }
@@ -227,29 +223,26 @@
     };
 
     // Добавление кнопки вызова меню и само меню на сайт до загрузки страницы
-    // TODO: Пофиксить костыль с аудиозаписями
-    //if(document.location.href.indexOf('audios') === -1 && document.location.href.indexOf('music') === -1){ //Не добавлять кнопку в аудиозаписи
-        preload_load('HeaderNav__item', preload.mainmenu);
-    //};
+    preload_load('HeaderNav__item', preload.mainmenu);
 
     // Функция включения меню при клике на значок меню
-    $(document).on("click", "#vkantlers_toggle", function(){
+    window.jQuery(document).on("click", "#vkantlers_toggle", function(){
         //console.log("Clicked on deer");
-        $('.vka_parent').toggleClass('vka_parent_display');
+        window.jQuery('.vka_parent').toggleClass('vka_parent_display');
     });
 
     // Функция переключения пунктов меню
-    $(document).on("click", ".vka_section", function() {
-        $(this).next('.vka_innerBlock').toggleClass('vka_displayBlock');
-        $(this).find('.vka_arrow').toggleClass('vka_arrow_rotated');
+    window.jQuery(document).on("click", ".vka_section", function() {
+        window.jQuery(this).next('.vka_innerBlock').toggleClass('vka_displayBlock');
+        window.jQuery(this).find('.vka_arrow').toggleClass('vka_arrow_rotated');
     });
 
     // Закрытие меню при клике вне меню
-    $(document).mouseup(function(e) {
-        var container = $('.vka_block');
-        if (!container.is(e.target) && container.has(e.target).length === 0 && !$('.HeaderNav__item.deer').is(e.target) && $('.HeaderNav__item.deer').has(e.target).length === 0)
+    window.jQuery(document).mouseup(function(e) {
+        var container = window.jQuery('.vka_block');
+        if (!container.is(e.target) && container.has(e.target).length === 0 && !window.jQuery('.HeaderNav__item.deer').is(e.target) && window.jQuery('.HeaderNav__item.deer').has(e.target).length === 0)
         {
-            $('.vka_parent').removeClass('vka_parent_display');
+            window.jQuery('.vka_parent').removeClass('vka_parent_display');
         }
     });
 
@@ -267,8 +260,8 @@
     }
 
     // Функционал кнопок при нажатии
-    $(".vka_content").ready(function() {
-        $('input[type="checkbox"], input[type="radio"], button[type="button"]').on("click", function() {
+    window.jQuery(".vka_content").ready(function() {
+        window.jQuery('input[type="checkbox"], input[type="radio"], button[type="button"]').on("click", function() {
             if (this.type == "radio" || this.type == "checkbox"){
                 vka_config_set(this.id, this.checked);
             }
@@ -277,7 +270,7 @@
             }
             vka_func(this.id);
         });
-        $("input[type='text']").keyup(function() {
+        window.jQuery("input[type='text']").keyup(function() {
             vka_config_set(this.id, this.value);
             vka_func(this.id);
         });
@@ -290,13 +283,13 @@
         // Выставление версии
         vka_func('version');
         // Выполнение заполняемых пунктов меню
-        $(".vka_field, .vka_textarea").each(function(){
+        window.jQuery(".vka_field, .vka_textarea").each(function(){
             if (this.type == "radio" || this.type == "checkbox"){
-                $(this).prop("checked", vka_config_get(this.id));
+                window.jQuery(this).prop("checked", vka_config_get(this.id));
                 //console.log('get: ' + this.id + ' and changed to ' + vka_config_get(this.id));
                 vka_func(this.id);
             } if (this.type == "text") {
-                $(this).prop("value", vka_config_get(this.id));
+                window.jQuery(this).prop("value", vka_config_get(this.id));
                 vka_func(this.id);
             }
         });
@@ -307,17 +300,17 @@
                 // Update version in menu
             case "version":
                 if (vka_config.vka_devload == true){
-                    $('#vka_version').text('v. ' + vka_config_default.version + ' [dev]');
+                    window.jQuery('#vka_version').text('v. ' + vka_config_default.version + ' [dev]');
                 } else {
-                    $('#vka_version').text('v. ' + vka_config_default.version);
+                    window.jQuery('#vka_version').text('v. ' + vka_config_default.version);
                 }
                 break;
                 // ---------------------------------------------------- Style
             case "custom_theme":
                 if (vka_config.custom_theme == true && vka_config.custom_theme_type == "dark"){
-                    $("head").append('<style type="text/css" id="vka_theme_dark">' + dark_theme + '</style>');
+                    window.jQuery("head").append('<style type="text/css" id="vka_theme_dark">' + dark_theme + '</style>');
                 } else {
-                    $("#vka_theme_dark").remove();
+                    window.jQuery("#vka_theme_dark").remove();
                 };
                 break;
 
@@ -339,11 +332,11 @@
             case "custom_hashtags":
                 if (vka_config.custom_hashtags == true){
                     logo_hashtag_text = get_rand(hashtag_list_default);
-                    $(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
-                    $(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center","color":"var(--white)"});
-                    $(".top_home_logo").css({"margin":"0px 10px 0 0"});
+                    window.jQuery(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
+                    window.jQuery(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center","color":"var(--white)"});
+                    window.jQuery(".top_home_logo").css({"margin":"0px 10px 0 0"});
                 } else {
-                    $(".vka_hashtags").remove();
+                    window.jQuery(".vka_hashtags").remove();
                 };
                 // А вот эта вещь ниже нужна чтобы не было предупреждения об ошибке, лол
                 // И это работает. Спасибо JSHint
@@ -356,66 +349,66 @@
                     console.log('1) ' + custom_hashtags_list);
                     custom_hashtags_list = get_rand(custom_hashtags_list);
                     console.log('2) ' + custom_hashtags_list);
-                    $('.vka_hashtags').text('#' + custom_hashtags_list);
+                    window.jQuery('.vka_hashtags').text('#' + custom_hashtags_list);
                 } else {
-                    $('.vka_hashtags').text('#' + logo_hashtag_text);
+                    window.jQuery('.vka_hashtags').text('#' + logo_hashtag_text);
                 }
                 break;
 
             case "custom_back_button":
-                $("body").on('DOMSubtreeModified', '.im-page--title-wrapper', function() {
+                window.jQuery("body").on('DOMSubtreeModified', '.im-page--title-wrapper', function() {
                     if (vka_config.custom_back_button == true){
-                        $(".im-page--back").css({"display":"block"});
-                        $(".im-page--title").css({"align-items":"center", "flex-direction":"column", "padding":"8px 20px 20px 20px"});
-                        $(".im-page--title-main").css({"overflow":"unset"});
-                        $(".im-page--title-meta._im_page_peer_online").css({"margin-left":"0"});
+                        window.jQuery(".im-page--back").css({"display":"block"});
+                        window.jQuery(".im-page--title").css({"align-items":"center", "flex-direction":"column", "padding":"8px 20px 20px 20px"});
+                        window.jQuery(".im-page--title-main").css({"overflow":"unset"});
+                        window.jQuery(".im-page--title-meta._im_page_peer_online").css({"margin-left":"0"});
                     } else {
-                        $(".im-page--back").css({"display":"none"});
-                        $(".im-page--title").css({"align-items":"center", "flex-direction":"none", "padding":"15px 20px"});
-                        $(".im-page--title-main").css({"overflow":"hidden"});
-                        $(".im-page--title-meta._im_page_peer_online").css({"margin-left":"8px"});
+                        window.jQuery(".im-page--back").css({"display":"none"});
+                        window.jQuery(".im-page--title").css({"align-items":"center", "flex-direction":"none", "padding":"15px 20px"});
+                        window.jQuery(".im-page--title-main").css({"overflow":"hidden"});
+                        window.jQuery(".im-page--title-meta._im_page_peer_online").css({"margin-left":"8px"});
                     };
                 });
                 break;
 
             case "hide_names":
                 if (vka_config.hide_names == true){
-                    $('head').append('<style id="vka_hide_names" type="text/css">.nim-dialog .nim-dialog--name .nim-dialog--name-w{filter: blur(4px) !important} .im-right-menu .im-right-menu--text{filter: blur(4px) !important} .im-page--title-main{filter: blur(4px) !important} .im-mess-stack--lnk{filter: blur(4px) !important} ._im_replied_author_link{filter: blur(4px) !important} .top_profile_vkconnect_name{filter: blur(4px) !important} .top_profile_name{filter: blur(4px) !important} юim-page-pinned--name{filter: blur(4px) !important} ._im_dialog_typing{filter: blur(4px) !important} ._im_typing_name{filter: blur(4px) !important}</style>');
+                    window.jQuery('head').append('<style id="vka_hide_names" type="text/css">.nim-dialog .nim-dialog--name .nim-dialog--name-w{filter: blur(4px) !important} .im-right-menu .im-right-menu--text{filter: blur(4px) !important} .im-page--title-main{filter: blur(4px) !important} .im-mess-stack--lnk{filter: blur(4px) !important} ._im_replied_author_link{filter: blur(4px) !important} .top_profile_vkconnect_name{filter: blur(4px) !important} .top_profile_name{filter: blur(4px) !important} юim-page-pinned--name{filter: blur(4px) !important} ._im_dialog_typing{filter: blur(4px) !important} ._im_typing_name{filter: blur(4px) !important}</style>');
                 } else {
-                    $('#vka_hide_names').remove();
+                    window.jQuery('#vka_hide_names').remove();
                 };
                 break;
 
             case "hide_messages":
                 if (vka_config.hide_messages == true){
-                    $('head').append('<style id="vka_hide_messages" type="text/css">nim-dialog--inner-text{filter: blur(4px) !important} .nim-dialog--text-preview{filter: blur(4px) !important}</style>');
+                    window.jQuery('head').append('<style id="vka_hide_messages" type="text/css">nim-dialog--inner-text{filter: blur(4px) !important} .nim-dialog--text-preview{filter: blur(4px) !important}</style>');
                 } else {
-                    $('#vka_hide_messages').remove()
+                    window.jQuery('#vka_hide_messages').remove()
                 };
                 break;
 
             case "hide_photo":
                 if (vka_config.hide_photo == true){
                     //TODO: nim-peer--photo = убирает по сути вообще все фотки
-                    $('head').append('<style id="vka_hide_photo" type="text/css">.nim-dialog.nim-dialog_classic .nim-dialog--photo{filter: blur(10px) !important} .im-prebody{filter: brightness(0) !important} .im-mess-stack--photo{filter: blur(10px) !important} .nim-dialog--photo{filter: blur(10px) !important} .top_profile_img{filter: brightness(0) !important} .top_profile_vkconnect_img{filter: brightness(0) !important} .im-page--aside-photo{filter: brightness(0) !important}</style>');
+                    window.jQuery('head').append('<style id="vka_hide_photo" type="text/css">.nim-dialog.nim-dialog_classic .nim-dialog--photo{filter: blur(10px) !important} .im-prebody{filter: brightness(0) !important} .im-mess-stack--photo{filter: blur(10px) !important} .nim-dialog--photo{filter: blur(10px) !important} .top_profile_img{filter: brightness(0) !important} .top_profile_vkconnect_img{filter: brightness(0) !important} .im-page--aside-photo{filter: brightness(0) !important}</style>');
                 } else {
-                    $('#vka_hide_photo').remove()
+                    window.jQuery('#vka_hide_photo').remove()
                 };
                 break;
 
             case "hide_groups":
                 if (vka_config.hide_groups == true){
-                    $('head').append('<style id="vka_hide_groups" type="text/css">.l_comm{filter:blur(4px) !important}')
+                    window.jQuery('head').append('<style id="vka_hide_groups" type="text/css">.l_comm{filter:blur(4px) !important}')
                 } else {
-                    $('#vka_hide_groups').remove();
+                    window.jQuery('#vka_hide_groups').remove();
                 }
                 break;
 
             case "hide_notify":
                 if (vka_config.hide_notify == true){
-                    $('head').append('<style id="vka_hide_notify" type="text/css">.notifier_baloon_wrap{filter:blur(4px) !important}')
+                    window.jQuery('head').append('<style id="vka_hide_notify" type="text/css">.notifier_baloon_wrap{filter:blur(4px) !important}')
                 } else {
-                    $('#vka_hide_notify').remove();
+                    window.jQuery('#vka_hide_notify').remove();
                 }
                 break;
                 // ---------------------------------------------------- Text
@@ -445,23 +438,23 @@
             case "custom_left_menu":
                 // TODO: Сделать сохранение с элементов, чтобы вернуть как было изначально
                     if (vka_config.custom_left_menu == true){
-                        $('#l_pr').find('.left_label.inl_bl').text(vka_config.vka_l_pr);
-                        $('#l_nwsf').find('.left_label.inl_bl').text(vka_config.vka_l_nwsf);
-                        $('#l_msg').find('.left_label.inl_bl').text(vka_config.vka_l_msg);
-                        $('#l_fr').find('.left_label.inl_bl').text(vka_config.vka_l_fr);
-                        $('#l_gr').find('.left_label.inl_bl').text(vka_config.vka_l_gr);
-                        $('#l_ph').find('.left_label.inl_bl').text(vka_config.vka_l_ph);
-                        $('#l_aud').find('.left_label.inl_bl').text(vka_config.vka_l_aud);
-                        $('#l_vid').find('.left_label.inl_bl').text(vka_config.vka_l_vid);
+                        window.jQuery('#l_pr').find('.left_label.inl_bl').text(vka_config.vka_l_pr);
+                        window.jQuery('#l_nwsf').find('.left_label.inl_bl').text(vka_config.vka_l_nwsf);
+                        window.jQuery('#l_msg').find('.left_label.inl_bl').text(vka_config.vka_l_msg);
+                        window.jQuery('#l_fr').find('.left_label.inl_bl').text(vka_config.vka_l_fr);
+                        window.jQuery('#l_gr').find('.left_label.inl_bl').text(vka_config.vka_l_gr);
+                        window.jQuery('#l_ph').find('.left_label.inl_bl').text(vka_config.vka_l_ph);
+                        window.jQuery('#l_aud').find('.left_label.inl_bl').text(vka_config.vka_l_aud);
+                        window.jQuery('#l_vid').find('.left_label.inl_bl').text(vka_config.vka_l_vid);
                     } else {
-                        $('#l_pr').find('.left_label.inl_bl').text(vka_config_default.vka_l_pr);
-                        $('#l_nwsf').find('.left_label.inl_bl').text(vka_config_default.vka_l_nwsf);
-                        $('#l_msg').find('.left_label.inl_bl').text(vka_config_default.vka_l_msg);
-                        $('#l_fr').find('.left_label.inl_bl').text(vka_config_default.vka_l_fr);
-                        $('#l_gr').find('.left_label.inl_bl').text(vka_config_default.vka_l_gr);
-                        $('#l_ph').find('.left_label.inl_bl').text(vka_config_default.vka_l_ph);
-                        $('#l_aud').find('.left_label.inl_bl').text(vka_config_default.vka_l_aud);
-                        $('#l_vid').find('.left_label.inl_bl').text(vka_config_default.vka_l_vid);
+                        window.jQuery('#l_pr').find('.left_label.inl_bl').text(vka_config_default.vka_l_pr);
+                        window.jQuery('#l_nwsf').find('.left_label.inl_bl').text(vka_config_default.vka_l_nwsf);
+                        window.jQuery('#l_msg').find('.left_label.inl_bl').text(vka_config_default.vka_l_msg);
+                        window.jQuery('#l_fr').find('.left_label.inl_bl').text(vka_config_default.vka_l_fr);
+                        window.jQuery('#l_gr').find('.left_label.inl_bl').text(vka_config_default.vka_l_gr);
+                        window.jQuery('#l_ph').find('.left_label.inl_bl').text(vka_config_default.vka_l_ph);
+                        window.jQuery('#l_aud').find('.left_label.inl_bl').text(vka_config_default.vka_l_aud);
+                        window.jQuery('#l_vid').find('.left_label.inl_bl').text(vka_config_default.vka_l_vid);
                     }
                 break;
 
@@ -470,14 +463,14 @@
                     if (vka_config.custom_font_type == "none" || vka_config.custom_font_css == "none"){
                         alert ('Прежде чем включить шрифт - вставьте необходимые ссылки в нужные поля, которая будет содержать блок <link href="ссылка">');
                     } else {
-                        $("head").append(vka_config.custom_font_type);
-                        $('head').append('<style id="vka_custom_font"> *{' + vka_config.custom_font_css + '} </style>');
+                        window.jQuery("head").append(vka_config.custom_font_type);
+                        window.jQuery('head').append('<style id="vka_custom_font"> *{' + vka_config.custom_font_css + '} </style>');
                     }
                 } else {
                     vka_config.custom_font_type = "none";
                     vka_config.custom_font_css = "none";
-                    if ($('#vka_custom_font').length > 0){
-                        $('#vka_custom_font').remove();
+                    if (window.jQuery('#vka_custom_font').length > 0){
+                        window.jQuery('#vka_custom_font').remove();
                         location.reload();
                     }
                     //location.reload();
@@ -516,51 +509,51 @@
 
             case "rainbow_text":
                 if (vka_config.rainbow_text == true){
-                    $('head').append('<style id="vka_rainbow_text">@keyframes colorRotate { from {color: rgb(255, 0, 0);} 16.6% { color: rgb(255, 0, 255);} 33.3% {color: rgb(0, 0, 255);} 50% {color: rgb(0, 255, 255);} 66.6% {color: rgb(0, 255, 0); } 83.3% {color: rgb(255, 255, 0);} to {color: rgb(255, 0, 0);}} a, span{animation: colorRotate 6s linear 0s infinite;}');
+                    window.jQuery('head').append('<style id="vka_rainbow_text">@keyframes colorRotate { from {color: rgb(255, 0, 0);} 16.6% { color: rgb(255, 0, 255);} 33.3% {color: rgb(0, 0, 255);} 50% {color: rgb(0, 255, 255);} 66.6% {color: rgb(0, 255, 0); } 83.3% {color: rgb(255, 255, 0);} to {color: rgb(255, 0, 0);}} a, span{animation: colorRotate 6s linear 0s infinite;}');
                 } else {
-                    $('#vka_rainbow_text').remove();
+                    window.jQuery('#vka_rainbow_text').remove();
                 }
                     break;
 
             case "negative":
                 if (vka_config.negative == true){
-                    $('head').append('<style id="vka_negative">:root {filter: negative(1) !important}</style>');
+                    window.jQuery('head').append('<style id="vka_negative">:root {filter: negative(1) !important}</style>');
                 } else {
-                    $('#vka_negative').remove();
+                    window.jQuery('#vka_negative').remove();
                 }
                 // falls through
             case "negative_plus":
                 if (vka_config.negative_plus == true){
-                    $('#vka_negative').text(':root {filter: invert(1) !important} img, a[aria-label="фотография"]{filter: invert(1) !important}');
+                    window.jQuery('#vka_negative').text(':root {filter: invert(1) !important} img, a[aria-label="фотография"]{filter: invert(1) !important}');
                 } else {
-                    $('#vka_negative').text(':root {filter: invert(1) !important}');
+                    window.jQuery('#vka_negative').text(':root {filter: invert(1) !important}');
                 }
                 break;
             case "sepia":
                 if (vka_config.sepia == true){
-                    $('head').append('<style id="vka_sepia">:root {filter: sepia(1) !important}</style>');
+                    window.jQuery('head').append('<style id="vka_sepia">:root {filter: sepia(1) !important}</style>');
                 } else {
-                    $('#vka_sepia').remove();
+                    window.jQuery('#vka_sepia').remove();
                 }
                 break;
             case "blury":
                 if (vka_config.blury == true){
-                    $('head').append('<style id="vka_blury">:root {filter: blur(1px) !important}</style>');
+                    window.jQuery('head').append('<style id="vka_blury">:root {filter: blur(1px) !important}</style>');
                 } else {
-                    $('#vka_blury').remove();
+                    window.jQuery('#vka_blury').remove();
                 }
                 break;
             case "blackandwhite":
                 if (vka_config.blackandwhite == true){
-                    $('head').append('<style id="vka_blackandwhite">:root {filter: grayscale(1) !important}</style>');
+                    window.jQuery('head').append('<style id="vka_blackandwhite">:root {filter: grayscale(1) !important}</style>');
                 } else {
-                    $('#vka_blackandwhite').remove();
+                    window.jQuery('#vka_blackandwhite').remove();
                 }
                 break;
 
             case "letitsnow":
                 if (vka_config.letitsnow == true || vka_config.letitsnow == null || vka_config.letitsnow == undefined){
-                    $('body').prepend('<div id="snow"></div>');
+                    window.jQuery('body').prepend('<div id="snow"></div>');
                     particlesJS("snow", {
                         "particles": {
                             "number": {
@@ -619,8 +612,8 @@
                         "retina_detect": true
                     });
                 } else {
-                    $('#vka_letitsnow').remove();
-                    $('#snow').remove();
+                    window.jQuery('#vka_letitsnow').remove();
+                    window.jQuery('#snow').remove();
                 }
                 break;
 
