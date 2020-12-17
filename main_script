@@ -228,9 +228,9 @@
 
     // Добавление кнопки вызова меню и само меню на сайт до загрузки страницы
     // TODO: Пофиксить костыль с аудиозаписями
-    if(document.location.href.indexOf('audios') === -1 && document.location.href.indexOf('music') === -1){ //Не добавлять кнопку в аудиозаписи
+    //if(document.location.href.indexOf('audios') === -1 && document.location.href.indexOf('music') === -1){ //Не добавлять кнопку в аудиозаписи
         preload_load('HeaderNav__item', preload.mainmenu);
-    };
+    //};
 
     // Функция включения меню при клике на значок меню
     $(document).on("click", "#vkantlers_toggle", function(){
