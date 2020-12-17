@@ -154,7 +154,7 @@
     // Подгрузка исходников с гита, с ветки master или dev
     var vka_menu;
     var vka_menu_css;
-	var night_theme
+    var night_theme;
     var dark_theme;
     var letitsnow_source;
     var particles = vka_getraw("https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js");
@@ -169,8 +169,8 @@
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         night_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/styles/night_style.css');
 		
-		// Загрузка тёмной темы
-		dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/styles/dark_style.css');
+	// Загрузка тёмной темы
+	dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/styles/dark_style.css');
 		
         // Эффект снежка
         letitsnow_source = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/effects/snow.js');
@@ -186,8 +186,8 @@
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         night_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/styles/night_style.css');
 		
-		// Загрузка тёмной темы
-		dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/styles/dark_style.css');
+	// Загрузка тёмной темы
+	dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/styles/dark_style.css');
 		
         // Эффект снежка
         letitsnow_source = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/effects/snow.js');
@@ -318,6 +318,9 @@
                 // ---------------------------------------------------- Style
 			case "theme_type_dark":
 			case "theme_type_night":
+			case "theme_deleter":
+			window.jQuery("#vka_custom_theme").remove();
+			/* fallthrough */
             case "custom_theme":
                 if (vka_config.custom_theme == true && vka_config.custom_theme_type == "dark"){
                     window.jQuery("head").append('<style type="text/css" id="vka_custom_theme">' + dark_theme + '</style>');
