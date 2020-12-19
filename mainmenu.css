@@ -211,14 +211,14 @@
     display: flex;
     align-items: center;
     padding-bottom: 0.5em;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .vka_copyright {
 }
 
 .vka_giticon {
-	margin: 10px;
+	margin: 0px;
 }
 
 .vka_parent a {
