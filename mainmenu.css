@@ -223,7 +223,7 @@
 
 .vka_parent a {
 	cursor: pointer;
-	color: var(--black);
+	color: inherit;
 }
 .vka_parent a:link {
 	text-decoration: none;
