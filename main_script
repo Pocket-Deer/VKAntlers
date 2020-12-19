@@ -5,7 +5,7 @@
     // Дефолтный конфиг
     var vka_config_default = {
         // version
-        version: "1.2.3",
+        version: "1.2.4",
 
         // style
         custom_theme: false,
