@@ -5619,9 +5619,9 @@
     border-color: #484b4e;
   }
 
-  #page_wrap
+  [dir=ltr] #page_wrap
   {
-    background-color: #282b2f;
+    background-color: #282b2f !important;
   }
 
   [dir=ltr] .dev_mlist_item.nav_selected, [dir=ltr] .dev_mlist_item.nav_selected:hover
