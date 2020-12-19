@@ -1,10 +1,10 @@
 
 .vka_block{
-background: #282B2F;
+background: #282B2F !important;
 }
 
 .vka_title{
-color: white;
+color: white !important;
 }
 
   [dir=ltr] body
