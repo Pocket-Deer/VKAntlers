@@ -1,4 +1,4 @@
-// VKAntlers loves you!
+    // VKAntlers loves you!
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Конфигурация
     var vka_dev = false;
 
@@ -69,6 +69,8 @@
         // testified
         testified: false
     };
+
+
 
     // Подгрузка конфига с локального хранилища
     var vka_config = JSON.parse(localStorage.getItem("vka_config"));
@@ -168,13 +170,13 @@
         // Загрузка лунной темы
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         night_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/styles/night_style.css');
-		
-	// Загрузка тёмной темы
-	dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/styles/dark_style.css');
-		
+
+        // Загрузка тёмной темы
+        dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/styles/dark_style.css');
+
         // Эффект снежка
         letitsnow_source = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/effects/snow.js');
-		
+
     } else {
         console.log('Standart version loaded!');
         // Загрузка главного меню
@@ -185,10 +187,10 @@
         // Загрузка лунной темы
         // Тема принадлежит kandy (https://userstyles.org/styles/126419/vanilla-dark-2-vk)
         night_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/styles/night_style.css');
-		
-	// Загрузка тёмной темы
-	dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/styles/dark_style.css');
-		
+
+        // Загрузка тёмной темы
+        dark_theme = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/master/styles/dark_style.css');
+
         // Эффект снежка
         letitsnow_source = vka_getraw('https://raw.githubusercontent.com/Pocket-Deer/VKAntlers/dev/effects/snow.js');
     }
@@ -213,27 +215,27 @@
 
     // Сам MutationObserver. Позволяет вставить элемент до полной загрузки страницы
     // class target - Класс, к которому присоединится func
-    function preload_load(class_target, func){
-        var observer = new MutationObserver(function(mutations) {
+    function vka_preload_load(class_target, func){
+        var vka_observer = new MutationObserver(function(mutations) {
             for (var i=0; i<mutations.length; i++) {
                 var mutationAddedNodes = mutations[i].addedNodes;
                 for (var j=0; j<mutationAddedNodes.length; j++) {
                     var node = mutationAddedNodes[j];
                     if (node.classList && node.classList.contains(class_target)) {
-                        node.firstElementChild.innerHTML = node.firstElementChild.innerHTML.replace(/[\d.]+/g, function(m) { return 2 * m });
-                        // don't hog resources any more as we've just done what we wanted
+                        //node.firstElementChild.innerHTML = node.firstElementChild.innerHTML.replace(/[\d.]+/g, function(m) { return 2 * m });
                         func();
-                        observer.disconnect();
+                        // Не ловить больше изменения, поскольку мы сделали то что мы хотели
+                        vka_observer.disconnect();
                         return;
                     }
                 }
             }
         });
-        observer.observe(document, {childList: true, subtree: true});
+        vka_observer.observe(document, {childList: true, subtree: true});
     };
 
     // Добавление кнопки вызова меню и само меню на сайт до загрузки страницы
-    preload_load('HeaderNav__item', preload.mainmenu);
+   vka_preload_load('HeaderNav__item', preload.mainmenu);
 
     // Функция включения меню при клике на значок меню
     window.jQuery(document).on("click", "#vkantlers_toggle", function(){
@@ -272,8 +274,12 @@
     // Функционал кнопок при нажатии
     window.jQuery(".vka_content").ready(function() {
         window.jQuery('input[type="checkbox"], input[type="radio"], button[type="button"]').on("click", function() {
-            if (this.type == "radio" || this.type == "checkbox"){
+            if (this.type == "checkbox"){
                 vka_config_set(this.id, this.checked);
+            }
+            if (this.type == "radio"){
+                vka_config_set(this.name, this.id);
+                console.log("Set " + this.name + " with " + this.id)
             }
             if (this.type == "text"){
                 vka_config_set(this.id, this.value);
@@ -294,13 +300,15 @@
         vka_func('version');
         // Выполнение заполняемых пунктов меню
         window.jQuery(".vka_field, .vka_textarea").each(function(){
-            if (this.type == "radio" || this.type == "checkbox"){
+            if (this.type == "checkbox"){
                 window.jQuery(this).prop("checked", vka_config_get(this.id));
                 //console.log('get: ' + this.id + ' and changed to ' + vka_config_get(this.id));
                 vka_func(this.id);
             } if (this.type == "text") {
                 window.jQuery(this).prop("value", vka_config_get(this.id));
                 vka_func(this.id);
+            } if (this.type == "radio" && this.id == vka_config_get(this.name)) {
+                window.jQuery(this).prop("checked", true);
             }
         });
     }
@@ -316,16 +324,19 @@
                 }
                 break;
                 // ---------------------------------------------------- Style
-			case "theme_type_dark":
-			case "theme_type_night":
+                // TODO: Обновить до конца переключение стилей - по радио кнопкам НЕ работает
+                // Всё потому что радио кнопки получают значение чекед по нижним функциям
+                // theme_type = "dark" не меняется и не играет никакой роли. Посмотри!
+            case "theme_type_dark":
+            case "theme_type_night":
 			case "theme_deleter":
 			window.jQuery("#vka_custom_theme").remove();
-			/* fallthrough */
+            /* fallthrough */
             case "custom_theme":
-                if (vka_config.custom_theme == true && vka_config.custom_theme_type == "dark"){
-                    window.jQuery("head").append('<style type="text/css" id="vka_custom_theme">' + dark_theme + '</style>');
-                } else if (vka_config.custom_theme == true && vka_config.custom_theme_type == "night"){
-                    window.jQuery("head").append('<style type="text/css" id="vka_custom_theme">' + night_theme + '</style>');
+                if (vka_config.custom_theme == true && vka_config.theme_style == "theme_type_dark"){
+                    window.jQuery("head").append('<style type="text/css" id="vka_custom_theme" class="vka_darky">' + dark_theme + '</style>');
+                } else if (vka_config.custom_theme == true && vka_config.theme_style == "theme_type_night"){
+                    window.jQuery("head").append('<style type="text/css" id="vka_custom_theme" class="vka_nighty">' + night_theme + '</style>');
                 } else {
                     window.jQuery("#vka_custom_theme").remove();
                 };
