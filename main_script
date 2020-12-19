@@ -357,7 +357,7 @@
             case "custom_hashtags":
                 if (vka_config.custom_hashtags == true){
                     logo_hashtag_text = get_rand(hashtag_list_default);
-                    window.jQuery(".top_home_link.fl_l").append('<div class="vka_hashtags">#' + logo_hashtag_text + "</div>");
+                    window.jQuery(".top_home_link.fl_l").after('<div class="vka_hashtags" style="margin: 0px 10px 0px -20px; font-size: 14px;">#' + logo_hashtag_text + "</div>");
                     window.jQuery(".top_home_link.fl_l").css({"display":"inline-flex","align-items":"center","color":"var(--white)"});
                     window.jQuery(".top_home_logo").css({"margin":"0px 10px 0 0"});
                 } else {
