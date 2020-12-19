@@ -30,7 +30,7 @@
 /* Main menu */
 
 .vka_hr{
-	border: 1px solid #1E2630;
+	border: 1px solid #C8C8C8;
 }
 
 .vka_content::-webkit-scrollbar{
@@ -139,7 +139,7 @@
 	z-index: 0;
 	margin-top: 1%;
 	padding: 5% 0 0% 0%;
-	background-color: var(--white);
+	background-color: inherit;
 	height: auto;
 	width: 200px;
 	transition: opacity 0.2s;
@@ -223,7 +223,7 @@
 
 .vka_parent a {
 	cursor: pointer;
-	color: var(--black);
+	color: inherit;
 }
 .vka_parent a:link {
 	text-decoration: none;

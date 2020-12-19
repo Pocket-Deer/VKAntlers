@@ -19,6 +19,18 @@
     transition: background-color .3s !important;
   }
 
+[dir] .CatalogSection, [dir] .CatalogBlock--divided {
+  background: #2C3D4E !important;
+}
+
+[dir] .audio_page_player2.audio_page_player_fixed {
+  background-color: #2C3D4E !important;
+}
+
+.ui_search_button_search {
+background-color: #2C3D4E !important;
+}
+
 [dir] #page_header_cont {
     background-color: rgb(36 46 58) !important;
     border-bottom: none;
