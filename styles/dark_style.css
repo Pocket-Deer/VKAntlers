@@ -1,4 +1,12 @@
 
+.vka_block{
+background: #282B2F;
+}
+
+.vka_title{
+color: white;
+}
+
   [dir=ltr] body
   {
     background: #282B2F;
