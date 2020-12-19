@@ -5619,7 +5619,7 @@
     border-color: #484b4e;
   }
 
-  [dir=ltr] #page_wrap
+  #page_wrap
   {
     background-color: #282b2f;
   }
