@@ -4700,7 +4700,7 @@
   }
 
 /*[dir=ltr] .im-mess-stack a {
-	color: #8EC5FF;
+  color: #8EC5FF;
 }*/
 
   [dir=ltr] .mv_deleted_message a
@@ -5621,7 +5621,7 @@
 
   [dir=ltr] #page_wrap
   {
-    background-color: #282b2f !important;
+    background-color: #282b2f;
   }
 
   [dir=ltr] .dev_mlist_item.nav_selected, [dir=ltr] .dev_mlist_item.nav_selected:hover
@@ -8888,7 +8888,7 @@
   }
 
 /*[dir=ltr] .im-mess-stack a {
-	color: #a2c0e0;
+  color: #a2c0e0;
 }*/
 
   [dir=ltr] .wall_module a.wall_reply_greeting
@@ -10483,7 +10483,7 @@
   }
 
 /*[dir=ltr] .audio_row.audio_row__current .audio_row_content {
-	border-radius: 20px;
+  border-radius: 20px;
 }*/
 
   [dir=ltr] .BaseModal__content
@@ -10492,7 +10492,7 @@
   }
 
 /*[dir=ltr] textarea {
-	background: #484b4e;
+  background: #484b4e;
 }*/
 
   [dir=ltr] .Modal__footer
@@ -10922,88 +10922,4 @@
   [dir=ltr] .article_snippet .article_snippet__action_btn
   {
     background-color: #808080;
-  }
-
-  [dir=ltr] .fakeinput,[dir=ltr] div[contenteditable=true],input.big_text,input.dark,input.search,input.text,textarea
-  {
-    background: #fff;
-    border-color: #d3d9de;
-  }
-
-  [dir=ltr] .submit_post
-  {
-    background: #fafbfc;
-    border-top-color: #d3d9de;
-  }
-
-  [dir=ltr] .wall_module .reply_form
-  {
-    background-color: #fafbfc;
-  }
-
-  [dir=ltr] .ui_actions_menu_item:hover
-  {
-    background-color: #e4eaf0;
-  }
-
-  [dir=ltr] .emoji_tt_wrap.tt_up:before
-  {
-    border-bottom-color: #c5d0db;
-  }
-
-  [dir=ltr] .emoji_tt_wrap.tt_up:after
-  {
-    border-bottom-color: #fff;
-  }
-
-  [dir=ltr] .ui_scroll_default_theme.ui_scroll_emoji_theme .ui_scroll_shadow_bottom, [dir=ltr] .ui_scroll_default_theme.ui_scroll_emoji_theme .ui_scroll_shadow_top
-  {
-    background: url(https://vk.com/images/emoji_sprite.png?11) 0 -29px;
-  }
-
-  [dir=ltr] .emoji_sprite
-  {
-    background-image: url(https://vk.com/images/emoji_sprite.png?11);
-  }
-
-  [dir=ltr] .replies_open, [dir=ltr] .wr_header
-  {
-    color: #55677d;
-    background: #f0f2f5;
-  }
-
-  [dir=ltr] .replies_open:hover, [dir=ltr] .wr_header:hover
-  {
-    background-color: #C4D1DE;
-  }
-
-  [dir=ltr] #page_wrap, [dir=ltr] .wall_module .reply_box, [dir=ltr] .wall_module .reply_fakebox_wrap
-  {
-    background-color: #fff;
-  }
-
-  [dir=ltr] body, [dir=ltr] .fakeinput, [dir=ltr] .fakeinput~.placeholder .ph_input,[dir=ltr] div[contenteditable=true],[dir=ltr] div[contenteditable=true]~.placeholder .ph_input,input.big_text,input.big_text~.placeholder .ph_input,input.dark,input.dark~.placeholder .ph_input,input.search,input.search~.placeholder .ph_input,input.text,input.text~.placeholder .ph_input,textarea,textarea~.placeholder .ph_input
-  {
-    color: #000;
-  }
-
-  [dir=ltr] .post_author .author, [dir=ltr] .wall_module .author, [dir=ltr] .wall_module .copy_author,a
-  {
-    color: #2a5885;
-  }
-
-  [dir=ltr] .ui_actions_menu, [dir=ltr] .emoji_tt_wrap
-  {
-    background-color: #fff;
-    border-color: #c5d0db;
-  }
-
-  [dir=ltr] .emoji_bg, [dir=ltr] .emoji_tabs, [dir=ltr] .emoji_tabs_l_s, [dir=ltr] .emoji_tabs_r_s
-  {
-    background: #ebeef2;
-  }
-
-  [dir=ltr] .wall_module .reply_fakebox, [dir=ltr] .emoji_tab_sel, [dir=ltr] .emoji_tab_sel:hover
-  {
-    background: #fff;
   }
