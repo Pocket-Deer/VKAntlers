@@ -27,6 +27,14 @@
   background-color: #2C3D4E !important;
 }
 
+[dir] .audio_page_layout .audio_search_wrapper {
+ background-color: none !important; 
+}
+
+[dir] .BannerItem {
+  background-color: none !important; 
+}
+
 .ui_search_button_search {
 background-color: #2C3D4E !important;
 }
