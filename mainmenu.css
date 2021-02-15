@@ -143,6 +143,8 @@
 
 /* Tooltip text */
 .vka_version_tooltip .vka_version_tooltiptext {
+  font-size: 13px;
+	
   visibility: hidden;
   width: 120px;
   background-color: black;
