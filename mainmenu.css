@@ -135,6 +135,32 @@
 	margin: 4% 3% 0% 3%;
 }
 
+.vka_version_tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.vka_version_tooltip .vka_version_tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 99999;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.vka_version_tooltip:hover .vka_version_tooltiptext {
+  visibility: visible;
+}
+
 .vka_innerBlock {
 	z-index: 0;
 	margin-top: 1%;
