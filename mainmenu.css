@@ -19,6 +19,7 @@
 }
 
 .vka_holiday_garland{
+    display: none;
     border: 0;
     width: 100%;
     position: absolute;
@@ -137,7 +138,8 @@
 
 .vka_version_tooltip {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
+  display: none;
   border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
