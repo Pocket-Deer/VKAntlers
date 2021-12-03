@@ -138,17 +138,17 @@
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Загрузка главного меню
 
     // Функция загрузки текста с левых сайтов
-    //function vka_getraw(URL_Address){
-    //    var tmp = null;
-    //    window.jQuery.ajax({ type: "GET",
-    //            url: URL_Address,
-    //            async: false,
-    //            success : function(text){
-    //                tmp = text;
-    //            }
-    //           });
-    //    return tmp;
-    //};
+    function vka_getraw(URL_Address){
+        var tmp = null;
+        window.jQuery.ajax({ type: "GET",
+                url: URL_Address,
+                async: false,
+                success : function(text){
+                    tmp = text;
+                }
+               });
+        return tmp;
+    };
 
     // Загрузка кнопки меню
     var vkantlers_menu = '<li class="HeaderNav__item deer" style="float: right;padding: 9px;"><a id="vkantlers_toggle" style="font-size: 20px;">🦌</a></li>';
